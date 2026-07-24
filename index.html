@@ -164,7 +164,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .msg-mini a{width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;transition:border-color .16s,transform .1s}
 .msg-mini a:hover{border-color:var(--brass)}
 .msg-mini a:active{transform:scale(.95)}
-.msg-mini svg{width:22px;height:22px}
+.msg-mini svg{width:26px;height:26px}
 .not-found b{color:var(--ink)}
 
 /* cart panel */
@@ -348,12 +348,12 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .msg-btn{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border:1px solid var(--line2);border-radius:13px;background:var(--panel);font-size:12px;font-weight:700;color:var(--ink);transition:border-color .16s,transform .1s}
 .msg-btn:hover{border-color:var(--brass)}
 .msg-btn:active{transform:scale(.97)}
-.msg-btn svg{width:23px;height:23px}
+.msg-btn svg{width:25px;height:25px}
 .msg-btn svg{color:var(--ink)}
 .clear-btn{font-size:12px;font-weight:600;color:var(--muted);background:none;padding:2px;text-decoration:underline;text-underline-offset:2px;transition:color .16s}
 .clear-btn:hover{color:var(--danger)}
 .mbar .mbar-ic{flex:0 0 auto;width:50px;height:50px;padding:0;border-radius:13px}
-.mbar .mbar-ic svg{width:22px;height:22px;color:var(--ink)}
+.mbar .mbar-ic svg{width:26px;height:26px;color:var(--ink)}
 .mbar-ic{background:var(--panel);border:1px solid var(--line2)}
 .stepper .st-trash svg{width:15px;height:15px}
 .stepper.sm .st-trash svg{width:14px;height:14px}
@@ -499,7 +499,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
       <button class="pchip" data-jump="shoes|Кроссовки низкие" data-i18n-html="pc3">Кроссовки <b>от 330 лей</b></button>
     </div>
     <div class="hero-cta">
-      <button class="btn btn-brass btn-lg js-order" data-i18n="cta_order">Заказать забор вещей</button>
+      <a href="tel:+37322438080" class="btn btn-brass btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px"><path d="M4.5 5.6C4.5 13.3 10.7 19.5 18.4 19.5a1.6 1.6 0 0 0 1.6-1.6v-2.2a1 1 0 0 0-.8-1l-3-.6a1 1 0 0 0-1 .4l-1 1.4a11.5 11.5 0 0 1-5.1-5.1l1.4-1a1 1 0 0 0 .4-1l-.6-3a1 1 0 0 0-1-.8H6.1A1.6 1.6 0 0 0 4.5 5.6Z"/></svg><span data-i18n="cta_order">Заказать забор вещей</span></a>
       <a href="#calc" class="btn btn-ghost btn-lg" data-i18n="cta_calc">Посчитать стоимость</a>
     </div>
   </div>
@@ -540,7 +540,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
         <div class="msg-mini">
           <a class="js-wa-generic" role="button" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5A8.5 8.5 0 0 0 4.6 16.3L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M9.2 8.7c-.3 0-.6.2-.7.5-.4.9-.1 2 .6 3.1.9 1.4 2.2 2.4 3.7 2.9.8.2 1.5.1 1.9-.4.2-.2.2-.5.1-.8l-.3-.6c-.1-.2-.3-.2-.5-.2l-1 .3c-.6-.3-1.2-.8-1.5-1.5l.4-.9c.1-.2 0-.4-.1-.6l-.6-1c-.2-.3-.5-.4-.9-.3Z"/></svg></a>
           <a class="js-tg-generic" role="button" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4.3 3.4 11c-.6.2-.6 1 .1 1.2l4.3 1.4 1.6 4.9c.2.5.8.6 1.1.2l2.2-2.3 4.1 3c.4.3 1 .1 1.1-.4l2.6-13.3c.1-.6-.4-1-1-.9Z"/><path d="m8 12.9 8.4-5.3-6.6 6.7"/></svg></a>
-          <a class="js-vb-generic" role="button" aria-label="Viber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5h10A2.5 2.5 0 0 1 19.5 7v6a2.5 2.5 0 0 1-2.5 2.5h-1.4L11 19.5V15.5H7A2.5 2.5 0 0 1 4.5 13V7A2.5 2.5 0 0 1 7 4.5Z"/><path d="M9 8.4c1.9 0 3.6 1.6 3.6 3.6"/></svg></a>
+          <a class="js-vb-generic" role="button" aria-label="Viber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 3.6h6.8A4.6 4.6 0 0 1 20 8.2v3.6a4.6 4.6 0 0 1-4.6 4.6h-.1c-.4 1.2-1.2 2.2-2.2 2.9-.4.3-1 0-1-.5v-2.3H8.6A4.6 4.6 0 0 1 4 11.8V8.2A4.6 4.6 0 0 1 8.6 3.6Z"/><path d="M9.2 7.9c-.3 0-.5.2-.6.5-.3.8-.1 1.8.6 2.7.8 1.1 1.9 1.9 3.1 2.3.7.2 1.3.1 1.6-.3.2-.2.2-.5.1-.7l-.3-.6c-.1-.2-.3-.2-.5-.2l-.8.2c-.5-.2-1-.6-1.3-1.1l.3-.7c.1-.2 0-.4-.1-.5l-.5-.9c-.2-.2-.4-.3-.7-.2Z"/><path d="M14.3 7.5a2.5 2.5 0 0 1 2 2"/></svg></a>
         </div>
       </div>
     </div>
@@ -692,7 +692,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
   <button class="m-calc js-mcalc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/></svg><span data-i18n="m_calc">Рассчитать цену</span></button>
   <a class="mbar-ic wa js-wa-generic" role="button" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5A8.5 8.5 0 0 0 4.6 16.3L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M9.2 8.7c-.3 0-.6.2-.7.5-.4.9-.1 2 .6 3.1.9 1.4 2.2 2.4 3.7 2.9.8.2 1.5.1 1.9-.4.2-.2.2-.5.1-.8l-.3-.6c-.1-.2-.3-.2-.5-.2l-1 .3c-.6-.3-1.2-.8-1.5-1.5l.4-.9c.1-.2 0-.4-.1-.6l-.6-1c-.2-.3-.5-.4-.9-.3Z"/></svg></a>
   <a class="mbar-ic tg js-tg-generic" role="button" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4.3 3.4 11c-.6.2-.6 1 .1 1.2l4.3 1.4 1.6 4.9c.2.5.8.6 1.1.2l2.2-2.3 4.1 3c.4.3 1 .1 1.1-.4l2.6-13.3c.1-.6-.4-1-1-.9Z"/><path d="m8 12.9 8.4-5.3-6.6 6.7"/></svg></a>
-  <a class="mbar-ic vb js-vb-generic" role="button" aria-label="Viber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5h10A2.5 2.5 0 0 1 19.5 7v6a2.5 2.5 0 0 1-2.5 2.5h-1.4L11 19.5V15.5H7A2.5 2.5 0 0 1 4.5 13V7A2.5 2.5 0 0 1 7 4.5Z"/><path d="M9 8.4c1.9 0 3.6 1.6 3.6 3.6"/></svg></a>
+  <a class="mbar-ic vb js-vb-generic" role="button" aria-label="Viber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 3.6h6.8A4.6 4.6 0 0 1 20 8.2v3.6a4.6 4.6 0 0 1-4.6 4.6h-.1c-.4 1.2-1.2 2.2-2.2 2.9-.4.3-1 0-1-.5v-2.3H8.6A4.6 4.6 0 0 1 4 11.8V8.2A4.6 4.6 0 0 1 8.6 3.6Z"/><path d="M9.2 7.9c-.3 0-.5.2-.6.5-.3.8-.1 1.8.6 2.7.8 1.1 1.9 1.9 3.1 2.3.7.2 1.3.1 1.6-.3.2-.2.2-.5.1-.7l-.3-.6c-.1-.2-.3-.2-.5-.2l-.8.2c-.5-.2-1-.6-1.3-1.1l.3-.7c.1-.2 0-.4-.1-.5l-.5-.9c-.2-.2-.4-.3-.7-.2Z"/><path d="M14.3 7.5a2.5 2.5 0 0 1 2 2"/></svg></a>
 </div>
 
 <!-- ============ ORDER MODAL ============ -->
@@ -737,7 +737,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
         <div class="msg-row">
           <button class="msg-btn wa js-wa-order"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5A8.5 8.5 0 0 0 4.6 16.3L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M9.2 8.7c-.3 0-.6.2-.7.5-.4.9-.1 2 .6 3.1.9 1.4 2.2 2.4 3.7 2.9.8.2 1.5.1 1.9-.4.2-.2.2-.5.1-.8l-.3-.6c-.1-.2-.3-.2-.5-.2l-1 .3c-.6-.3-1.2-.8-1.5-1.5l.4-.9c.1-.2 0-.4-.1-.6l-.6-1c-.2-.3-.5-.4-.9-.3Z"/></svg><span>WhatsApp</span></button>
           <button class="msg-btn tg js-tg-order"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4.3 3.4 11c-.6.2-.6 1 .1 1.2l4.3 1.4 1.6 4.9c.2.5.8.6 1.1.2l2.2-2.3 4.1 3c.4.3 1 .1 1.1-.4l2.6-13.3c.1-.6-.4-1-1-.9Z"/><path d="m8 12.9 8.4-5.3-6.6 6.7"/></svg><span>Telegram</span></button>
-          <button class="msg-btn vb js-vb-order"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5h10A2.5 2.5 0 0 1 19.5 7v6a2.5 2.5 0 0 1-2.5 2.5h-1.4L11 19.5V15.5H7A2.5 2.5 0 0 1 4.5 13V7A2.5 2.5 0 0 1 7 4.5Z"/><path d="M9 8.4c1.9 0 3.6 1.6 3.6 3.6"/></svg><span>Viber</span></button>
+          <button class="msg-btn vb js-vb-order"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 3.6h6.8A4.6 4.6 0 0 1 20 8.2v3.6a4.6 4.6 0 0 1-4.6 4.6h-.1c-.4 1.2-1.2 2.2-2.2 2.9-.4.3-1 0-1-.5v-2.3H8.6A4.6 4.6 0 0 1 4 11.8V8.2A4.6 4.6 0 0 1 8.6 3.6Z"/><path d="M9.2 7.9c-.3 0-.5.2-.6.5-.3.8-.1 1.8.6 2.7.8 1.1 1.9 1.9 3.1 2.3.7.2 1.3.1 1.6-.3.2-.2.2-.5.1-.7l-.3-.6c-.1-.2-.3-.2-.5-.2l-.8.2c-.5-.2-1-.6-1.3-1.1l.3-.7c.1-.2 0-.4-.1-.5l-.5-.9c-.2-.2-.4-.3-.7-.2Z"/><path d="M14.3 7.5a2.5 2.5 0 0 1 2 2"/></svg><span>Viber</span></button>
         </div>
       </div>
     </div>
