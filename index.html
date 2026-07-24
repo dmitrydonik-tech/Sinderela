@@ -369,6 +369,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 
 @keyframes cartInvite{0%,100%{box-shadow:var(--shadow-sm);border-color:var(--line)}50%{box-shadow:0 0 0 2px rgba(169,123,79,.5),0 14px 32px -10px rgba(169,123,79,.5);border-color:var(--brass)}}
 .cart.pulse{animation:cartInvite .9s ease-in-out 2}
+@keyframes cartBreathe{0%,100%{border-color:var(--line);box-shadow:var(--shadow-sm)}50%{border-color:var(--brass);box-shadow:0 0 0 2px rgba(169,123,79,.4),0 14px 30px -12px rgba(169,123,79,.42)}}
 @keyframes ctaInvite{0%,100%{box-shadow:0 0 0 0 rgba(169,123,79,0)}50%{box-shadow:0 0 18px 2px rgba(169,123,79,.85)}}
 .mbar .m-calc.pulse{animation:ctaInvite .85s ease-in-out 2}
 @media(max-width:1160px){
@@ -389,6 +390,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
   .hero-video{aspect-ratio:16/13;max-height:56vh;margin:0 auto}
   .calc-grid{grid-template-columns:1fr}
   .cart{position:static}
+  .cart.has-order{animation:cartBreathe 2.6s ease-in-out infinite}
   .how-grid,.serv-grid,.stats{grid-template-columns:1fr 1fr}
   .trust-grid{grid-template-columns:1fr;gap:26px}
   .fl-in{grid-template-columns:1fr}
@@ -1086,7 +1088,7 @@ function stepperHTML(cat,idx,vi,qty){
 }
 
 /*--- render cart ---*/
-function renderCart(){
+function renderCart(){var _ce=document.querySelector(".cart");if(_ce)_ce.classList.toggle("has-order",cart.length>0);
   var body=document.getElementById("cartBody"),t=totals();
   document.getElementById("cartCount").textContent=t.qtyAll+" "+L("ord_pcs");
   var has=cart.length>0;
