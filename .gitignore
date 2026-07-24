@@ -1,0 +1,7 @@
+# --- Публикуется ТОЛЬКО сайт ---
+# Игнорируем всё, кроме index.html и папки assets.
+*
+!/index.html
+!/assets/
+!/assets/**
+!/.gitignore
