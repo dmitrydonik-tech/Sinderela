@@ -1413,6 +1413,13 @@ function init(){
   var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(!rm){setTimeout(function(){try{tabsEl.scrollTo({left:60,behavior:"smooth"});setTimeout(function(){tabsEl.scrollTo({left:0,behavior:"smooth"});},680);}catch(e){}},700);}
   if(rm){var v=document.getElementById("heroVid");if(v){v.removeAttribute("autoplay");v.pause&&v.pause();}}
+  else{var hv=document.getElementById("heroVid");if(hv){try{hv.muted=true;hv.setAttribute("muted","");}catch(e){}
+    var tryPlay=function(){var pr=hv.play&&hv.play();if(pr&&pr.catch)pr.catch(function(){});};
+    tryPlay();
+    var kick=function(){tryPlay();};
+    ["touchstart","pointerdown","click","scroll"].forEach(function(ev){window.addEventListener(ev,kick,{passive:true,once:true});});
+    if(hv.readyState<2)hv.addEventListener("loadeddata",tryPlay,{once:true});
+  }}
 }
 if(document.readyState!=="loading")init();else document.addEventListener("DOMContentLoaded",init);
 </script>
