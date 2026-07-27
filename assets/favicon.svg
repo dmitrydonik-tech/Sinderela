@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sinderela">
+  <rect width="64" height="64" rx="14" fill="#17223B"/>
+  <rect x="3" y="3" width="58" height="58" rx="12" fill="none" stroke="#A97B4F" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="32" y="46" font-family="Georgia,'Times New Roman',serif" font-size="42" font-weight="700" fill="#C79A5B" text-anchor="middle">S</text>
+</svg>
