@@ -59,7 +59,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .btn:active{transform:scale(.97)}
 .btn-primary{background:var(--ink);color:#F4F1EA;padding:12px 20px;font-size:14.5px}
 .btn-primary:hover{background:#0f1830}
-.btn-brass{background:var(--brass);color:#fff;padding:13px 22px;font-size:15px;box-shadow:var(--shadow-sm)}
+.btn-brass{background:var(--brass);color:#16120a;padding:13px 22px;font-size:15px;box-shadow:var(--shadow-sm)}
 .btn-brass:hover{background:var(--brass-d)}
 .btn-ghost{border:1.5px solid var(--line2);color:var(--ink);padding:12px 20px;font-size:14.5px;background:var(--panel)}
 .btn-ghost:hover{border-color:var(--brass);color:var(--brass-d)}
@@ -307,7 +307,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 /* ---------- MOBILE BAR ---------- */
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;gap:9px;align-items:center;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .mbar a,.mbar button{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:14px;border-radius:14px;font-weight:700;font-size:14.5px}
-.mbar .m-calc{background:var(--brass);color:#fff;min-height:50px;padding:8px 14px}
+.mbar .m-calc{background:var(--brass);color:#16120a;min-height:50px;padding:8px 14px}
 .mbar .m-wa{background:var(--ink);color:#fff}
 .mbar svg{width:18px;height:18px}
 
@@ -695,7 +695,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 
 <!-- ============ MOBILE BAR ============ -->
 <div class="mbar">
-  <button class="m-calc js-mcalc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/></svg><span data-i18n="m_calc">Рассчитать цену</span></button>
+  <button class="m-calc js-mcalc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/></svg><span data-i18n="m_calc">Рассчитать цену</span></button>
   <a class="mbar-ic wa js-wa-generic" role="button" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5A8.5 8.5 0 0 0 4.6 16.3L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M9.2 8.7c-.3 0-.6.2-.7.5-.4.9-.1 2 .6 3.1.9 1.4 2.2 2.4 3.7 2.9.8.2 1.5.1 1.9-.4.2-.2.2-.5.1-.8l-.3-.6c-.1-.2-.3-.2-.5-.2l-1 .3c-.6-.3-1.2-.8-1.5-1.5l.4-.9c.1-.2 0-.4-.1-.6l-.6-1c-.2-.3-.5-.4-.9-.3Z"/></svg></a>
   <a class="mbar-ic tg js-tg-generic" role="button" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4.3 3.4 11c-.6.2-.6 1 .1 1.2l4.3 1.4 1.6 4.9c.2.5.8.6 1.1.2l2.2-2.3 4.1 3c.4.3 1 .1 1.1-.4l2.6-13.3c.1-.6-.4-1-1-.9Z"/><path d="m8 12.9 8.4-5.3-6.6 6.7"/></svg></a>
   <a class="mbar-ic vb js-vb-generic" role="button" aria-label="Viber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 3.6h6.8A4.6 4.6 0 0 1 20 8.2v3.6a4.6 4.6 0 0 1-4.6 4.6h-.1c-.4 1.2-1.2 2.2-2.2 2.9-.4.3-1 0-1-.5v-2.3H8.6A4.6 4.6 0 0 1 4 11.8V8.2A4.6 4.6 0 0 1 8.6 3.6Z"/><path d="M9.2 7.9c-.3 0-.5.2-.6.5-.3.8-.1 1.8.6 2.7.8 1.1 1.9 1.9 3.1 2.3.7.2 1.3.1 1.6-.3.2-.2.2-.5.1-.7l-.3-.6c-.1-.2-.3-.2-.5-.2l-.8.2c-.5-.2-1-.6-1.3-1.1l.3-.7c.1-.2 0-.4-.1-.5l-.5-.9c-.2-.2-.4-.3-.7-.2Z"/><path d="M14.3 7.5a2.5 2.5 0 0 1 2 2"/></svg></a>
