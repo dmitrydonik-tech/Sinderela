@@ -15,7 +15,10 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1626" media="(prefers-color-scheme: dark)">
-<meta name="robots" content="index, follow">
+<!-- ВНИМАНИЕ: пока сайт на github.io стоит запрет индексации, чтобы не конкурировать с sinderela.md.
+     ПРИ ПЕРЕНОСЕ на sinderela.md заменить строку ниже на: <meta name="robots" content="index, follow"> -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
 <meta name="author" content="Sinderela">
 <meta name="geo.region" content="MD-CU">
 <meta name="geo.placename" content="Chișinău">
@@ -56,7 +59,7 @@
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+37322438080",
+        "telephone": "+37369438080",
         "contactType": "customer service",
         "areaServed": "MD",
         "availableLanguage": [
@@ -74,7 +77,7 @@
       },
       "url": "https://sinderela.md/",
       "image": "https://sinderela.md/assets/og-image.jpg",
-      "telephone": "+37322438080",
+      "telephone": "+37369438080",
       "priceRange": "$$",
       "currenciesAccepted": "MDL",
       "paymentAccepted": "Cash, Card",
@@ -114,7 +117,7 @@
       },
       "url": "https://sinderela.md/",
       "image": "https://sinderela.md/assets/og-image.jpg",
-      "telephone": "+37322438080",
+      "telephone": "+37369438080",
       "priceRange": "$$",
       "currenciesAccepted": "MDL",
       "paymentAccepted": "Cash, Card",
@@ -154,7 +157,7 @@
       },
       "url": "https://sinderela.md/",
       "image": "https://sinderela.md/assets/og-image.jpg",
-      "telephone": "+37322438080",
+      "telephone": "+37369438080",
       "priceRange": "$$",
       "currenciesAccepted": "MDL",
       "paymentAccepted": "Cash, Card",
@@ -194,7 +197,7 @@
       },
       "url": "https://sinderela.md/",
       "image": "https://sinderela.md/assets/og-image.jpg",
-      "telephone": "+37322438080",
+      "telephone": "+37369438080",
       "priceRange": "$$",
       "currenciesAccepted": "MDL",
       "paymentAccepted": "Cash, Card",
@@ -669,6 +672,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .est-note{display:flex;gap:7px;align-items:flex-start;font-size:12.5px;line-height:1.45;color:var(--muted);margin-top:14px}.est-note svg{flex:0 0 auto;width:15px;height:15px;stroke:var(--brass);margin-top:1px}.est-note.hdr{max-width:640px}
 @media(max-width:380px){.hdr-in{gap:8px}.hdr-r{gap:8px}.lang button{padding:6px 8px}.brand .wm b{letter-spacing:3px}}
 @media(max-width:340px){.brand .wm b{letter-spacing:2px}}
+.cart-msg{margin-top:12px}.cart-msg-l{display:block;font-size:12px;color:var(--muted);text-align:center;margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -692,8 +696,8 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
         <button data-lang="ru" class="on" aria-pressed="true">RU</button>
         <button data-lang="ro" aria-pressed="false">RO</button>
       </div>
-      <a href="tel:+37322438080" class="hdr-phone">022 43 80 80<span data-i18n="hdr_call">Звонок · 09–20</span></a>
-      <button class="btn btn-primary js-order" data-i18n="cta_order">Заказать забор вещей</button>
+      <a href="tel:+37369438080" class="hdr-phone">069 43 80 80<span data-i18n="hdr_call">Звонок · 09–20</span></a>
+      <button class="btn btn-primary js-tocalc" data-i18n="cta_order">Заказать забор вещей</button>
       <button class="burger js-burger" aria-label="Меню" data-i18n-aria="aria_menu"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -707,8 +711,8 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
   <a href="#how" class="js-mlink" data-i18n="nav_how">Как это работает</a>
   <a href="#trust" class="js-mlink" data-i18n="nav_about">О нас</a>
   <a href="#footer" class="js-mlink" data-i18n="nav_contacts">Контакты</a>
-  <a href="tel:+37322438080" class="js-mlink">022 43 80 80</a>
-  <button class="btn btn-brass btn-block js-order" style="margin-top:14px" data-i18n="cta_order">Заказать забор вещей</button>
+  <a href="tel:+37369438080" class="js-mlink">069 43 80 80</a>
+  <button class="btn btn-brass btn-block js-tocalc" style="margin-top:14px" data-i18n="cta_order">Заказать забор вещей</button>
 </div></div>
 
 <main id="top">
@@ -729,7 +733,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
       <button class="pchip" data-jump="shoes|Кроссовки низкие" data-i18n-html="pc3">Кроссовки <b>от 330 лей</b></button>
     </div>
     <div class="hero-cta">
-      <a href="tel:+37322438080" class="btn btn-brass btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px"><path d="M4.5 5.6C4.5 13.3 10.7 19.5 18.4 19.5a1.6 1.6 0 0 0 1.6-1.6v-2.2a1 1 0 0 0-.8-1l-3-.6a1 1 0 0 0-1 .4l-1 1.4a11.5 11.5 0 0 1-5.1-5.1l1.4-1a1 1 0 0 0 .4-1l-.6-3a1 1 0 0 0-1-.8H6.1A1.6 1.6 0 0 0 4.5 5.6Z"/></svg><span data-i18n="cta_order">Заказать забор вещей</span></a>
+      <a href="tel:+37369438080" class="btn btn-brass btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px"><path d="M4.5 5.6C4.5 13.3 10.7 19.5 18.4 19.5a1.6 1.6 0 0 0 1.6-1.6v-2.2a1 1 0 0 0-.8-1l-3-.6a1 1 0 0 0-1 .4l-1 1.4a11.5 11.5 0 0 1-5.1-5.1l1.4-1a1 1 0 0 0 .4-1l-.6-3a1 1 0 0 0-1-.8H6.1A1.6 1.6 0 0 0 4.5 5.6Z"/></svg><span data-i18n="cta_order">Заказать забор вещей</span></a>
       <a href="#calc" class="btn btn-ghost btn-lg" data-i18n="cta_calc">Посчитать стоимость</a>
     </div>
   </div>
@@ -807,7 +811,13 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
         <div class="ready-tx"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="readyTx"></span></div><div class="est-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg><span data-i18n="cart_est">Предварительная сумма — точную цену подтвердит приёмщик при приёме.</span></div>
       </div>
       <div class="cart-cta" id="cartCta" style="display:none">
-        <button class="btn btn-brass btn-block btn-lg js-order" data-i18n="cta_courier">Вызвать курьера за этими вещами</button>
+        <a href="tel:+37369438080" class="btn btn-brass btn-block btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px"><path d="M6.6 10.8a11 11 0 0 0 4.6 4.6l1.5-1.5a1 1 0 0 1 1-.24c1.1.36 2.3.56 3.5.56a1 1 0 0 1 1 1V19a1 1 0 0 1-1 1A16 16 0 0 1 4 6a1 1 0 0 1 1-1h2.8a1 1 0 0 1 1 1c0 1.2.2 2.4.56 3.5a1 1 0 0 1-.24 1z"/></svg><span><span data-i18n="call_btn">Позвонить</span> · 069 43 80 80</span></a>
+        <div class="cart-msg"><span class="cart-msg-l" data-i18n="ord_msg_label">Или отправьте список в мессенджер:</span>
+          <div class="msg-row">
+            <button class="msg-btn wa js-wa-generic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5A8.5 8.5 0 0 0 4.6 16.3L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M9.2 8.7c-.3 0-.6.2-.7.5-.4.9-.1 2 .6 3.1.9 1.4 2.2 2.4 3.7 2.9.8.2 1.5.1 1.9-.4.2-.2.2-.5.1-.8l-.3-.6c-.1-.2-.3-.2-.5-.2l-1 .3c-.6-.3-1.2-.8-1.5-1.5l.4-.9c.1-.2 0-.4-.1-.6l-.6-1c-.2-.3-.5-.4-.9-.3Z"/></svg><span>WhatsApp</span></button>
+            <button class="msg-btn tg js-tg-generic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4.3 3.4 11c-.6.2-.6 1 .1 1.2l4.3 1.4 1.6 4.9c.2.5.8.6 1.1.2l2.2-2.3 4.1 3c.4.3 1 .1 1.1-.4l2.6-13.3c.1-.6-.4-1-1-.9Z"/><path d="m8 12.9 8.4-5.3-6.6 6.7"/></svg><span>Telegram</span></button>
+            <button class="msg-btn vb js-vb-generic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 3.6h6.8A4.6 4.6 0 0 1 20 8.2v3.6a4.6 4.6 0 0 1-4.6 4.6h-.1c-.4 1.2-1.2 2.2-2.2 2.9-.4.3-1 0-1-.5v-2.3H8.6A4.6 4.6 0 0 1 4 11.8V8.2A4.6 4.6 0 0 1 8.6 3.6Z"/><path d="M9.2 7.9c-.3 0-.5.2-.6.5-.3.8-.1 1.8.6 2.7.8 1.1 1.9 1.9 3.1 2.3.7.2 1.3.1 1.6-.3.2-.2.2-.5.1-.7l-.3-.6c-.1-.2-.3-.2-.5-.2l-.8.2c-.5-.2-1-.6-1.3-1.1l.3-.7c.1-.2 0-.4-.1-.5l-.5-.9c-.2-.2-.4-.3-.7-.2Z"/><path d="M14.3 7.5a2.5 2.5 0 0 1 2 2"/></svg><span>Viber</span></button>
+          </div></div>
       </div>
     </aside>
   </div>
@@ -849,7 +859,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
       <div class="fl-li"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="fl3">Персональный менеджер и контроль качества</span></div>
       <div class="fl-li"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="fl4">Доставка в оговорённое время</span></div>
     </div>
-    <button class="btn btn-brass btn-lg js-order" data-i18n="fl_cta">Заказать First Line</button>
+    <a href="tel:+37369438080" class="btn btn-brass btn-lg" data-i18n="fl_cta">Заказать First Line</a>
   </div>
   <div class="fl-media"><img src="assets/firstline-service.webp" alt="Ручная деликатная чистка — услуга First Line" loading="lazy" style="object-position:50% 34%"></div>
 </div></div></div></section>
@@ -896,9 +906,9 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
     </div>
     <div>
       <h3 data-i18n="ft_contacts_h">Контакты</h3>
-      <a class="line" href="tel:+37322438080">022 43 80 80</a>
+      
       <a class="line" href="tel:+37369438080">069 43 80 80</a>
-      <a class="line" href="tel:+37322445097">022 44 50 97</a>
+      
       <div class="ft-meta" style="margin-top:12px">
         <span data-i18n="ft_hours">Часы работы: 09:00 – 20:00</span><br>
         <a href="mailto:sinderela77@gmail.com">sinderela77@gmail.com</a><br>
@@ -1139,7 +1149,7 @@ var I18N={
   cart_h:"Ваш заказ",cart_empty:"Добавьте вещи из каталога — здесь появится сумма",
   opt_urg:"Срочность",opt_urg_s:"доступно для пунктов Московский 20/3 и Траян 6/1",urg_none:"Обычно",urg_24:"24 ч +50%",urg_day:"В день +100%",
   opt_iron:"Погладить",opt_iron_s:"+30% к чистке",opt_stain:"Вывести пятна",opt_stain_s:"+45 лей за пятно до 5 см",
-  total:"Итого",cta_courier2:"Вызвать курьера",add_btn:"В корзину",clear_cart:"Очистить",ord_msg_label:"Или отправьте заявку в мессенджер:",
+  total:"Итого",cta_courier2:"Вызвать курьера",add_btn:"В корзину",clear_cart:"Очистить",ord_msg_label:"Или отправьте список в мессенджер:",
   how_eyebrow:"Просто",how_h2:"Три шага — и вещи как новые",
   how1_h:"1. Оформляете онлайн",how1_p:"Соберите вещи в калькуляторе и выберите удобное время. Точная цена — сразу, без сюрпризов.",
   how2_h:"2. Курьер забирает",how2_p:"Приедем в выбранный интервал. Доставка бесплатно при заказе от 600 лей.",
@@ -1165,7 +1175,7 @@ var I18N={
   ft_about:"Химчистка премиум-класса в Кишинёве с 1997 года. Бережём ваши дорогие вещи как свои.",
   ft_addr_h:"Приёмные пункты",ft_addr_main:"Главный офис и производство",ft_map:"Открыть на карте →",
   ft_contacts_h:"Контакты",ft_hours:"Часы работы: 09:00 – 20:00",ft_rights:"Все права защищены",ft_price:"Полный прайс-лист",
-  m_calc:"Рассчитать цену",m_checkout:"Оформить",
+  m_calc:"Рассчитать цену",m_checkout:"Оформить",call_btn:"Позвонить",
   ord_h:"Заказать забор вещей",ord_s1:"Что чистим",ord_s2:"Куда и когда",ord_s3:"Контакты",
   ord1_h:"Что чистим",ord1_s:"Список из калькулятора — можно поправить количество.",ord_note:"Комментарий к вещам (по желанию)",ord_note_ph:"Например: пятно на рукаве, деликатная ткань…",
   ord2_h:"Куда и когда приехать",ord2_s:"Выберите пункт или заберём у вас.",ord_addr:"Пункт / адрес",addr_pickup:"Заберите у меня (курьер)",ord_myaddr:"Ваш адрес",ord_myaddr_ph:"Улица, дом, квартира",
@@ -1177,7 +1187,7 @@ var I18N={
   u_pcs:"вещей",u_pc1:"вещь",u_pc24:"вещи",
   sub_lbl:"Сумма за вещи",disc_lbl:"Скидка 5% (от 5 вещей)",surg_urg:"Срочность",surg_iron:"Глажка",surg_stain:"Выведение пятен",
   free_left:"До бесплатной доставки — ",free_left2:" лей",free_done:"Доставка бесплатно ✓",ready_lbl:"Готово за ",ready_days:" дн.",ready_24:"Готово за 24 часа",ready_day:"Готово в течение рабочего дня",
-  wa_hello:"Здравствуйте! Хочу заказать забор вещей в Sinderela.",wa_items:"Состав заказа:",wa_total:"Итого",wa_ready:"Срок готовности",wa_name:"Имя",wa_phone:"Телефон",wa_addr:"Адрес",wa_time:"Время",wa_note:"Комментарий",
+  wa_hello:"Здравствуйте! Хочу почистить эти вещи. Перезвоните, пожалуйста, чтобы согласовать забор.",wa_items:"Состав заказа:",wa_total:"Итого",wa_ready:"Срок готовности",wa_name:"Имя",wa_phone:"Телефон",wa_addr:"Адрес",wa_time:"Время",wa_note:"Комментарий",
   var_lbl:"Вариант",child_no:"Взрослое",child_u3:"До 3 лет −50%",child_u12:"До 12 лет −30%",impreg:"Пропитка +20%",aria_nav:"Основная навигация",aria_menu:"Меню",aria_close:"Закрыть",aria_search:"Поиск вещи",aria_prev:"Предыдущие категории",aria_more:"Ещё категории",aria_cart:"Корзина",aria_iron:"Погладить",aria_lang:"Язык",aria_del:"Удалить",urg_warn:"⚠ Срочность доступна только в пунктах Московский 20/3 и Траян 6/1 — для остальных уточните при подтверждении.",calc_est:"Это предварительный расчёт. Окончательную цену подтвердит приёмщик после осмотра вещей.",cart_est:"Предварительная сумма — точную цену подтвердит приёмщик при приёме."
  },
  ro:{
@@ -1194,7 +1204,7 @@ var I18N={
   cart_h:"Comanda ta",cart_empty:"Adaugă articole din catalog — aici va apărea suma",
   opt_urg:"Urgență",opt_urg_s:"disponibil la punctele Moscova 20/3 și Traian 6/1",urg_none:"Obișnuit",urg_24:"24 h +50%",urg_day:"În zi +100%",
   opt_iron:"Călcare",opt_iron_s:"+30% la curățare",opt_stain:"Scoatere pete",opt_stain_s:"+45 lei pentru o pată până la 5 cm",
-  total:"Total",cta_courier2:"Cheamă curierul",add_btn:"În coș",clear_cart:"Golește",ord_msg_label:"Sau trimiteți cererea prin messenger:",
+  total:"Total",cta_courier2:"Cheamă curierul",add_btn:"În coș",clear_cart:"Golește",ord_msg_label:"Sau trimiteți lista în messenger:",
   how_eyebrow:"Simplu",how_h2:"Trei pași — și lucrurile sunt ca noi",
   how1_h:"1. Comanzi online",how1_p:"Adună articolele în calculator și alege ora potrivită. Prețul exact — imediat, fără surprize.",
   how2_h:"2. Curierul ridică",how2_p:"Venim în intervalul ales. Livrare gratuită la comenzi de la 600 lei.",
@@ -1220,7 +1230,7 @@ var I18N={
   ft_about:"Curățătorie chimică premium în Chișinău din 1997. Avem grijă de lucrurile tale de valoare ca de ale noastre.",
   ft_addr_h:"Puncte de recepție",ft_addr_main:"Oficiu central și producție",ft_map:"Deschide pe hartă →",
   ft_contacts_h:"Contacte",ft_hours:"Program: 09:00 – 20:00",ft_rights:"Toate drepturile rezervate",ft_price:"Lista completă de prețuri",
-  m_calc:"Calculează prețul",m_checkout:"Finalizează",
+  m_calc:"Calculează prețul",m_checkout:"Finalizează",call_btn:"Sună",
   ord_h:"Comandă ridicarea",ord_s1:"Ce curățăm",ord_s2:"Unde și când",ord_s3:"Contacte",
   ord1_h:"Ce curățăm",ord1_s:"Lista din calculator — poți ajusta cantitatea.",ord_note:"Comentariu la articole (opțional)",ord_note_ph:"De ex.: pată pe mânecă, țesătură delicată…",
   ord2_h:"Unde și când să venim",ord2_s:"Alege punctul sau ridicăm de la tine.",ord_addr:"Punct / adresă",addr_pickup:"Ridicați de la mine (curier)",ord_myaddr:"Adresa ta",ord_myaddr_ph:"Strada, casa, apartamentul",
@@ -1232,7 +1242,7 @@ var I18N={
   u_pcs:"articole",u_pc1:"articol",u_pc24:"articole",
   sub_lbl:"Suma pentru articole",disc_lbl:"Reducere 5% (de la 5 articole)",surg_urg:"Urgență",surg_iron:"Călcare",surg_stain:"Scoatere pete",
   free_left:"Până la livrare gratuită — ",free_left2:" lei",free_done:"Livrare gratuită ✓",ready_lbl:"Gata în ",ready_days:" zile",ready_24:"Gata în 24 de ore",ready_day:"Gata în cursul zilei de lucru",
-  wa_hello:"Bună ziua! Vreau să comand ridicarea articolelor la Sinderela.",wa_items:"Componența comenzii:",wa_total:"Total",wa_ready:"Termen de finalizare",wa_name:"Nume",wa_phone:"Telefon",wa_addr:"Adresă",wa_time:"Ora",wa_note:"Comentariu",
+  wa_hello:"Bună ziua! Vreau să curăț aceste articole. Sunați-mă, vă rog, pentru a stabili ridicarea.",wa_items:"Componența comenzii:",wa_total:"Total",wa_ready:"Termen de finalizare",wa_name:"Nume",wa_phone:"Telefon",wa_addr:"Adresă",wa_time:"Ora",wa_note:"Comentariu",
   var_lbl:"Variantă",child_no:"Adult",child_u3:"Până la 3 ani −50%",child_u12:"Până la 12 ani −30%",impreg:"Impregnare +20%",aria_nav:"Navigare principală",aria_menu:"Meniu",aria_close:"Închide",aria_search:"Caută articol",aria_prev:"Categoriile anterioare",aria_more:"Mai multe categorii",aria_cart:"Coș",aria_iron:"Călcare",aria_lang:"Limbă",aria_del:"Șterge",urg_warn:"⚠ Urgența este disponibilă doar la punctele Moscova 20/3 și Traian 6/1 — pentru celelalte, verificați la confirmare.",calc_est:"Acesta este un calcul estimativ. Prețul final este confirmat de recepționer după inspecția articolelor.",cart_est:"Sumă estimativă — prețul exact este confirmat de recepționer la primire."
  }
 };
@@ -1359,7 +1369,7 @@ function renderTotals(t){
 }
 function updateMobileBar(t){
   var b=document.querySelector(".mbar .m-calc span");
-  if(t&&t.grand>0){b.textContent=money(t.grand)+" · "+L("m_checkout");document.querySelector(".mbar .m-calc").dataset.go="order";}
+  if(t&&t.grand>0){b.textContent=money(t.grand)+" · "+L("call_btn");document.querySelector(".mbar .m-calc").dataset.go="call";}
   else{b.textContent=L("m_calc");document.querySelector(".mbar .m-calc").dataset.go="scroll";}
 }
 
@@ -1614,14 +1624,14 @@ function init(){
   document.getElementById("stPlus").addEventListener("click",function(){opts.stain++;document.getElementById("stVal").textContent=opts.stain;renderCart();});
   document.getElementById("stMinus").addEventListener("click",function(){if(opts.stain>0)opts.stain--;document.getElementById("stVal").textContent=opts.stain;renderCart();});
 
-  bind(".js-order",openOrder);
-  bind(".js-wa-generic",function(){openWA(cart.length>0);});
-  bind(".js-tg-generic",function(){openTG(cart.length>0);});
-  bind(".js-vb-generic",function(){openVB(cart.length>0);});
+  bind(".js-order",openOrder);bind(".js-tocalc",function(){var c=document.getElementById("calc");if(c&&c.scrollIntoView)c.scrollIntoView({behavior:"smooth"});closeDrawer();});
+  bind(".js-wa-generic",function(){openWA(false);});
+  bind(".js-tg-generic",function(){openTG(false);});
+  bind(".js-vb-generic",function(){openVB(false);});
   var _sg=document.querySelector(".serv-grid");if(_sg)_sg.addEventListener("click",function(e){var c=e.target.closest("[data-jumpcat]");if(c)jumpToCategory(c.getAttribute("data-jumpcat"));});
   document.querySelectorAll(".serv[data-jumpcat]").forEach(function(el){el.addEventListener("keydown",function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();jumpToCategory(el.getAttribute("data-jumpcat"));}});});
   var _cc=document.getElementById("clearCart");if(_cc)_cc.addEventListener("click",clearCart);
-  bind(".js-mcalc",function(){var el=document.querySelector(".mbar .m-calc");if(el.dataset.go==="order")openOrder();else{var cc=document.getElementById("calc");if(cc.scrollIntoView)cc.scrollIntoView({behavior:"smooth"});}});
+  bind(".js-mcalc",function(){var el=document.querySelector(".mbar .m-calc");if(el.dataset.go==="call"){window.location.href="tel:+37369438080";}else{var cc=document.getElementById("calc");if(cc.scrollIntoView)cc.scrollIntoView({behavior:"smooth"});}});
   document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang);});});
   document.querySelectorAll(".js-burger").forEach(function(b){b.addEventListener("click",function(){document.querySelector(".js-drawer").classList.toggle("open");});});
   document.querySelectorAll(".js-mlink").forEach(function(a){a.addEventListener("click",closeDrawer);});
