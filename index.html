@@ -564,16 +564,16 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .cat-note{display:none;align-items:flex-start;gap:8px;background:var(--brass-bg);border:1px solid #eddcc2;border-radius:11px;padding:10px 12px;margin:2px 0 14px;font-size:12.5px;line-height:1.45;color:var(--brass-d);font-weight:600}
 .cat-note.show{display:flex}
 .cat-note svg{width:16px;height:16px;stroke:var(--brass-d);flex-shrink:0;margin-top:1px}
-.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .item{border:1px solid var(--line);border-radius:13px;padding:13px 14px;background:var(--panel2);display:flex;gap:12px;box-shadow:0 4px 16px -10px rgba(23,34,59,.16);transition:border-color .18s,box-shadow .18s,transform .18s}
-.item-ic{width:86px;height:86px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.item-ic .gic{width:84px;height:84px;object-fit:contain}
+.item-ic{width:86px;height:86px;flex-shrink:0;align-self:center;display:flex;align-items:center;justify-content:center}
+.item-ic .gic{width:68px;height:68px;object-fit:contain}
 .item-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
 .item:hover{border-color:var(--line2);box-shadow:var(--shadow-sm)}
 .item.in{border-color:var(--brass);background:#fff;box-shadow:0 0 0 2px rgba(169,123,79,.55),0 22px 44px -16px rgba(23,34,59,.44);transform:scale(1.02)}
 .item-t{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.item-nm{font-size:14px;font-weight:600;line-height:1.3}
-.item-pr{font-size:14px;font-weight:800;color:var(--brass-d);white-space:nowrap}
+.item-nm{flex:1;min-width:0;overflow-wrap:break-word;font-size:14px;font-weight:600;line-height:1.3}
+.item-pr{flex-shrink:0;font-size:14px;font-weight:800;color:var(--brass-d);white-space:nowrap}
 .item-pr small{font-weight:600;color:var(--muted);font-size:11px}
 .variants{display:flex;flex-wrap:wrap;gap:5px}
 .vbtn{font-size:11px;font-weight:600;padding:8px 11px;border-radius:8px;border:1px solid var(--line2);color:var(--sub);background:var(--panel)}
@@ -941,7 +941,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
     </div>
     <div class="price-chips">
       <button class="pchip" data-jump="casual|Рубашка с длинными рукавами" data-i18n-html="pc1">Рубашка <b>100 лей</b></button>
-      <button class="pchip" data-jump="outer|Пальто без наполнителя до 70 см" data-i18n-html="pc2">Пальто <b>от 315 лей</b></button>
+      <button class="pchip" data-jump="outer|Пальто без наполнителя (до 70 см)" data-i18n-html="pc2">Пальто <b>от 315 лей</b></button>
       <button class="pchip" data-jump="shoes|Кроссовки низкие" data-i18n-html="pc3">Кроссовки <b>от 330 лей</b></button>
     </div>
     <div class="hero-cta">
@@ -1050,7 +1050,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
     <div class="serv" data-jumpcat="leather" role="button" tabindex="0"><img src="assets/leather-jacket.webp" alt="" loading="lazy" width="1400" height="788"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv2_h">Кожа и замша</h3><p data-i18n="sv2_p">Куртки, дублёнки, чистка и покраска</p><span class="from" data-i18n="sv2_f">от 415 лей</span></div></div>
     <div class="serv" data-jumpcat="suits" role="button" tabindex="0"><img src="assets/dress-gown.webp" alt="" loading="lazy" width="1400" height="788"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv3_h">Платья и свадебные</h3><p data-i18n="sv3_p">Вечерние, свадебные, деликатная чистка</p><span class="from" data-i18n="sv3_f">от 205 лей</span></div></div>
     <div class="serv" data-jumpcat="shoes" role="button" tabindex="0"><img src="assets/sneakers-clean.webp" alt="" loading="lazy" width="1400" height="788"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv4_h">Сникер-химчистка</h3><p data-i18n="sv4_p">Кроссовки, кеды, покраска и пропитка</p><span class="from" data-i18n="sv4_f">от 330 лей</span></div></div>
-    <div class="serv" data-jumpcat="home" role="button" tabindex="0"><img src="assets/home-textile.webp" alt="Дом и текстиль — химчистка" loading="lazy" width="1440" height="960"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv5_h">Дом и текстиль</h3><p data-i18n="sv5_p">Шторы, пледы, подушки, ковры</p><span class="from" data-i18n="sv5_f">цена по запросу</span></div></div>
+    <div class="serv" data-jumpcat="bedding" role="button" tabindex="0"><img src="assets/home-textile.webp" alt="Дом и текстиль — химчистка" loading="lazy" width="1440" height="960"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv5_h">Дом и текстиль</h3><p data-i18n="sv5_p">Шторы, пледы, подушки, ковры</p><span class="from" data-i18n="sv5_f">цена по запросу</span></div></div>
     <div class="serv" data-jumpcat="fur" role="button" tabindex="0"><img src="assets/fur-shearling.webp" alt="Мех и дублёнки — химчистка" loading="lazy" width="1440" height="960"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv6_h">Мех и дублёнки</h3><p data-i18n="sv6_p">Натуральный и искусственный мех, реставрация</p><span class="from" data-i18n="sv6_f">от 165 лей</span></div></div>
   </div>
 </div></section>
@@ -1214,143 +1214,309 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 /*========= DATA: PRICES (MDL) — реальный прайс клиента =========*/
 /* item: [ru, ro, [prices aligned to variants], d6(readiness 6 days) ] ; null price = вариант недоступен */
 var CATS=[
- {id:"outer",name:["Верхняя одежда","Îmbrăcăminte exterioară","Outerwear"],
-  variants:[["s","Обычная","Simplă","Simple"],["c","Сложная","Complexă","Complex"]],
-  hint:["Обычная — гладкая ткань. Сложная — деликатная, с фурнитурой или подкладкой.","Simplă — țesătură netedă. Complexă — delicată, cu accesorii sau căptușeală.","Simple — smooth fabric. Complex — delicate, with fittings or lining."],
+ {id:"outer",
+  name:["Верхняя одежда","Îmbrăcăminte exterioară","Outerwear"],
+  variants:[],
+  sur:"furn",
+  hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
-   ["Куртка джинсовая","Geacă din denim",[195,234],1,"Denim jacket"],
-   ["Куртка до 70 см","Geacă până la 70 cm",[245,294],1,"Jacket up to 70 cm"],
-   ["Куртка от 70 см","Geacă peste 70 cm",[285,342],1,"Jacket over 70 cm"],
-   ["Куртка с наполнителем до 70 см","Geacă matlasată până la 70 cm",[355,426],1,"Padded jacket up to 70 cm"],
-   ["Куртка с наполнителем от 70 см","Geacă matlasată peste 70 cm",[380,456],1,"Padded jacket over 70 cm"],
-   ["Плащ до 70 см","Pardesiu până la 70 cm",[245,294],0,"Raincoat up to 70 cm"],
-   ["Плащ от 70 см","Pardesiu peste 70 cm",[285,342],0,"Raincoat over 70 cm"],
-   ["Тренч до 70 см","Trenci până la 70 cm",[245,294],0,"Trench up to 70 cm"],
-   ["Тренч от 70 см","Trenci peste 70 cm",[285,342],0,"Trench over 70 cm"],
-   ["Пальто без наполнителя до 70 см","Palton fără matlasare până la 70 cm",[315,378],0,"Unpadded coat up to 70 cm"],
-   ["Пальто без наполнителя от 70 см","Palton fără matlasare peste 70 cm",[355,426],0,"Unpadded coat over 70 cm"],
-   ["Пальто с наполнителем до 70 см","Palton matlasat până la 70 cm",[355,426],0,"Padded coat up to 70 cm"],
-   ["Пальто с наполнителем от 70 см","Palton matlasat peste 70 cm",[380,456],0,"Padded coat over 70 cm"],
-   ["Жилет с наполнителем","Vestă matlasată",[260,312],0,"Padded vest"],
-   ["Дублёнка на искусств. меху до 70 см","Cojoc cu blană artificială până la 70 cm",[400,480],1,"Faux-shearling coat up to 70 cm"],
-   ["Дублёнка на искусств. меху от 70 см","Cojoc cu blană artificială peste 70 cm",[435,522],1,"Faux-shearling coat over 70 cm"],
-   ["Шуба из искусств. меха до 70 см","Haină din blană artificială până la 70 cm",[375,450],1,"Faux-fur coat up to 70 cm"],
-   ["Шуба из искусств. меха от 70 см","Haină din blană artificială peste 70 cm",[465,558],1,"Faux-fur coat over 70 cm"]
-  ]},
- {id:"casual",name:["Повседневная одежда","Îmbrăcăminte casual","Casual wear"],
-  variants:[["s","Обычная","Simplă","Simple"],["c","Сложная","Complexă","Complex"]],
-  hint:["Сложная — плиссе, вышивка, деликатная ткань.","Complexă — plisată, brodată, țesătură delicată.","Complex — pleats, embroidery, delicate fabric."],
+   ["Дубленка на искусственном меху (до 70 см)","Palton pe blana artificiala (până la 70 cm)",[400],1,"Sheepskin coat faux (up to 70 cm)","shearling"],
+   ["Дубленка на искусственном меху (от 70 см)","Palton pe blana artificiala (peste 70 cm)",[435],1,"Sheepskin coat faux (over 70 cm)","shearling"],
+   ["Жилет с наполнителем","Vesta cu umplutura",[260],0,"Vest padded","puffer-vest"],
+   ["Куртка без наполнителя (до 70 см)","Geaca fara umplutura (până la 70 cm)",[245],1,"Jacket unpadded (up to 70 cm)","bomber"],
+   ["Куртка без наполнителя (от 70 см)","Geaca fara umplutura (peste 70 cm)",[285],1,"Jacket unpadded (over 70 cm)","bomber"],
+   ["Куртка джинсовая","Geaca de blugi",[200],1,"Denim jacket","denim-jacket"],
+   ["Куртка с наполнителем (до 70 см)","Geaca cu umplutura (până la 70 cm)",[355],1,"Jacket padded (up to 70 cm)","puffer-jacket"],
+   ["Куртка с наполнителем (от 70 см)","Geaca cu umplutura (peste la 70 cm)",[380],1,"Jacket padded (over 70 cm)","puffer-jacket"],
+   ["Пальто без наполнителя (до 70 см)","Palton fara umplutura (până la 70 cm)",[315],1,"Coat unpadded (up to 70 cm)","coat"],
+   ["Пальто без наполнителя (от 70 см)","Palton fara umplutura (peste 70 cm)",[355],1,"Coat unpadded (over 70 cm)","coat"],
+   ["Пальто без рукавов","Palton fara maneci",[260],1,"Coat","coat"],
+   ["Пальто с наполнителем (до 70 см)","Palton cu umplutura (până la 70 cm)",[355],1,"Coat padded (up to 70 cm)","puffer-coat"],
+   ["Пальто с наполнителем (от 70 см)","Palton cu umplutura (peste 70 cm)",[380],1,"Coat padded (over 70 cm)","puffer-coat"],
+   ["Плащ (до 70 см)","Mantie (până la 70 cm)",[245],0,"Raincoat (up to 70 cm)","raincoat"],
+   ["Плащ (от 70 см)","Mantie (peste 70 cm)",[285],0,"Raincoat (over 70 cm)","raincoat"],
+   ["Тренч (до 70 см)","Trench (până la 70 cm)",[245],0,"Trench coat (up to 70 cm)","trench"],
+   ["Тренч (от 70 см)","Trench (peste 70 cm)",[285],0,"Trench coat (over 70 cm)","trench"],
+   ["Шуба из искусственного меха длинная (от 70 см)","Haina lunga din blana artificiala (peste 70 cm)",[465],1,"Fur coat faux (over 70 cm)","fur-coat"],
+   ["Шуба из искусственного меха короткая (до 70 см)","Haina scurta din blana artificiala (până la 70 cm)",[375],1,"Fur coat faux (up to 70 cm)","fur-coat"]
+]},
+ {id:"knit",
+  name:["Свитеры и трикотаж","Tricotaje","Knitwear"],
+  variants:[],
+  sur:"furn",
+  hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
-   ["Рубашка с короткими рукавами","Cămașă cu mânecă scurtă",[90,108],0,"Short-sleeve shirt"],
-   ["Рубашка с длинными рукавами","Cămașă cu mânecă lungă",[100,120],0,"Long-sleeve shirt"],
-   ["Футболка короткий рукав","Tricou cu mânecă scurtă",[105,126],0,"Short-sleeve T-shirt"],
-   ["Футболка длинный рукав","Tricou cu mânecă lungă",[115,138],0,"Long-sleeve T-shirt"],
-   ["Поло короткий рукав","Polo cu mânecă scurtă",[115,138],0,"Short-sleeve polo"],
-   ["Поло длинный рукав","Polo cu mânecă lungă",[125,150],0,"Long-sleeve polo"],
-   ["Блузка короткий рукав","Bluză cu mânecă scurtă",[145,174],0,"Short-sleeve blouse"],
-   ["Блузка длинный рукав","Bluză cu mânecă lungă",[170,204],0,"Long-sleeve blouse"],
-   ["Топ / майка","Top / maiou",[105,126],0,"Top / tank"],
-   ["Худи","Hanorac cu glugă",[180,216],0,"Hoodie"],
-   ["Толстовка / свитшот","Bluză sport / sweatshirt",[180,216],0,"Sweatshirt"],
-   ["Батник","Bluză cu guler",[180,216],0,"Collared jersey"],
-   ["Свитер","Pulover",[190,228],0,"Sweater"],
-   ["Джемпер","Jerseu",[190,228],0,"Jumper"],
-   ["Кардиган","Cardigan",[190,228],0,"Cardigan"],
-   ["Гольф короткий рукав","Helancă cu mânecă scurtă",[145,174],0,"Short-sleeve turtleneck"],
-   ["Гольф длинный рукав","Helancă cu mânecă lungă",[170,204],0,"Long-sleeve turtleneck"],
-   ["Жилет","Vestă",[180,216],0,"Vest"]
-  ]},
- {id:"suits",name:["Костюмы и платья","Costume și rochii","Suits & dresses"],
-  variants:[["s","Обычная","Simplă","Simple"],["c","Сложная","Complexă","Complex"]],
-  hint:["Сложная — с декором, вышивкой, деликатной тканью.","Complexă — cu decor, broderie, țesătură delicată.","Complex — with decor, embroidery, delicate fabric."],
+   ["Батник (в т.ч спорт)","Hanorac (incl. sport)",[180],0,"Sweatshirt","hoodie"],
+   ["Гольф с длинными рукавами","Golf  Bluza cu maneci lungi",[170],0,"Turtleneck","turtleneck-long"],
+   ["Гольф с коротким рукавами","Golf cu maneci scurte",[145],0,"Turtleneck","turtleneck-short"],
+   ["Джемпер","Jumper",[190],0,"Jumper","sweater"],
+   ["Жилет (в т.ч спорт)","Vesta (incl. sport)",[180],0,"Vest","vest"],
+   ["Кардиган","Cardigan",[190],0,"Cardigan","cardigan"],
+   ["Кофта (в т.ч спорт)","Jachetă (incl. sport)",[190],0,"Knit top","sweater"],
+   ["Свитер","Pulover",[190],0,"Sweater","sweater"],
+   ["Свитер с коротк. рукав.","Pulover cu maneci scurte",[170],0,"Sweater","sweater-short"],
+   ["Свитшот (в т.ч спорт)","Pulover (incl. sport)",[180],0,"Sweatshirt","sweatshirt"],
+   ["Толстовка (в т.ч спорт)","Bluza (incl. sport)",[180],0,"Sweatshirt","sweatshirt"],
+   ["Худи (в т.ч спорт)","Gluga (incl. sport)",[180],0,"Hoodie","hoodie"]
+]},
+ {id:"casual",
+  name:["Рубашки, блузки, футболки","Cămăși, bluze, tricouri","Shirts & blouses"],
+  variants:[],
+  sur:"furn",
+  hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
-   ["Пиджак","Sacou",[195,234],0,"Blazer"],
-   ["Жакет","Jachetă",[195,234],0,"Jacket"],
-   ["Жилет костюмный","Vestă de costum",[155,186],0,"Suit vest"],
-   ["Смокинг / фрак","Smoching / frac",[275,330],0,"Tuxedo / tailcoat"],
-   ["Платье / сарафан","Rochie / sarafan",[205,246],0,"Dress / sundress"],
-   ["Платье вечернее","Rochie de seară",[365,438],1,"Evening dress"],
-   ["Платье свадебное","Rochie de mireasă",[725,870],1,"Wedding dress"],
-   ["Брюки (любые)","Pantaloni (orice)",[160,192],0,"Trousers (any)"],
-   ["Юбка до 70 см","Fustă până la 70 cm",[125,150],0,"Skirt up to 70 cm"],
-   ["Юбка от 70 см","Fustă peste 70 cm",[190,228],0,"Skirt over 70 cm"],
-   ["Шорты до 70 см","Pantaloni scurți până la 70 cm",[125,150],0,"Shorts up to 70 cm"],
-   ["Шорты от 70 см","Pantaloni scurți peste 70 cm",[190,228],0,"Shorts over 70 cm"],
-   ["Комбинезон короткий","Salopetă scurtă",[205,246],0,"Short jumpsuit"],
-   ["Комбинезон длинный","Salopetă lungă",[255,306],0,"Long jumpsuit"]
-  ]},
- {id:"leather",name:["Кожа и замша","Piele și velur","Leather & suede"],
-  variants:[["k","Гладкая кожа","Piele netedă","Smooth leather"],["z","Замша, нубук","Velur, nubuc","Suede, nubuck"]],
-  hint:["Цена зависит от материала. Замша и нубук требуют особой обработки.","Prețul depinde de material. Velurul și nubucul necesită tratament special.","Price depends on the material. Suede and nubuck require special treatment."],
+   ["Блузка с длинными рукавами","Bluza cu maneci lungi",[170],0,"Blouse","blouse-long"],
+   ["Блузка с короткими рукавами","Bluza cu maneci scurte",[145],0,"Blouse","blouse-short"],
+   ["Болеро","Bolero",[145],0,"Bolero","bolero"],
+   ["Майка","Maiou",[105],0,"Tank top","tank"],
+   ["Поло  с длинными рукавами","Polo *2  cu maneci lungi",[125],0,"Polo","polo-long"],
+   ["Поло с короткими рукавами","Polo cu maneci scurte",[115],0,"Polo","polo-short"],
+   ["Рубашка с длинными рукавами","Cămașă cu maneci lungi",[100],0,"Shirt","shirt-long"],
+   ["Рубашка с короткими рукавами","Cămașă cu maneci scurte",[90],0,"Shirt","shirt-short"],
+   ["Топ","Top",[105],0,"Top","top"],
+   ["Туника","Tunica",[115],0,"Tunic","tunic"],
+   ["Футболка  с короткими рукавами","Tricou cu maneci scurte",[105],0,"T-shirt","tshirt-short"],
+   ["Футболка с длинными рукавами","Tricou cu maneci lungi",[115],0,"T-shirt","tshirt-long"]
+]},
+ {id:"suits",
+  name:["Платья и костюмы","Rochii și costume","Dresses & suits"],
+  variants:[],
+  sur:"furn",
+  hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
-   ["Куртка до 60 см","Geacă până la 60 cm",[595,565],1,"Jacket up to 60 cm"],
-   ["Куртка до 90 см","Geacă până la 90 cm",[770,630],1,"Jacket up to 90 cm"],
-   ["Куртка более 90 см","Geacă peste 90 cm",[895,660],1,"Jacket over 90 cm"],
-   ["Куртка комб. с тканью до 60 см","Geacă combinată cu textil până la 60 cm",[655,485],1,"Leather-textile jacket up to 60 cm"],
-   ["Куртка комб. с тканью от 60 см","Geacă combinată cu textil peste 60 cm",[760,560],1,"Leather-textile jacket over 60 cm"],
-   ["Пиджак до 60 см","Sacou până la 60 cm",[770,565],0,"Blazer up to 60 cm"],
-   ["Пиджак до 90 см","Sacou până la 90 cm",[855,630],0,"Blazer up to 90 cm"],
-   ["Плащ до 90 см","Pardesiu până la 90 cm",[855,630],0,"Raincoat up to 90 cm"],
-   ["Плащ более 90 см","Pardesiu peste 90 cm",[895,660],0,"Raincoat over 90 cm"],
-   ["Дублёнка до 60 см","Cojoc până la 60 cm",[null,570],1,"Shearling coat up to 60 cm"],
-   ["Дублёнка 60–90 см","Cojoc 60–90 cm",[null,680],1,"Shearling coat 60–90 cm"],
-   ["Дублёнка более 90 см","Cojoc peste 90 cm",[null,750],1,"Shearling coat over 90 cm"],
-   ["Брюки","Pantaloni",[565,415],0,"Trousers"],
-   ["Юбка до 50 см","Fustă până la 50 cm",[435,320],0,"Skirt up to 50 cm"],
-   ["Юбка от 50 см","Fustă peste 50 cm",[555,410],0,"Skirt over 50 cm"],
-   ["Платье до 90 см","Rochie până la 90 cm",[515,380],0,"Dress up to 90 cm"],
-   ["Платье более 90 см","Rochie peste 90 cm",[635,470],0,"Dress over 90 cm"],
-   ["Шапка / перчатки / ремень","Căciulă / mănuși / curea",[240,180],0,"Hat / gloves / belt"]
-  ]},
- {id:"fur",name:["Натуральный мех","Blană naturală","Natural fur"],
-  variants:[["c1","Категория 1","Categoria 1","Category 1"],["c2","Категория 2","Categoria 2","Category 2"],["c3","Категория 3","Categoria 3","Category 3"]],
-  hint:["Категория зависит от вида меха. Определим при приёме.","Categoria depinde de tipul blănii. O stabilim la recepție.","Category depends on the type of fur. We'll determine it at drop-off."],
+   ["Жакет","Jachetă fara maneci",[195],0,"Blazer","blazer"],
+   ["Жилет, жилет костюмный","Vesta, vesta de costum - simplu",[155],0,"Vest suit","waistcoat"],
+   ["Пиджак","Sacou",[195],0,"Blazer","blazer"],
+   ["Платье Вечернее","Rochie de seara",[365],1,"Evening dress","gown"],
+   ["Платье Свадебное","Rochie de nunta *2.",[725],1,"Wedding dress","wedding"],
+   ["Платье, Сарафан","Rochie, Rochie fara maneci",[205],0,"Sundress","dress"],
+   ["Смокинг, фрак","Smoking, Frac",[275],0,"Tuxedo","tuxedo"]
+]},
+ {id:"bottoms",
+  name:["Брюки, юбки, шорты","Pantaloni, fuste, pantaloni scurți","Trousers & skirts"],
+  variants:[],
+  sur:"furn",
+  hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
-   ["Шапка","Căciulă",[165,248,330],0,"Hat"],
-   ["Воротник","Guler",[165,248,330],0,"Collar"],
-   ["Жилет","Vestă",[410,615,820],0,"Vest"],
-   ["Болеро","Bolero",[480,720,960],0,"Bolero"],
-   ["Полушубок до 1 м","Scurtă de blană până la 1 m",[560,840,1120],0,"Fur jacket up to 1 m"],
-   ["Шуба более 1 м","Haină de blană peste 1 m",[650,975,1300],0,"Fur coat over 1 m"],
-   ["Подстёжка","Căptușeală detașabilă",[300,450,600],0,"Detachable lining"]
-  ]},
- {id:"shoes",name:["Обувь","Încălțăminte","Footwear"],
-  variants:[["h","Химчистка","Curățare","Dry cleaning"],["p","Частичная покраска","Vopsire parțială","Partial dyeing"],["f","Полная покраска","Vopsire completă","Full dyeing"]],
-  hint:["Доступна водоотталкивающая пропитка +20% — включите её в корзине.","Impregnare hidrofugă disponibilă +20% — activați-o în coș.","Water-repellent impregnation available +20% — enable it in the cart."],
-  shoe:1,
+   ["Брюки джинсовые","pânăaloni de blugi",[170],0,"Trousers","jeans"],
+   ["Брюки классические","pânăaloni clasici",[170],0,"Trousers","trousers"],
+   ["Брюки костюмные","pânăaloni de costum",[170],0,"Trousers suit","trousers"],
+   ["Брюки спортивные","pânăaloni sport",[170],0,"Trousers","joggers"],
+   ["Колготки","Dresuri",[80],0,"Tights","tights"],
+   ["Комбинезон длинный","Combinezon lung",[255],0,"Jumpsuit","jumpsuit"],
+   ["Комбинезон короткий","Сombinezon scurt",[205],0,"Jumpsuit","romper"],
+   ["Лосины","Сolanți",[80],0,"Leggings","leggings"],
+   ["Шорты (до 70 см.)","pânăaloni scurtă (până la 70 cm)",[125],0,"Shorts (up to 70 cm)","shorts"],
+   ["Шорты (от 70 см.)","pânăaloni scurtă (peste 70 cm)",[150],0,"Shorts (over 70 cm)","shorts"],
+   ["Юбка (до 70 см.)","Fusta (până la 70 cm)",[125],0,"Skirt (up to 70 cm)","skirt"],
+   ["Юбка (от 70 см.)","Fusta (peste 70 cm)",[190],0,"Skirt (over 70 cm)","skirt"]
+]},
+ {id:"acc",
+  name:["Аксессуары","Accesorii","Accessories"],
+  variants:[],
+  hint:0,
   items:[
-   ["Босоножки / сандалии","Sandale / papuci",[250,375,500],1,"Sandals"],
-   ["Балетки / туфли / мокасины","Balerini / pantofi / mocasini",[300,450,600],1,"Flats / shoes / moccasins"],
-   ["Слипоны / лоферы / эспадрильи","Slip-on / loafer / espadrile",[300,450,600],1,"Slip-ons / loafers / espadrilles"],
-   ["Кеды низкие","Tenişi joși",[300,450,600],1,"Low canvas sneakers"],
-   ["Кеды высокие","Tenişi înalți",[350,525,700],1,"High canvas sneakers"],
-   ["Кроссовки низкие","Adidași joși",[330,495,660],1,"Low-top sneakers"],
-   ["Кроссовки высокие","Adidași înalți",[350,525,700],1,"High-top sneakers"],
-   ["Ботинки низкие","Ghete joase",[330,495,660],1,"Low boots"],
-   ["Ботинки высокие","Ghete înalte",[350,525,700],1,"High boots"],
-   ["Полусапоги","Botine",[350,525,700],1,"Ankle boots"],
-   ["Сапоги","Cizme",[400,600,800],1,"Boots"],
-   ["Ботфорты","Cizme peste genunchi",[450,675,900],1,"Over-the-knee boots"],
-   ["UGG до 20 см","UGG până la 20 cm",[350,525,700],1,"UGG up to 20 cm"],
-   ["UGG 20–30 см","UGG 20–30 cm",[400,600,800],1,"UGG 20–30 cm"],
-   ["UGG от 30 см","UGG peste 30 cm",[450,675,900],1,"UGG over 30 cm"]
-  ]},
- {id:"bags",name:["Сумки","Genți","Bags"],
-  variants:[["h","Химчистка","Curățare","Dry cleaning"],["p","Частичная покраска","Vopsire parțială","Partial dyeing"],["f","Полная покраска","Vopsire completă","Full dyeing"]],
+   ["Берет - НЕ из кожи","Bereta din blana artificiala - NU din piele",[55],0,"Beret","beret"],
+   ["Галстук - НЕ из кожи","Cravata - NU din piele",[40],0,"Tie","tie"],
+   ["Капюшон - НЕ из кожи","Gluga - NU din piele",[70],0,"Hood","hood"],
+   ["Кепка текстиль - НЕ из кожи","Sapca textil - NU din piele",[70],0,"Cap","cap"],
+   ["Палантин - НЕ из меха","Pelerina - NU din blana",[115],0,"Stole","stole"],
+   ["Палантин","Pelerina",[235],0,"Stole","stole"],
+   ["Пашмина - НЕ из меха","Pashmina - NU din blana",[115],0,"Pashmina","pashmina"],
+   ["Пашмина","Pashmina",[235],0,"Pashmina","pashmina"],
+   ["Перчатки - НЕ из кожи","Manuti de lana - NU din piele",[105],0,"Gloves","gloves"],
+   ["Платок - НЕ из меха","Esarfa - NU din blana",[60],0,"Kerchief","kerchief"],
+   ["Подстёжка из искусственного меха","Captuseala din blana artificiala",[235],0,"Liner faux","fur-lining"],
+   ["Подстёжка тканевая - НЕ из меха","Captuseala textila - NU din blana",[115],0,"Liner","fur-lining"],
+   ["Шаль - НЕ из меха.","Sal - NU din blana",[115],0,"Shawl","shawl"],
+   ["Шапка - НЕ из кожи","Palarie - NU din piele",[105],0,"Hat","beanie"],
+   ["Шарф - НЕ из кожи","Fular - NU din piele",[105],0,"Scarf","scarf"]
+]},
+ {id:"leather",
+  name:["Гладкая кожа","Piele netedă","Smooth leather"],
+  variants:[],
+  sur:"furn",
+  hint:["Чистка гладкой кожи — покраска включена в цену.","Curățarea pielii netede — vopsirea este inclusă în preț.","Smooth leather cleaning — dyeing is included in the price."],
   items:[
-   ["До 25 см по диагонали","Până la 25 cm pe diagonală",[200,300,400],1,"Up to 25 cm diagonal"],
-   ["25–40 см по диагонали","25–40 cm pe diagonală",[280,420,560],1,"25–40 cm diagonal"],
-   ["40–65 см по диагонали","40–65 cm pe diagonală",[380,570,760],1,"40–65 cm diagonal"],
-   ["От 65 см по диагонали","Peste 65 cm pe diagonală",[480,720,960],1,"Over 65 cm diagonal"]
-  ]},
- {id:"home",name:["Дом и разное","Casă și diverse","Home & other"],
-  variants:[["s","Стандарт","Standard","Standard"]],
+   ["Берет","Beret (или Bască)",[240],1,"Beret","beret"],
+   ["Брюки","pânăaloni",[565],1,"Trousers","trousers"],
+   ["Галстук","Cravată",[240],1,"Tie","tie"],
+   ["Жилет (без рукавов)","Vesta (fara maneci)",[595],1,"Vest","vest"],
+   ["Капюшон","Glugă",[240],1,"Hood","hood"],
+   ["Кепка","Șapcă",[240],1,"Cap","cap"],
+   ["Куркта, комб. с тканью (до 60 см )","Jachetă, combinată cu țesătură (până la 60 cm)",[655],1,"Jacket with fabric (up to 60 cm)","bomber"],
+   ["Куртка (более 90 см)","Jachetă (mai mult de 90 cm)",[895],1,"Jacket (over 90 cm)","bomber"],
+   ["Куртка (до 60 см)","Jachetă (până la 60 cm)",[770],1,"Jacket (up to 60 cm)","bomber"],
+   ["Куртка, комб. с тканью (более 60 см )","Jachetă, combinată cu țesătură (mai mult de 60 cm)",[760],1,"Jacket with fabric (over 60 cm)","bomber"],
+   ["Перчатки","Mănuși",[240],1,"Gloves","gloves"],
+   ["Пиджак (до 60 см)","Sacou (până la 60 cm)",[770],1,"Blazer (up to 60 cm)","blazer"],
+   ["Пиджак (до 90 см)","Sacou (până la 90 cm)",[855],1,"Blazer (up to 90 cm)","blazer"],
+   ["Пиджак (до 90 см)","Sacou (până la 90 cm)",[855],1,"Blazer (up to 90 cm)","blazer"],
+   ["Платье, сарафан (более 90 см)","Rochie, Sarafan (mai mult de 90 cm)",[635],1,"Sundress (over 90 cm)","dress"],
+   ["Платье, сарафан (до 90 см)","Rochie, Sarafan (până la 90 cm)",[515],1,"Sundress (up to 90 cm)","dress"],
+   ["Плащ (более 90 см)","Mantou (mai mult de 90 cm)",[895],1,"Raincoat (over 90 cm)","raincoat"],
+   ["Плащ (до 90 см)","Mantou (până la 90 cm)",[855],1,"Raincoat (up to 90 cm)","raincoat"],
+   ["Рубашка","Cămașă",[575],1,"Shirt","shirt-long"],
+   ["Шапка","Căciulă",[240],1,"Hat","hat-leather"],
+   ["Шорты до 50 см","pânăaloni scurtă până la 50 cm",[435],1,"Shorts (up to 50 cm)","shorts"],
+   ["Шорты, Юбка от 50 см","pânăaloni, Fust? de la 50 cm",[555],1,"Shorts (over 50 cm)","skort"],
+   ["Юбка до 50 см","Fust? până la 50 cm",[435],1,"Skirt (up to 50 cm)","skirt"],
+   ["Юбка от 50 см","Fust? de la 50 cm",[555],1,"Skirt (over 50 cm)","skirt"]
+]},
+ {id:"suede",
+  name:["Замша и нубук","Piele întoarsă și nubuc","Suede & nubuck"],
+  variants:[["n", "Без покраски", "Fără vopsire", "No dyeing"], ["d", "С покраской", "Cu vopsire", "With dyeing"]],
+  sur:"furn",
+  hint:["«Без покраски» — только чистка. «С покраской» — восстановление цвета.","„Fără vopsire” — doar curățare. „Cu vopsire” — restaurarea culorii.","“No dyeing” — cleaning only. “With dyeing” — colour restoration."],
   items:[
-   ["Шапка, шарф, перчатки, ремень, галстук (не кожа)","Căciulă, fular, mănuși, curea, cravată (non-piele)",[105],0,"Hat, scarf, gloves, belt, tie (non-leather)"],
-   ["Палантин, платок, шаль (не мех)","Șal, batic (non-blană)",[115],0,"Stole, scarf, shawl (non-fur)"],
-   ["Палантин / пашмина (сложная)","Palatin / pașmină (complex)",[235],0,"Stole / pashmina (complex)"],
-   ["Подстёжка из искусственного меха","Căptușeală din blană artificială",[235],0,"Faux-fur detachable lining"]
-  ]}
+   ["Берет","Beret (или Bască)",[180,255],1,"Beret","beret"],
+   ["Брюки","Pantaloni",[415,595],1,"Trousers","trousers"],
+   ["Галстук","Cravată",[180,255],1,"Tie","tie"],
+   ["Дубленка (более 90 см)","Jachetă de piele întoarsă (mai mult de 90 cm)",[750,1075],1,"Sheepskin coat (over 90 cm)","shearling"],
+   ["Дубленка (до 60 см)","Jachetă de piele întoarsă (până la 60 cm)",[570,815],1,"Sheepskin coat (up to 60 cm)","shearling"],
+   ["Дубленка (от 60 до 90 см)","Jachetă de piele întoarsă (de la 60 până la 90 cm)",[680,965],1,"Sheepskin coat (up to 90 cm)","shearling"],
+   ["Жилет (без рукавов)","Vestă (fără mâneci)",[440,900],1,"Vest","vest"],
+   ["Капюшон","Glugă",[180,255],1,"Hood","hood"],
+   ["Кепка","Șapcă",[180,255],1,"Cap","cap"],
+   ["Куркта, комб. с тканью (до 60 см )","Jachetă, combinată cu țesătură (până la 60 cm)",[485,690],1,"Jacket with fabric (up to 60 cm)","bomber"],
+   ["Куртка (более 90 см)","Jachetă (mai mult de 90 cm)",[660,945],1,"Jacket (over 90 cm)","bomber"],
+   ["Куртка (до 60 см)","Jachetă (până la 60 cm)",[565,810],1,"Jacket (up to 60 cm)","bomber"],
+   ["Куртка (до 90 см)","Jachetă (până la 90 cm)",[630,900],1,"Jacket (up to 90 cm)","bomber"],
+   ["Куртка, комб. с тканью (более 60 см )","Jachetă, combinată cu țesătură (mai mult de 60 cm)",[560,800],1,"Jacket with fabric (over 60 cm)","bomber"],
+   ["Перчатки","Mănuși",[180,255],1,"Gloves","gloves"],
+   ["Пиджак (до 60 см)","Sacou (până la 60 cm)",[565,625],1,"Blazer (up to 60 cm)","blazer"],
+   ["Пиджак (до 90 см)","Sacou (până la 90 cm)",[630,810],1,"Blazer (up to 90 cm)","blazer"],
+   ["Платье, сарафан (более 90 см)","Rochie, Sarafan (mai mult de 90 cm)",[470,670],1,"Sundress (over 90 cm)","dress"],
+   ["Платье, сарафан (до 90 см)","Rochie, Sarafan (până la 90 cm)",[380,540],1,"Sundress (up to 90 cm)","dress"],
+   ["Плащ (более 90 см)","Mantou (mai mult de 90 cm)",[660,945],1,"Raincoat (over 90 cm)","raincoat"],
+   ["Плащ (до 90 см)","Mantou (până la 90 cm)",[630,900],1,"Raincoat (up to 90 cm)","raincoat"],
+   ["Рубашка","Cămașă",[420,605],1,"Shirt","shirt-long"],
+   ["Шапка","Căciulă",[180,255],1,"Hat","hat-leather"],
+   ["Шорты до 50 см","Pantaloni scurți până la 50 cm",[320,460],1,"Shorts (up to 50 cm)","shorts"],
+   ["Шорты от 50 см","Pantaloni de la 50 cm",[410,460],1,"Shorts (over 50 cm)","shorts"],
+   ["Юбка до 50 см","Fustă până la 50 cm",[320,585],1,"Skirt (up to 50 cm)","skirt"],
+   ["Юбка от 50 см","Fustă de la 50 cm",[410,585],1,"Skirt (over 50 cm)","skirt"]
+]},
+ {id:"fur",
+  name:["Натуральный мех","Blană naturală","Natural fur"],
+  variants:[],
+  hint:0,
+  items:[
+   ["Болеро из натурального меха","Bolero din blană naturală",[410],1,"Bolero natural","bolero"],
+   ["Воротник из натурального меха","Guler din blană naturală",[165],1,"Collar natural","fur-collar"],
+   ["Жилет из натурального меха","Vesta din blană naturală",[410],1,"Vest natural","fur-vest"],
+   ["Опушка из натурального меха","Bordură din blană naturală",[165],1,"Fur trim natural","fur-collar"],
+   ["Подстёжка из натурального меха","Căptușeală din blană naturală",[100],1,"Liner natural","fur-lining"],
+   ["Полушубок из натурального меха","Scurtă din blană naturală",[560],1,"Short fur coat natural","fur-coat"],
+   ["Шапка из натурального меха","Căciulă din blană naturală",[165],1,"Hat natural","fur-hat"],
+   ["Шкура из натурального меха, 1m2","Blană naturală, 1m2",[350],1,"Fur hide natural","pelt"],
+   ["Шуба из натурального меха","Haină de blană din blană naturală",[650],1,"Fur coat natural","fur-coat"]
+]},
+ {id:"shoes",
+  name:["Обувь","Încălțăminte","Footwear"],
+  variants:[],
+  sur:"impreg",
+  hint:0,
+  items:[
+   ["Балетки","Balerini",[300],1,"Ballet flats","flats"],
+   ["Босоножки","Sandale cu barete",[250],1,"Sandals","sandals"],
+   ["Ботинки высокие","Ghete ?nalte",[350],1,"Boots","tall-boots"],
+   ["Ботинки низкие","Ghete joase",[330],1,"Boots","ankle-boots"],
+   ["Ботфорты, сапоги выше колен","Cizme peste genunchi",[450],1,"Over-knee boots","otk-boots"],
+   ["Валенки, UGG, аналог – высота до 20 см","Cizme tip UGG, până la 20 cm",[350],1,"Felt boots (up to 20 cm)","ugg"],
+   ["Валенки, UGG, аналог – высота от 20 см до 30 см","Cizme tip UGG, ?ntre 20–30 cm",[400],1,"Felt boots (over 20 cm)","ugg"],
+   ["Валенки, UGG, аналог – высота от 30 см","Cizme tip UGG, peste 30 cm",[450],1,"Felt boots (over 30 cm)","ugg"],
+   ["Кеды высокие","Tenisi înalți",[350],1,"Sneakers","sneakers-high"],
+   ["Кеды низкие","Tenisi joși",[300],1,"Sneakers","sneakers-low"],
+   ["Кроссовки высокие","Adidași înalți",[350],1,"Sneakers","sneakers-high"],
+   ["Кроссовки низкие","Adidași joși",[330],1,"Sneakers","sneakers-low"],
+   ["Лоферы","Loafers (или pânăofi loafers)",[300],1,"Loafers","loafers"],
+   ["Мокасины","Mocassini",[300],1,"Moccasins","moccasins"],
+   ["Полусапоги","Botine",[350],1,"Ankle boots","ankle-boots"],
+   ["Сандали","Sandale",[250],1,"Sandals","sandals"],
+   ["Сапоги","Cizme",[400],1,"Boots","tall-boots"],
+   ["Слиперы, слипоны","Slip-on",[300],1,"Slippers","loafers"],
+   ["Туфли","pânăofi",[300],1,"Shoes","pumps"],
+   ["Шлепки","?lapi",[250],1,"Flip-flops","flipflops"],
+   ["Эспадрильи","Espadrile",[300],1,"Espadrilles","espadrilles"]
+]},
+ {id:"bags",
+  name:["Сумки и ремни","Genți și curele","Bags & belts"],
+  variants:[],
+  hint:0,
+  items:[
+   ["Пояс - НЕ из кожи","Сentura - NU din piele",[55],1,"Belt","sash"],
+   ["Ремень - НЕ из кожи","Curea - NU din piele",[105],1,"Belt","belt"],
+   ["Пояс (кожа)","Centură (piele)",[240],1,"Belt (leather)","sash"],
+   ["Ремень (кожа)","Curea (piele)",[240],1,"Belt (leather)","belt"],
+   ["Пояс (замша)","Centură (piele întoarsă)",[180],1,"Belt (suede)","sash"],
+   ["Ремень (замша)","Curea (piele întoarsă)",[180],1,"Belt (suede)","belt"],
+   ["Клатч","Clutch",[100],1,"Clutch","clutch"],
+   ["Портфель","Servietă",[100],1,"Briefcase","briefcase"],
+   ["Рюкзак","Rucsac",[100],1,"Backpack","backpack"],
+   ["Сумка","Geantă",[100],1,"Bag","bag"],
+   ["Чемодан","Valiză",[100],1,"Suitcase","suitcase"]
+]},
+ {id:"bedding",
+  name:["Постельное и полотенца","Lenjerie și prosoape","Bedding & towels"],
+  variants:[],
+  hint:0,
+  items:[
+   ["Наволочка (кроме шелк)","Față pernă (fără mătase)",[30],0,"Pillowcase","pillowcase"],
+   ["Наволочка декоративная","Față pernă decorativă",[70],0,"Pillowcase decorative","pillowcase"],
+   ["Наволочка шелковая","Față pernă mătase",[45],0,"Pillowcase silk","pillowcase"],
+   ["Наматрасник двуспальный до 3см","Protecție saltea dublu ≤3cm",[550],0,"Mattress protector (double)","mattress-pad"],
+   ["Наматрасник полуторный до 3см","Protecție saltea 1 pl. ≤3cm",[415],0,"Mattress protector (single)","mattress-pad"],
+   ["Наматрасник полуторный свыше 3см индив.","Protecție saltea 1 pl. >3cm ind.",[550],0,"Mattress protector (single)","mattress-pad"],
+   ["Одеяло натурал. двуспальное","Plapumă naturală dublu",[430],0,"Duvet natural (double)","duvet"],
+   ["Одеяло натурал. полуторное","Plapumă naturală 1 pl.",[370],0,"Duvet natural (single)","duvet"],
+   ["Одеяло синтет. двуспальное","Plapumă sintetică dublu",[320],0,"Duvet synthetic (double)","duvet"],
+   ["Одеяло синтет. полуторное","Plapumă sintetică 1 pl.",[270],0,"Duvet synthetic (single)","duvet"],
+   ["Пижама (трикотаж)","Pijama (tricot)",[120],0,"Pyjamas (jersey)","pajamas"],
+   ["Пижама (шёлк)","Pijama (mătase)",[190],0,"Pyjamas (silk)","pajamas"],
+   ["Плед двойной двуспальный","Plaid dublu dublu",[370],0,"Blanket (double)","blanket"],
+   ["Плед двойной полуторный","Plaid dublu 1 pl.",[315],0,"Blanket (single)","blanket"],
+   ["Плед иск. мех двуспальный","Plaid blană artif. dublu",[270],0,"Blanket faux (double)","blanket"],
+   ["Плед иск. мех полуторный","Plaid blană artif. 1 pl.",[225],0,"Blanket faux (single)","blanket"],
+   ["Плед шерстяной двуспальный","Plaid lână dublu",[350],0,"Blanket wool (double)","blanket"],
+   ["Плед шерстяной полуторный","Plaid lână 1 pl.",[280],0,"Blanket wool (single)","blanket"],
+   ["Пододеяльник (кроме шелк) двуспальный","Husă plapumă (fără mătase) dublu",[240],0,"Duvet cover (double)","duvet-cover"],
+   ["Пододеяльник (кроме шелк) полуторный","Husă plapumă (fără mătase) 1 pl.",[160],0,"Duvet cover (single)","duvet-cover"],
+   ["Пододеяльник шелковый двуспальный","Husă plapumă mătase dublu",[260],0,"Duvet cover silk (double)","duvet-cover"],
+   ["Пододеяльник шелковый полуторный","Husă plapumă mătase 1 pl.",[170],0,"Duvet cover silk (single)","duvet-cover"],
+   ["Полотенце 1м² (прием от 1м2)","Prosop 1m² (de la 1m2)",[70],0,"Towel","towel"],
+   ["Простыня (кроме шелк) двуспальная","Cearceaf (fără mătase) dublu",[150],0,"Bed sheet (double)","bedsheet"],
+   ["Простыня (кроме шелк) полуторная","Cearceaf (fără mătase) 1 pl.",[120],0,"Bed sheet (single)","bedsheet"],
+   ["Простыня махровая двуспальная","Cearceaf frotir dublu",[90],0,"Bed sheet terry (double)","bedsheet"],
+   ["Простыня махровая полуторная","Cearceaf frotir 1 pl.",[70],0,"Bed sheet terry (single)","bedsheet"],
+   ["Простыня шелковая двуспальная","Cearceaf mătase dublu",[210],0,"Bed sheet silk (double)","bedsheet"],
+   ["Простыня шелковая полуторная","Cearceaf mătase 1 pl.",[165],0,"Bed sheet silk (single)","bedsheet"],
+   ["Синтепоновая подушка 40×40 1шт. (чехол декор. +50%)","Pernă 40×40 + husă 50%",[70],0,"Pillow (40×40)","pillow"],
+   ["Синтепоновая подушка 50×50 1шт. (чехол декор. +50%)","Pernă 50×50 + husă 50%",[105],0,"Pillow (50×50)","pillow"],
+   ["Синтепоновая подушка 50×70 1шт. (чехол декор. +50%)","Pernă 50×70 + husă 50%",[145],0,"Pillow (50×70)","pillow"],
+   ["Синтепоновая подушка 60×60 1шт. (чехол декор. +50%)","Pernă 60×60 + husă 50%",[180],0,"Pillow (60×60)","pillow"],
+   ["Синтепоновая подушка 70×70 1шт. (чехол декор. +50%)","Pernă 70×70 + husă 50%",[210],0,"Pillow (70×70)","pillow"],
+   ["Халат махр.","велюр",[175],0,"Robe","robe"],
+   ["Подушка 1m2. Индив размер (чехол декор. +50%)","Pernă 1m2. Individ. + husă 50%",[420],0,"Pillow","pillow"],
+   ["Подушка 40×40 1шт. (чехол декор. +50%)","Pernă 40×40 + husă 50%",[70],0,"Pillow (40×40)","pillow"],
+   ["Подушка 50×50 1шт. (чехол декор. +50%)","Pernă 50×50 + husă 50%",[105],0,"Pillow (50×50)","pillow"],
+   ["Подушка 50×70 1шт. (чехол декор. +50%)","Pernă 50×70 + husă 50%",[145],0,"Pillow (50×70)","pillow"],
+   ["Подушка 60×60 1шт. (чехол декор. +50%)","Pernă 60×60 + husă 50%",[180],0,"Pillow (60×60)","pillow"],
+   ["Подушка 70×70 1шт. (чехол декор. +50%)","Pernă 70×70 + husă 50%",[210],0,"Pillow (70×70)","pillow"]
+]},
+ {id:"hometex",
+  name:["Шторы и текстиль для дома","Draperii și textile de casă","Curtains & home textiles"],
+  variants:[],
+  hint:0,
+  items:[
+   ["Игрушка 1кг (маркировка обязат.)","Jucărie 1kg (etichetare obligatorie)",[60],0,"Soft toy","toy"],
+   ["Ткань без наполнителя 1м²","țesătură fără umplutură 1m²",[45],0,"Fabric unpadded","fabric"],
+   ["Фартук","Șorț",[80],0,"Apron","apron"],
+   ["Чехлы с наполнителем до 2см 1м²","Huse cu umplutură ≤2cm 1m²",[150],0,"Cover padded (up to 2 cm)","cushion-cover"],
+   ["Шторы плотные, гобелен 1м²","Draperii groase, goblen 1m²",[50],0,"Curtains","curtain"],
+   ["Шторы с подкладкой 1м²","Draperii cu căptușeală 1m²",[60],0,"Curtains","curtain"],
+   ["Шторы тонкие, тюль 1м²","Draperii subțiri, tul 1m²",[45],0,"Curtains","curtain"]
+]}
 ];
 
 /*========= I18N =========*/
@@ -1408,7 +1574,7 @@ var I18N={
   sub_lbl:"Сумма за вещи",disc_lbl:"Скидка 5% (от 5 вещей)",surg_urg:"Срочность",surg_iron:"Глажка",surg_stain:"Выведение пятен",
   free_left:"До бесплатной доставки — ",free_left2:" лей",free_done:"Доставка бесплатно ✓",ship_free:"Бесплатная доставка курьером",copied_msg:"Заказ скопирован — вставьте в чат (⌘/Ctrl+V)",br_eyebrow:"Бренды",br_h2:"Химчистка люксовых и дизайнерских брендов в Кишинёве",br_p:"Бережно чистим одежду, обувь и сумки премиум- и люкс-брендов — Moncler, Max Mara, Louis Vuitton, Gucci, Prada, Burberry и десятков других. Курьер бесплатно заберёт и вернёт вещи по Кишинёву.",br_more:"Показать все бренды",br_less:"Свернуть",br_note:"Названия брендов принадлежат их правообладателям. Sinderela не аффилирована с ними; названия указаны для описания вещей, которые мы чистим.",ready_lbl:"Готово за ",ready_days:" дн.",ready_24:"Готово за 24 часа",ready_day:"Готово в течение рабочего дня",
   wa_hello:"Здравствуйте! Хочу почистить эти вещи. Перезвоните, пожалуйста, чтобы согласовать забор.",wa_items:"Состав заказа:",wa_total:"Итого",wa_ready:"Срок готовности",wa_name:"Имя",wa_phone:"Телефон",wa_addr:"Адрес",wa_time:"Время",wa_note:"Комментарий",
-  var_lbl:"Вариант",child_no:"Взрослое",child_u3:"До 3 лет −50%",child_u12:"До 12 лет −30%",impreg:"Пропитка +20%",aria_nav:"Основная навигация",aria_menu:"Меню",aria_close:"Закрыть",aria_search:"Поиск вещи",aria_prev:"Предыдущие категории",aria_more:"Ещё категории",aria_cart:"Корзина",aria_iron:"Погладить",aria_lang:"Язык",aria_del:"Удалить",urg_warn:"⚠ Срочность доступна не во всех пунктах — уточните при звонке.",calc_est:"Это предварительный расчёт. Окончательную цену подтвердит приёмщик после осмотра вещей.",cart_est:"Предварительная сумма — точную цену подтвердит приёмщик при приёме."
+  var_lbl:"Вариант",child_no:"Взрослое",child_u3:"До 3 лет −50%",child_u12:"До 12 лет −30%",impreg:"Пропитка +20%",furn:"Сложная фурнитура +20%",aria_nav:"Основная навигация",aria_menu:"Меню",aria_close:"Закрыть",aria_search:"Поиск вещи",aria_prev:"Предыдущие категории",aria_more:"Ещё категории",aria_cart:"Корзина",aria_iron:"Погладить",aria_lang:"Язык",aria_del:"Удалить",urg_warn:"⚠ Срочность доступна не во всех пунктах — уточните при звонке.",calc_est:"Это предварительный расчёт. Окончательную цену подтвердит приёмщик после осмотра вещей.",cart_est:"Предварительная сумма — точную цену подтвердит приёмщик при приёме."
  },
  ro:{
   tagline:"CURĂȚĂTORIE CHIMICĂ · 1997",nav_prices:"Prețuri",nav_services:"Servicii",nav_how:"Cum funcționează",nav_about:"Despre noi",nav_contacts:"Contacte",
@@ -1463,9 +1629,9 @@ var I18N={
   sub_lbl:"Suma pentru articole",disc_lbl:"Reducere 5% (de la 5 articole)",surg_urg:"Urgență",surg_iron:"Călcare",surg_stain:"Scoatere pete",
   free_left:"Până la livrare gratuită — ",free_left2:" lei",free_done:"Livrare gratuită ✓",ship_free:"Livrare gratuită cu curierul",copied_msg:"Comanda copiată — inserați în chat (⌘/Ctrl+V)",br_eyebrow:"Branduri",br_h2:"Curățătorie chimică pentru branduri de lux și designer la Chișinău",br_p:"Curățăm cu grijă haine, încălțăminte și genți ale brandurilor premium și de lux — Moncler, Max Mara, Louis Vuitton, Gucci, Prada, Burberry și zeci de altele. Curierul ridică și returnează gratuit în Chișinău.",br_more:"Arată toate brandurile",br_less:"Restrânge",br_note:"Denumirile brandurilor aparțin proprietarilor lor. Sinderela nu este afiliată cu acestea; denumirile sunt indicate pentru a descrie articolele pe care le curățăm.",ready_lbl:"Gata în ",ready_days:" zile",ready_24:"Gata în 24 de ore",ready_day:"Gata în cursul zilei de lucru",
   wa_hello:"Bună ziua! Vreau să curăț aceste articole. Sunați-mă, vă rog, pentru a stabili ridicarea.",wa_items:"Componența comenzii:",wa_total:"Total",wa_ready:"Termen de finalizare",wa_name:"Nume",wa_phone:"Telefon",wa_addr:"Adresă",wa_time:"Ora",wa_note:"Comentariu",
-  var_lbl:"Variantă",child_no:"Adult",child_u3:"Până la 3 ani −50%",child_u12:"Până la 12 ani −30%",impreg:"Impregnare +20%",aria_nav:"Navigare principală",aria_menu:"Meniu",aria_close:"Închide",aria_search:"Caută articol",aria_prev:"Categoriile anterioare",aria_more:"Mai multe categorii",aria_cart:"Coș",aria_iron:"Călcare",aria_lang:"Limbă",aria_del:"Șterge",urg_warn:"⚠ Urgența nu este disponibilă în toate punctele — verificați la telefon.",calc_est:"Acesta este un calcul estimativ. Prețul final este confirmat de recepționer după inspecția articolelor.",cart_est:"Sumă estimativă — prețul exact este confirmat de recepționer la primire."
+  var_lbl:"Variantă",child_no:"Adult",child_u3:"Până la 3 ani −50%",child_u12:"Până la 12 ani −30%",impreg:"Impregnare +20%",furn:"Feronerie complexă +20%",aria_nav:"Navigare principală",aria_menu:"Meniu",aria_close:"Închide",aria_search:"Caută articol",aria_prev:"Categoriile anterioare",aria_more:"Mai multe categorii",aria_cart:"Coș",aria_iron:"Călcare",aria_lang:"Limbă",aria_del:"Șterge",urg_warn:"⚠ Urgența nu este disponibilă în toate punctele — verificați la telefon.",calc_est:"Acesta este un calcul estimativ. Prețul final este confirmat de recepționer după inspecția articolelor.",cart_est:"Sumă estimativă — prețul exact este confirmat de recepționer la primire."
  },
- en:{tagline:"DRY CLEANING · 1997",nav_prices:"Prices",nav_services:"Services",nav_how:"How it works",nav_about:"About",nav_contacts:"Contacts",hdr_call:"Call · 09–20",cta_order:"Order a pickup",cta_calc:"Calculate price",cta_courier:"Call a courier for these items",hero_eyebrow:"Premium dry cleaning · Chișinău",hero_h1:"Premium dry cleaning. <em>The courier comes to you.</em>",hero_lead:"We've cared for your valuable garments since 1997. Order online — we'll pick up, clean and return them within 3 days.",f1b:"Since 1997",f1:"almost 30 years of experience",f2b:"Italy · Germany",f2:"equipment",f3b:"Free",f3:"courier delivery",pc1:"Shirt <b>100 lei</b>",pc2:"Coat <b>from 315 lei</b>",pc3:"Sneakers <b>from 330 lei</b>",hero_badge_b:"Gentle hydrocarbon cleaning",hero_badge_s:"safe for delicate and designer items",calc_eyebrow:"Price calculator",calc_h2:"Find out the price in 5 seconds",calc_p:"Choose your items — the total is calculated automatically, with all discounts and surcharges. Then call a courier in two clicks.",search_ph:"Find an item: coat, sneakers, dress…",no_res:"Nothing found. Try another search.",nf_b:"Didn't find your item?",nf_s:"Message us — we'll tell you the price.",nf_btn:"Message on WhatsApp",cart_h:"Your order",cart_empty:"Add items from the catalog — the total will appear here",opt_urg:"Urgency",opt_urg_s:"available at select points — check when ordering",urg_none:"Regular",urg_24:"24 h +50%",urg_day:"Same day +100%",opt_iron:"Ironing",opt_iron_s:"+30% to cleaning",opt_stain:"Remove stains",opt_stain_s:"+45 lei per stain up to 5 cm",total:"Total",cta_courier2:"Call a courier",add_btn:"Add",clear_cart:"Clear",ord_msg_label:"Or send the list via messenger:",how_eyebrow:"Simple",how_h2:"Three steps — and your items are like new",how1_h:"1. Order online",how1_p:"Add items in the calculator and choose a convenient time. Exact price — instantly, no surprises.",how2_h:"2. The courier picks up",how2_p:"We'll arrive in the chosen time slot. Free courier delivery.",how3_h:"3. We return them clean",how3_p:"Most items — within 3 days. We'll pack them carefully and bring them back.",how_free:"Free courier delivery",serv_eyebrow:"What we clean",serv_h2:"Services for any garment",serv_p:"From an everyday shirt to a wedding dress and your favorite sneakers.",sv1_h:"Outerwear",sv1_p:"Coats, down jackets, raincoats, trenches",sv1_f:"from 195 lei",sv2_h:"Leather & suede",sv2_p:"Jackets, shearling, cleaning and dyeing",sv2_f:"from 415 lei",sv3_h:"Dresses & wedding",sv3_p:"Evening, wedding, delicate cleaning",sv3_f:"from 205 lei",sv4_h:"Sneaker cleaning",sv4_p:"Sneakers, plimsolls, dyeing and impregnation",sv4_f:"from 330 lei",sv5_h:"Home & textiles",sv5_p:"Curtains, blankets, pillows, carpets",sv5_f:"price on request",sv6_h:"Fur & shearling",sv6_p:"Natural and faux fur, restoration",sv6_f:"from 165 lei",fl_h:"<em>First Line</em> service — the highest level of care",fl_p:"For items that need special treatment. Priority processing, delicate hand cleaning and personal quality control at every stage.",fl1:"Priority queue and faster turnaround",fl2:"Hand cleaning of delicate and designer items",fl3:"Personal manager and quality control",fl4:"Delivery at the agreed time",fl_cta:"Order First Line",trust_eyebrow:"Why we're trusted",trust_h2:"Technology proven over time",st1b:"1997",st1:"year founded",st2b:"8",st2:"drop-off points in Chișinău",st3b:"3",st3:"countries — Italy, Germany, USA",st4b:"Eco",st4:"hydrocarbon cleaning in Moldova",ft1_h:"Equipment from Italy, Germany and the USA",ft1_p:"Professional machines and technology for gentle cleaning of any fabric.",ft2_h:"Hydrocarbon solvent",ft2_p:"A modern, gentle method — soft on items and safe for delicate materials.",ft3_h:"Training with European technologists",ft3_p:"Our specialists train with leading technologists in Italy and Germany.",ft4_h:"A network of points across the city",ft4_p:"Convenient to drop off items near home or call a courier online.",rev_ph:"Google review",rev1:"“Very pleased with the dry cleaner's work! The professional approach shows in everything: items are perfectly cleaned, they look like new, with no damage or unpleasant smells. The order was ready right on time, and the staff were polite and attentive.”",rev1w:"— Ana Turcan",rev2:"“Excellent service — and not my first time using them. I regularly bring suits and down jackets to Sinderela. Everything is always perfectly clean, neatly pressed and ready right on time. The consistent quality and pleasant service are great. Thank you!”",rev2w:"— Дмитрий Константинов",ft_about:"Premium dry cleaning in Chișinău since 1997. We care for your valuable garments as our own.",ft_addr_h:"Drop-off points",ft_addr_main:"Main office and production",addr1:"Miron Costin St., 25",addr2:"Traian Blvd., 6/1",addr3:"A. Șciusev St., 89",addr4:"Hîncești Rd., 43",addr5:"Moscova Blvd., 9/5",addr6:"Mihai Viteazul St., 14",addr7:"I. Vieru St., 20",addr8:"N. Milescu Spătaru St., 65",addr_super:"in the «Nr.1» supermarket",cc_text:"We use analytics cookies to improve the site.",cc_accept:"Accept",cc_decline:"Only necessary",ft_map:"Open on map →",ft_contacts_h:"Contacts",ft_hours:"Mon–Sat 8:30–20:00 · Sun 10:00–19:00",ft_rights:"All rights reserved",ft_price:"Full price list",m_calc:"Calculate price",m_checkout:"Checkout",call_btn:"Call",ord_h:"Order a pickup",ord_s1:"What we clean",ord_s2:"Where & when",ord_s3:"Contacts",ord1_h:"What we clean",ord1_s:"List from the calculator — you can adjust quantities.",ord_note:"Comment on items (optional)",ord_note_ph:"E.g.: stain on the sleeve, delicate fabric…",ord2_h:"Where and when to come",ord2_s:"Choose a point or we'll pick up from you.",ord_addr:"Point / address",addr_pickup:"Pick up from me (courier)",ord_myaddr:"Your address",ord_myaddr_ph:"Street, building, apartment",ord_date:"Date",ord_time:"Convenient time",t_morning:"Morning 9–12",t_day:"Day 12–16",t_eve:"Evening 16–20",ord3_h:"How to reach you",ord3_s:"We'll call to confirm the order.",ord_name:"Name",ord_name_ph:"How to address you",ord_phone:"Phone",ord_wa:"Send via WhatsApp",ord_vb:"Send via Viber",ord_back:"Back",ord_next:"Next",ord_submit:"Send request",ord_pcs:"items",ord_free:"Free delivery",ord_ready:"Ready in",ord_days:"days",ord_24h:"in 24 hours",ord_sameday:"within the business day",succ_h:"Request sent!",succ_p:"We'll call you back shortly to confirm the pickup. Thank you for choosing Sinderela.",succ_btn:"OK",u_pcs:"items",u_pc1:"item",u_pc24:"items",sub_lbl:"Items subtotal",disc_lbl:"5% discount (5+ items)",surg_urg:"Urgency",surg_iron:"Ironing",surg_stain:"Stain removal",free_left:"To free delivery — ",free_left2:" lei",free_done:"Free delivery ✓",ship_free:"Free courier delivery",copied_msg:"Order copied — paste it in the chat (⌘/Ctrl+V)",br_eyebrow:"Brands",br_h2:"Dry cleaning of luxury & designer brands in Chișinău",br_p:"We carefully clean clothing, shoes and bags from premium and luxury brands — Moncler, Max Mara, Louis Vuitton, Gucci, Prada, Burberry and dozens more. Free courier pickup and return across Chișinău.",br_more:"Show all brands",br_less:"Show less",br_note:"Brand names belong to their respective owners. Sinderela is not affiliated with them; names are shown to describe the items we clean.",ready_lbl:"Ready in ",ready_days:" days",ready_24:"Ready in 24 hours",ready_day:"Ready within the business day",wa_hello:"Hello! I'd like to clean these items. Please call me back to arrange the pickup.",wa_items:"Order contents:",wa_total:"Total",wa_ready:"Turnaround time",wa_name:"Name",wa_phone:"Phone",wa_addr:"Address",wa_time:"Time",wa_note:"Comment",var_lbl:"Option",child_no:"Adult",child_u3:"Under 3 −50%",child_u12:"Under 12 −30%",impreg:"Impregnation +20%",aria_nav:"Main navigation",aria_menu:"Menu",aria_close:"Close",aria_search:"Search items",aria_prev:"Previous categories",aria_more:"More categories",aria_cart:"Cart",aria_iron:"Ironing",aria_lang:"Language",aria_del:"Delete",urg_warn:"⚠ Urgency isn't available at all points — please check by phone.",calc_est:"This is a preliminary estimate. The final price is confirmed by the attendant after inspecting the items.",cart_est:"Preliminary total — the exact price is confirmed by the attendant at drop-off."}
+ en:{tagline:"DRY CLEANING · 1997",nav_prices:"Prices",nav_services:"Services",nav_how:"How it works",nav_about:"About",nav_contacts:"Contacts",hdr_call:"Call · 09–20",cta_order:"Order a pickup",cta_calc:"Calculate price",cta_courier:"Call a courier for these items",hero_eyebrow:"Premium dry cleaning · Chișinău",hero_h1:"Premium dry cleaning. <em>The courier comes to you.</em>",hero_lead:"We've cared for your valuable garments since 1997. Order online — we'll pick up, clean and return them within 3 days.",f1b:"Since 1997",f1:"almost 30 years of experience",f2b:"Italy · Germany",f2:"equipment",f3b:"Free",f3:"courier delivery",pc1:"Shirt <b>100 lei</b>",pc2:"Coat <b>from 315 lei</b>",pc3:"Sneakers <b>from 330 lei</b>",hero_badge_b:"Gentle hydrocarbon cleaning",hero_badge_s:"safe for delicate and designer items",calc_eyebrow:"Price calculator",calc_h2:"Find out the price in 5 seconds",calc_p:"Choose your items — the total is calculated automatically, with all discounts and surcharges. Then call a courier in two clicks.",search_ph:"Find an item: coat, sneakers, dress…",no_res:"Nothing found. Try another search.",nf_b:"Didn't find your item?",nf_s:"Message us — we'll tell you the price.",nf_btn:"Message on WhatsApp",cart_h:"Your order",cart_empty:"Add items from the catalog — the total will appear here",opt_urg:"Urgency",opt_urg_s:"available at select points — check when ordering",urg_none:"Regular",urg_24:"24 h +50%",urg_day:"Same day +100%",opt_iron:"Ironing",opt_iron_s:"+30% to cleaning",opt_stain:"Remove stains",opt_stain_s:"+45 lei per stain up to 5 cm",total:"Total",cta_courier2:"Call a courier",add_btn:"Add",clear_cart:"Clear",ord_msg_label:"Or send the list via messenger:",how_eyebrow:"Simple",how_h2:"Three steps — and your items are like new",how1_h:"1. Order online",how1_p:"Add items in the calculator and choose a convenient time. Exact price — instantly, no surprises.",how2_h:"2. The courier picks up",how2_p:"We'll arrive in the chosen time slot. Free courier delivery.",how3_h:"3. We return them clean",how3_p:"Most items — within 3 days. We'll pack them carefully and bring them back.",how_free:"Free courier delivery",serv_eyebrow:"What we clean",serv_h2:"Services for any garment",serv_p:"From an everyday shirt to a wedding dress and your favorite sneakers.",sv1_h:"Outerwear",sv1_p:"Coats, down jackets, raincoats, trenches",sv1_f:"from 195 lei",sv2_h:"Leather & suede",sv2_p:"Jackets, shearling, cleaning and dyeing",sv2_f:"from 415 lei",sv3_h:"Dresses & wedding",sv3_p:"Evening, wedding, delicate cleaning",sv3_f:"from 205 lei",sv4_h:"Sneaker cleaning",sv4_p:"Sneakers, plimsolls, dyeing and impregnation",sv4_f:"from 330 lei",sv5_h:"Home & textiles",sv5_p:"Curtains, blankets, pillows, carpets",sv5_f:"price on request",sv6_h:"Fur & shearling",sv6_p:"Natural and faux fur, restoration",sv6_f:"from 165 lei",fl_h:"<em>First Line</em> service — the highest level of care",fl_p:"For items that need special treatment. Priority processing, delicate hand cleaning and personal quality control at every stage.",fl1:"Priority queue and faster turnaround",fl2:"Hand cleaning of delicate and designer items",fl3:"Personal manager and quality control",fl4:"Delivery at the agreed time",fl_cta:"Order First Line",trust_eyebrow:"Why we're trusted",trust_h2:"Technology proven over time",st1b:"1997",st1:"year founded",st2b:"8",st2:"drop-off points in Chișinău",st3b:"3",st3:"countries — Italy, Germany, USA",st4b:"Eco",st4:"hydrocarbon cleaning in Moldova",ft1_h:"Equipment from Italy, Germany and the USA",ft1_p:"Professional machines and technology for gentle cleaning of any fabric.",ft2_h:"Hydrocarbon solvent",ft2_p:"A modern, gentle method — soft on items and safe for delicate materials.",ft3_h:"Training with European technologists",ft3_p:"Our specialists train with leading technologists in Italy and Germany.",ft4_h:"A network of points across the city",ft4_p:"Convenient to drop off items near home or call a courier online.",rev_ph:"Google review",rev1:"“Very pleased with the dry cleaner's work! The professional approach shows in everything: items are perfectly cleaned, they look like new, with no damage or unpleasant smells. The order was ready right on time, and the staff were polite and attentive.”",rev1w:"— Ana Turcan",rev2:"“Excellent service — and not my first time using them. I regularly bring suits and down jackets to Sinderela. Everything is always perfectly clean, neatly pressed and ready right on time. The consistent quality and pleasant service are great. Thank you!”",rev2w:"— Дмитрий Константинов",ft_about:"Premium dry cleaning in Chișinău since 1997. We care for your valuable garments as our own.",ft_addr_h:"Drop-off points",ft_addr_main:"Main office and production",addr1:"Miron Costin St., 25",addr2:"Traian Blvd., 6/1",addr3:"A. Șciusev St., 89",addr4:"Hîncești Rd., 43",addr5:"Moscova Blvd., 9/5",addr6:"Mihai Viteazul St., 14",addr7:"I. Vieru St., 20",addr8:"N. Milescu Spătaru St., 65",addr_super:"in the «Nr.1» supermarket",cc_text:"We use analytics cookies to improve the site.",cc_accept:"Accept",cc_decline:"Only necessary",ft_map:"Open on map →",ft_contacts_h:"Contacts",ft_hours:"Mon–Sat 8:30–20:00 · Sun 10:00–19:00",ft_rights:"All rights reserved",ft_price:"Full price list",m_calc:"Calculate price",m_checkout:"Checkout",call_btn:"Call",ord_h:"Order a pickup",ord_s1:"What we clean",ord_s2:"Where & when",ord_s3:"Contacts",ord1_h:"What we clean",ord1_s:"List from the calculator — you can adjust quantities.",ord_note:"Comment on items (optional)",ord_note_ph:"E.g.: stain on the sleeve, delicate fabric…",ord2_h:"Where and when to come",ord2_s:"Choose a point or we'll pick up from you.",ord_addr:"Point / address",addr_pickup:"Pick up from me (courier)",ord_myaddr:"Your address",ord_myaddr_ph:"Street, building, apartment",ord_date:"Date",ord_time:"Convenient time",t_morning:"Morning 9–12",t_day:"Day 12–16",t_eve:"Evening 16–20",ord3_h:"How to reach you",ord3_s:"We'll call to confirm the order.",ord_name:"Name",ord_name_ph:"How to address you",ord_phone:"Phone",ord_wa:"Send via WhatsApp",ord_vb:"Send via Viber",ord_back:"Back",ord_next:"Next",ord_submit:"Send request",ord_pcs:"items",ord_free:"Free delivery",ord_ready:"Ready in",ord_days:"days",ord_24h:"in 24 hours",ord_sameday:"within the business day",succ_h:"Request sent!",succ_p:"We'll call you back shortly to confirm the pickup. Thank you for choosing Sinderela.",succ_btn:"OK",u_pcs:"items",u_pc1:"item",u_pc24:"items",sub_lbl:"Items subtotal",disc_lbl:"5% discount (5+ items)",surg_urg:"Urgency",surg_iron:"Ironing",surg_stain:"Stain removal",free_left:"To free delivery — ",free_left2:" lei",free_done:"Free delivery ✓",ship_free:"Free courier delivery",copied_msg:"Order copied — paste it in the chat (⌘/Ctrl+V)",br_eyebrow:"Brands",br_h2:"Dry cleaning of luxury & designer brands in Chișinău",br_p:"We carefully clean clothing, shoes and bags from premium and luxury brands — Moncler, Max Mara, Louis Vuitton, Gucci, Prada, Burberry and dozens more. Free courier pickup and return across Chișinău.",br_more:"Show all brands",br_less:"Show less",br_note:"Brand names belong to their respective owners. Sinderela is not affiliated with them; names are shown to describe the items we clean.",ready_lbl:"Ready in ",ready_days:" days",ready_24:"Ready in 24 hours",ready_day:"Ready within the business day",wa_hello:"Hello! I'd like to clean these items. Please call me back to arrange the pickup.",wa_items:"Order contents:",wa_total:"Total",wa_ready:"Turnaround time",wa_name:"Name",wa_phone:"Phone",wa_addr:"Address",wa_time:"Time",wa_note:"Comment",var_lbl:"Option",child_no:"Adult",child_u3:"Under 3 −50%",child_u12:"Under 12 −30%",impreg:"Impregnation +20%",furn:"Complex fittings +20%",aria_nav:"Main navigation",aria_menu:"Menu",aria_close:"Close",aria_search:"Search items",aria_prev:"Previous categories",aria_more:"More categories",aria_cart:"Cart",aria_iron:"Ironing",aria_lang:"Language",aria_del:"Delete",urg_warn:"⚠ Urgency isn't available at all points — please check by phone.",calc_est:"This is a preliminary estimate. The final price is confirmed by the attendant after inspecting the items.",cart_est:"Preliminary total — the exact price is confirmed by the attendant at drop-off."}
 };
 
 /*========= APP LOGIC =========*/
@@ -1481,7 +1647,7 @@ function L(k){var v=I18N[lang][k];return v!==undefined?v:k;}
 function money(n){return Math.round(n)+" "+CUR[lang];}
 function plural(n){n=Math.abs(n)|0;if(lang==="ru"){var a=n%10,b=n%100;if(a===1&&b!==11)return L("u_pc1");if(a>=2&&a<=4&&(b<12||b>14))return L("u_pc24");return L("u_pcs");}return n===1?L("u_pc1"):L("u_pcs");}
 function catById(id){for(var i=0;i<CATS.length;i++)if(CATS[i].id===id)return CATS[i];}
-function nm(arr){return lang==="ru"?arr[0]:lang==="ro"?arr[1]:arr[arr.length-1];}
+function nm(arr){return lang==="ru"?arr[0]:lang==="ro"?arr[1]:arr[4];}
 function firstVi(it){for(var i=0;i<it[2].length;i++)if(it[2][i]!=null)return i;return 0;}
 function keyOf(cat,idx){return cat+"|"+idx;}
 function getVi(cat,idx){var k=keyOf(cat,idx);if(cardVar[k]==null)cardVar[k]=firstVi(catById(cat).items[idx]);return cardVar[k];}
@@ -1512,7 +1678,7 @@ function readyText(){
 
 /*--- render catalog ---*/
 function renderTabs(){
-  var h="";CATS.forEach(function(c){h+='<button class="tab'+(c.id===activeCat&&!query?" on":"")+'" data-cat="'+c.id+'" role="tab">'+nm(c.name)+'</button>';});
+  var h="";CATS.forEach(function(c){h+='<button class="tab'+(c.id===activeCat&&!query?" on":"")+'" data-cat="'+c.id+'" role="tab">'+(lang==="ru"?c.name[0]:lang==="ro"?c.name[1]:c.name[2])+'</button>';});
   document.getElementById("tabs").innerHTML=h;
   if(typeof updateTabFade==="function")updateTabFade();
 }
@@ -1533,7 +1699,7 @@ function renderItems(){
     var vh="";
     if(vs.length>1){vh='<div class="variants">';vs.forEach(function(v,i){var dis=it[2][i]==null;vh+='<button class="vbtn'+(i===vi?" on":"")+'" data-vpick="'+e.c.id+'|'+e.idx+'|'+i+'"'+(dis?" disabled":"")+'>'+ (lang==="ru"?v[1]:lang==="ro"?v[2]:v[3]) +'</button>';});vh+='</div>';}
     var act=line?stepperHTML(e.c.id,e.idx,vi,line.qty):'<button class="add" data-add="'+e.c.id+'|'+e.idx+'|'+vi+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5h15l-1.1 8.2a2.2 2.2 0 0 1-2.2 1.9H7.8a2.2 2.2 0 0 1-2.2-1.9L4.5 8.5Z"/><path d="M8.5 8.5 12 3.8l3.5 4.7"/><path d="M9.7 12v3.2M14.3 12v3.2"/></svg>'+L("add_btn")+'</button>';
-    h+='<div class="item'+(line?" in":"")+'" data-key="'+e.c.id+'|'+e.idx+'"><div class="item-ic">'+iconFor(it[0],e.c.id)+'</div><div class="item-main"><div class="item-t"><span class="item-nm">'+nm(it)+'</span><span class="item-pr">'+price+' <small>'+CUR[lang]+'</small></span></div>'+vh+'<div class="item-act">'+act+'</div></div></div>';
+    h+='<div class="item'+(line?" in":"")+'" data-key="'+e.c.id+'|'+e.idx+'"><div class="item-ic">'+iconFor(it)+'</div><div class="item-main"><div class="item-t"><span class="item-nm">'+nm(it)+'</span><span class="item-pr">'+price+' <small>'+CUR[lang]+'</small></span></div>'+vh+'<div class="item-act">'+act+'</div></div></div>';
   });
   host.innerHTML=h;
   document.getElementById("noRes").style.display=list.length?"none":"block";
@@ -1560,8 +1726,8 @@ function renderCart(){var _ce=document.querySelector(".cart");if(_ce)_ce.classLi
   cart.forEach(function(l,i){
     var it=catById(l.cat).items[l.idx],vs=catById(l.cat).variants;
     var vlabel=vs.length>1?(lang==="ru"?vs[l.vi][1]:lang==="ro"?vs[l.vi][2]:vs[l.vi][3]):"";
-    var isShoe=catById(l.cat).shoe;
-    var oc=isShoe?'<button class="oc'+(l.impreg?" on":"")+'" data-impreg="'+i+'">'+L("impreg")+'</button>':'';
+    var sur=catById(l.cat).sur;
+    var oc=sur?'<button class="oc'+(l.impreg?" on":"")+'" data-impreg="'+i+'">'+L(sur)+'</button>':'';
     h+='<div class="cline"><div class="cline-t"><div class="cline-nm">'+nm(it)+(vlabel?'<small>'+vlabel+'</small>':'')+'</div><div class="cline-pr">'+money(lineTotal(l))+'</div></div>'+
        '<div class="cline-b"><div class="cline-opts">'+oc+'</div><div class="stepper sm">'+(l.qty<=1?'<button class="st-trash" data-cq="'+i+'|-1" aria-label="'+L("aria_del")+'">'+TRASH+'</button>':'<button data-cq="'+i+'|-1" aria-label="−">−</button>')+'<span>'+l.qty+'</span><button data-cq="'+i+'|1" aria-label="+">+</button></div></div></div>';
   });
@@ -1740,64 +1906,9 @@ var ICONS={
  vest:'<path d="M9 3 7 6v13h10V6l-2-3-3 3-3-3Z"/><path d="M12 6v13"/>',
  hanger:'<path d="M12 5a2 2 0 1 1 1.8 2C13 7.2 12 7.9 12 9"/><path d="M4.5 17.5 12 12l7.5 5.5a1 1 0 0 1-.6 1.8H5.1a1 1 0 0 1-.6-1.8Z"/>'
 };
-var ICONSRC={"denim-jacket":"assets/icons/denim-jacket.png","bomber":"assets/icons/bomber.png","puffer-jacket":"assets/icons/puffer-jacket.png","puffer-coat":"assets/icons/puffer-coat.png","coat":"assets/icons/coat.png","raincoat":"assets/icons/raincoat.png","trench":"assets/icons/trench.png","puffer-vest":"assets/icons/puffer-vest.png","shearling":"assets/icons/shearling.png","fur-coat":"assets/icons/fur-coat.png","shirt-short":"assets/icons/shirt-short.png","shirt-long":"assets/icons/shirt-long.png","tshirt-short":"assets/icons/tshirt-short.png","tshirt-long":"assets/icons/tshirt-long.png","polo-short":"assets/icons/polo-short.png","polo-long":"assets/icons/polo-long.png","blouse-short":"assets/icons/blouse-short.png","blouse-long":"assets/icons/blouse-long.png","tank":"assets/icons/tank.png","hoodie":"assets/icons/hoodie.png","sweatshirt":"assets/icons/sweatshirt.png","sweater":"assets/icons/sweater.png","cardigan":"assets/icons/cardigan.png","turtleneck-short":"assets/icons/turtleneck-short.png","turtleneck-long":"assets/icons/turtleneck-long.png","knit-vest":"assets/icons/knit-vest.png","blazer":"assets/icons/blazer.png","waistcoat":"assets/icons/waistcoat.png","tuxedo":"assets/icons/tuxedo.png","garment":"assets/icons/garment.png","dress":"assets/icons/dress.png","gown":"assets/icons/gown.png","wedding":"assets/icons/wedding.png","trousers":"assets/icons/trousers.png","skirt":"assets/icons/skirt.png","shorts":"assets/icons/shorts.png","romper":"assets/icons/romper.png","jumpsuit":"assets/icons/jumpsuit.png","fur-hat":"assets/icons/fur-hat.png","fur-collar":"assets/icons/fur-collar.png","fur-vest":"assets/icons/fur-vest.png","bolero":"assets/icons/bolero.png","fur-lining":"assets/icons/fur-lining.png","sandals":"assets/icons/sandals.png","flats":"assets/icons/flats.png","loafers":"assets/icons/loafers.png","sneakers-low":"assets/icons/sneakers-low.png","sneakers-high":"assets/icons/sneakers-high.png","ankle-boots":"assets/icons/ankle-boots.png","tall-boots":"assets/icons/tall-boots.png","otk-boots":"assets/icons/otk-boots.png","ugg":"assets/icons/ugg.png","bag":"assets/icons/bag.png","beanie":"assets/icons/beanie.png","scarf":"assets/icons/scarf.png","gloves":"assets/icons/gloves.png","belt":"assets/icons/belt.png","pillow":"assets/icons/pillow.png","blanket":"assets/icons/blanket.png","curtain":"assets/icons/curtain.png"};
-function iconFor(name,cat){
- var n=(name||"").toLowerCase(),k="garment",lng=n.indexOf("длин")>-1;
- function h(){for(var i=0;i<arguments.length;i++)if(n.indexOf(arguments[i])>-1)return true;return false;}
- if(cat==="shoes"){
-  if(h("босонож","сандал"))k="sandals";
-  else if(h("балетк","туфл","мокасин"))k="flats";
-  else if(h("слипон","лофер","эспадрил"))k="loafers";
-  else if(h("кроссов","кед"))k=h("высок")?"sneakers-high":"sneakers-low";
-  else if(h("ботинки"))k=h("высок")?"tall-boots":"ankle-boots";
-  else if(h("полусап"))k="ankle-boots";
-  else if(h("ботфорт"))k="otk-boots";
-  else if(h("сапог"))k="tall-boots";
-  else if(h("ugg","угг"))k="ugg";
-  else k="flats";
- }else if(cat==="bags")k="bag";
- else if(cat==="fur"){
-  if(h("шапка"))k="fur-hat";else if(h("воротник"))k="fur-collar";else if(h("жилет"))k="fur-vest";
-  else if(h("болеро"))k="bolero";else if(h("подст"))k="fur-lining";else k="fur-coat";
- }else if(cat==="home"){
-  if(h("подст"))k="fur-lining";else if(h("палантин","платок","шаль","пашмин","шарф"))k="scarf";else k="beanie";
- }else{
-  if(h("джинс"))k="denim-jacket";
-  else if(h("наполнит")&&!h("без")&&h("жилет"))k="puffer-vest";
-  else if(h("наполнит")&&!h("без")&&h("пальто"))k="puffer-coat";
-  else if(h("наполнит")&&!h("без")&&h("куртк"))k="puffer-jacket";
-  else if(h("дублён"))k="shearling";
-  else if(h("шуба"))k="fur-coat";
-  else if(h("тренч"))k="trench";
-  else if(h("плащ"))k="raincoat";
-  else if(h("пальто"))k="coat";
-  else if(h("куртк"))k="bomber";
-  else if(h("смокинг","фрак"))k="tuxedo";
-  else if(h("пиджак","жакет"))k="blazer";
-  else if(h("жилет")&&h("костюм"))k="waistcoat";
-  else if(h("жилет"))k=(cat==="suits")?"waistcoat":"knit-vest";
-  else if(h("рубаш"))k=lng?"shirt-long":"shirt-short";
-  else if(h("футбол"))k=lng?"tshirt-long":"tshirt-short";
-  else if(h("поло"))k=lng?"polo-long":"polo-short";
-  else if(h("блуз"))k=lng?"blouse-long":"blouse-short";
-  else if(h("гольф"))k=lng?"turtleneck-long":"turtleneck-short";
-  else if(h("топ","майк"))k="tank";
-  else if(h("худи"))k="hoodie";
-  else if(h("толстов","свитшот","батник"))k="sweatshirt";
-  else if(h("свитер","джемпер"))k="sweater";
-  else if(h("кардиган"))k="cardigan";
-  else if(h("свадебн"))k="wedding";
-  else if(h("вечерн"))k="gown";
-  else if(h("платье","сарафан"))k="dress";
-  else if(h("брюки"))k="trousers";
-  else if(h("юбка"))k="skirt";
-  else if(h("шорты"))k="shorts";
-  else if(h("комбинезон"))k=lng?"jumpsuit":"romper";
-  else if(h("шапка","перчат","ремень","галстук","пояс"))k="belt";
-  else k="garment";
- }
- return '<img class="gic" src="'+(ICONSRC[k]||ICONSRC.garment)+'" alt="" loading="lazy">';
-}
+var ICONSRC={"ankle-boots":"assets/icons/ankle-boots.png","apron":"assets/icons/apron.png","backpack":"assets/icons/backpack.png","bag":"assets/icons/bag.png","beanie":"assets/icons/beanie.png","bedsheet":"assets/icons/bedsheet.png","belt":"assets/icons/belt.png","beret":"assets/icons/beret.png","blanket":"assets/icons/blanket.png","blazer":"assets/icons/blazer.png","blouse-long":"assets/icons/blouse-long.png","blouse-short":"assets/icons/blouse-short.png","bolero":"assets/icons/bolero.png","bomber":"assets/icons/bomber.png","briefcase":"assets/icons/briefcase.png","cap":"assets/icons/cap.png","cardigan":"assets/icons/cardigan.png","clutch":"assets/icons/clutch.png","coat":"assets/icons/coat.png","curtain":"assets/icons/curtain.png","cushion-cover":"assets/icons/cushion-cover.png","denim-jacket":"assets/icons/denim-jacket.png","dress":"assets/icons/dress.png","duvet":"assets/icons/duvet.png","duvet-cover":"assets/icons/duvet-cover.png","espadrilles":"assets/icons/espadrilles.png","fabric":"assets/icons/fabric.png","flats":"assets/icons/flats.png","flipflops":"assets/icons/flipflops.png","fur":"assets/icons/fur.png","fur-coat":"assets/icons/fur-coat.png","fur-collar":"assets/icons/fur-collar.png","fur-hat":"assets/icons/fur-hat.png","fur-lining":"assets/icons/fur-lining.png","fur-vest":"assets/icons/fur-vest.png","garment":"assets/icons/garment.png","gloves":"assets/icons/gloves.png","gown":"assets/icons/gown.png","hat":"assets/icons/hat.png","hat-leather":"assets/icons/hat-leather.png","hood":"assets/icons/hood.png","hoodie":"assets/icons/hoodie.png","jacket":"assets/icons/jacket.png","jeans":"assets/icons/jeans.png","joggers":"assets/icons/joggers.png","jumpsuit":"assets/icons/jumpsuit.png","kerchief":"assets/icons/kerchief.png","knit-vest":"assets/icons/knit-vest.png","leggings":"assets/icons/leggings.png","loafers":"assets/icons/loafers.png","mattress-pad":"assets/icons/mattress-pad.png","moccasins":"assets/icons/moccasins.png","napkin":"assets/icons/napkin.png","otk-boots":"assets/icons/otk-boots.png","pajamas":"assets/icons/pajamas.png","pants":"assets/icons/pants.png","pashmina":"assets/icons/pashmina.png","pelt":"assets/icons/pelt.png","pillow":"assets/icons/pillow.png","pillowcase":"assets/icons/pillowcase.png","polo-long":"assets/icons/polo-long.png","polo-short":"assets/icons/polo-short.png","puffer-coat":"assets/icons/puffer-coat.png","puffer-jacket":"assets/icons/puffer-jacket.png","puffer-vest":"assets/icons/puffer-vest.png","pumps":"assets/icons/pumps.png","raincoat":"assets/icons/raincoat.png","robe":"assets/icons/robe.png","romper":"assets/icons/romper.png","sandals":"assets/icons/sandals.png","sash":"assets/icons/sash.png","scarf":"assets/icons/scarf.png","shawl":"assets/icons/shawl.png","shearling":"assets/icons/shearling.png","shirt":"assets/icons/shirt.png","shirt-long":"assets/icons/shirt-long.png","shirt-short":"assets/icons/shirt-short.png","shoe":"assets/icons/shoe.png","shorts":"assets/icons/shorts.png","skirt":"assets/icons/skirt.png","skort":"assets/icons/skort.png","sneakers-high":"assets/icons/sneakers-high.png","sneakers-low":"assets/icons/sneakers-low.png","stole":"assets/icons/stole.png","suitcase":"assets/icons/suitcase.png","sweater":"assets/icons/sweater.png","sweater-short":"assets/icons/sweater-short.png","sweatshirt":"assets/icons/sweatshirt.png","tablecloth":"assets/icons/tablecloth.png","tall-boots":"assets/icons/tall-boots.png","tank":"assets/icons/tank.png","tie":"assets/icons/tie.png","tights":"assets/icons/tights.png","top":"assets/icons/top.png","towel":"assets/icons/towel.png","toy":"assets/icons/toy.png","trench":"assets/icons/trench.png","trousers":"assets/icons/trousers.png","tshirt":"assets/icons/tshirt.png","tshirt-long":"assets/icons/tshirt-long.png","tshirt-short":"assets/icons/tshirt-short.png","tunic":"assets/icons/tunic.png","turtleneck-long":"assets/icons/turtleneck-long.png","turtleneck-short":"assets/icons/turtleneck-short.png","tuxedo":"assets/icons/tuxedo.png","ugg":"assets/icons/ugg.png","vest":"assets/icons/vest.png","waistcoat":"assets/icons/waistcoat.png","wedding":"assets/icons/wedding.png"};
+var ICONVER="11";
+function iconFor(it){var k=(it&&it[5])||"garment";return '<img class="gic" src="'+(ICONSRC[k]||ICONSRC.garment)+'?v='+ICONVER+'" alt="" loading="lazy">';}
 function jumpToItem(catId,name){
   var c=catById(catId);if(!c)return;
   var idx=-1;for(var i=0;i<c.items.length;i++){if(c.items[i][0]===name){idx=i;break;}}

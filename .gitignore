@@ -5,3 +5,7 @@
 !/assets/
 !/assets/**
 !/.gitignore
+
+# Рабочие бэкапы иконок — на диске остаются, но НЕ публикуются
+/assets/icons_backup_*/
+/assets/icons/*_prev_*.png
