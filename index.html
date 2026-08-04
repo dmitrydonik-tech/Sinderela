@@ -580,7 +580,9 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .vbtn.on{background:var(--brass-bg);color:var(--brass-d);border-color:var(--brass);font-weight:700}
 .vbtn:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
 .item-act{display:flex;align-items:center;justify-content:flex-end;margin-top:auto}
-.add{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--brass-d)}
+.add{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--brass-d);background:transparent;padding:8px 15px;border-radius:10px;border:1.5px solid var(--brass);transition:background .16s,color .16s,box-shadow .16s}
+.add:hover{background:var(--brass);color:#fff;box-shadow:0 6px 14px -6px rgba(169,123,79,.5)}
+.add:active{transform:translateY(1px)}
 .add svg{width:19px;height:19px}
 .stepper{display:flex;align-items:center;gap:2px;background:var(--ink);border-radius:11px;padding:3px}
 .stepper button{width:34px;height:34px;border-radius:8px;color:#fff;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center}
