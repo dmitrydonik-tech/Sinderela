@@ -1159,6 +1159,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 </div>
 
 <!-- ============ ORDER MODAL ============ -->
+<!-- ⚠ СПЯЩАЯ ФОРМА ЗАКАЗА — оставлена под будущую интеграцию с CRM «Агбис». НЕ удалять разметку: сцеплена с init (кэш .modal-p), afterChange (.js-modal) и Escape/closeModal — удаление уронит сайт. НЕ вешать класс js-order на кнопку без реального вебхука в submitOrder — иначе заявки уходят в console.log с фейковым «успехом». -->
 <div class="modal js-modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
   <div class="modal-sc js-close-modal"></div>
   <div class="modal-p">
@@ -1222,26 +1223,18 @@ var CATS=[
   sur:"furn",
   hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
-   ["Дубленка на искусственном меху (до 70 см)","Palton pe blana artificiala (până la 70 cm)",[400],1,"Sheepskin coat faux (up to 70 cm)","shearling"],
-   ["Дубленка на искусственном меху (от 70 см)","Palton pe blana artificiala (peste 70 cm)",[435],1,"Sheepskin coat faux (over 70 cm)","shearling"],
-   ["Жилет с наполнителем","Vesta cu umplutura",[260],0,"Vest padded","puffer-vest"],
-   ["Куртка без наполнителя (до 70 см)","Geaca fara umplutura (până la 70 cm)",[245],1,"Jacket unpadded (up to 70 cm)","bomber"],
-   ["Куртка без наполнителя (от 70 см)","Geaca fara umplutura (peste 70 cm)",[285],1,"Jacket unpadded (over 70 cm)","bomber"],
-   ["Куртка джинсовая","Geaca de blugi",[200],1,"Denim jacket","denim-jacket"],
-   ["Куртка с наполнителем (до 70 см)","Geaca cu umplutura (până la 70 cm)",[355],1,"Jacket padded (up to 70 cm)","puffer-jacket"],
-   ["Куртка с наполнителем (от 70 см)","Geaca cu umplutura (peste la 70 cm)",[380],1,"Jacket padded (over 70 cm)","puffer-jacket"],
-   ["Пальто без наполнителя (до 70 см)","Palton fara umplutura (până la 70 cm)",[315],1,"Coat unpadded (up to 70 cm)","coat"],
-   ["Пальто без наполнителя (от 70 см)","Palton fara umplutura (peste 70 cm)",[355],1,"Coat unpadded (over 70 cm)","coat"],
-   ["Пальто без рукавов","Palton fara maneci",[260],1,"Coat","coat"],
-   ["Пальто с наполнителем (до 70 см)","Palton cu umplutura (până la 70 cm)",[355],1,"Coat padded (up to 70 cm)","puffer-coat"],
-   ["Пальто с наполнителем (от 70 см)","Palton cu umplutura (peste 70 cm)",[380],1,"Coat padded (over 70 cm)","puffer-coat"],
-   ["Плащ (до 70 см)","Mantie (până la 70 cm)",[245],0,"Raincoat (up to 70 cm)","raincoat"],
-   ["Плащ (от 70 см)","Mantie (peste 70 cm)",[285],0,"Raincoat (over 70 cm)","raincoat"],
-   ["Тренч (до 70 см)","Trench (până la 70 cm)",[245],0,"Trench coat (up to 70 cm)","trench"],
-   ["Тренч (от 70 см)","Trench (peste 70 cm)",[285],0,"Trench coat (over 70 cm)","trench"],
-   ["Шуба из искусственного меха длинная (от 70 см)","Haina lunga din blana artificiala (peste 70 cm)",[465],1,"Fur coat faux (over 70 cm)","fur-coat"],
-   ["Шуба из искусственного меха короткая (до 70 см)","Haina scurta din blana artificiala (până la 70 cm)",[375],1,"Fur coat faux (up to 70 cm)","fur-coat"]
-]},
+   ["Куртка без наполнителя","Geacă fără umplutură",[245,285],1,"Jacket (unpadded)","bomber",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Куртка с наполнителем","Geacă cu umplutură",[355,380],1,"Jacket (padded)","puffer-jacket",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Куртка джинсовая","Geacă de blugi",[200],1,"Denim jacket","denim-jacket"],
+   ["Пальто без наполнителя","Palton fără umplutură",[315,355],1,"Coat (unpadded)","coat",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Пальто с наполнителем","Palton cu umplutură",[355,380],1,"Coat (padded)","puffer-coat",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Пальто без рукавов","Palton fără mâneci",[260],1,"Coat (sleeveless)","coat"],
+   ["Плащ","Manta",[245,285],0,"Raincoat","raincoat",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Тренч","Trench",[245,285],0,"Trench coat","trench",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Дублёнка (искусственный мех)","Palton din blană artificială",[400,435],1,"Sheepskin coat (faux)","shearling",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Шуба (искусственный мех)","Haină din blană artificială",[375,465],1,"Fur coat (faux)","fur-coat",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Жилет с наполнителем","Vestă cu umplutură",[260],0,"Vest (padded)","puffer-vest"]
+  ]},
  {id:"knit",
   name:["Свитеры и трикотаж","Tricotaje","Knitwear"],
   variants:[],
@@ -1732,6 +1725,7 @@ function updateMobileBar(t){
 }
 
 /*--- mutations ---*/
+/* afterChange дёргает .js-modal на каждое изменение корзины — НЕ удалять разметку модалки, иначе корзина падает */
 function afterChange(){renderItems();renderCart();if(document.querySelector(".js-modal").classList.contains("open")){renderOrderItems();renderSummary();}}
 function pulseInvite(){[document.querySelector(".cart"),document.querySelector(".mbar .m-calc")].forEach(function(el){if(!el)return;el.classList.remove("pulse");void el.offsetWidth;el.classList.add("pulse");setTimeout(function(){el.classList.remove("pulse");},1900);});}
 function addLine(cat,idx,vi){var l=findLine(cat,idx,vi);if(l)l.qty++;else cart.push({cat:cat,idx:idx,vi:vi,qty:1,child:"none",impreg:!!cardImp[keyOf(cat,idx)]});try{if(window.track){track("calc_add_item",{item_name:catById(cat).items[idx][0],price:catById(cat).items[idx][2][vi]});if(!window._calcDone){window._calcDone=1;var _t=totals();track("calc_complete",{value:_t.grand,items_count:_t.qtyAll});}}}catch(e){}afterChange();pulseInvite();}
@@ -1761,6 +1755,7 @@ function setLang(l){if(l===lang)return;lang=l;try{localStorage.setItem("sinderel
 var _lockY=0,_lastFocus=null;
 function lockScroll(){_lockY=window.scrollY||window.pageYOffset||0;var b=document.body;b.style.top=(-_lockY)+"px";b.style.position="fixed";b.style.left="0";b.style.right="0";b.style.width="100%";}
 function unlockScroll(){var b=document.body;b.style.position="";b.style.top="";b.style.left="";b.style.right="";b.style.width="";window.scrollTo(0,_lockY);}
+/* Открывает СПЯЩУЮ форму заказа. Класс-триггер .js-order сейчас НИ на одной кнопке — форма недостижима намеренно (ждёт интеграции Агбис). */
 function openOrder(){
   var t=totals();
   if(!cart.length){closeDrawer();var c=document.getElementById("calc");if(c.scrollIntoView)c.scrollIntoView({behavior:"smooth"});flash(document.querySelector(".calc-main"));return;}
@@ -1828,6 +1823,7 @@ function openTG(withContact){window.track&&track("click_telegram",{});copyOrder(
 function clearCart(){cart=[];afterChange();}
 function updateUrgWarn(){var w=document.getElementById("urgWarn");if(!w)return;var a=document.getElementById("ordAddr");var idx=a?a.selectedIndex:0;var elig=(idx===3||idx===4);w.style.display=(opts.urg!=="none"&&!elig)?"block":"none";}
 function jumpToCategory(catId){var c=catById(catId);if(!c)return;query="";var qEl=document.getElementById("q");if(qEl)qEl.value="";activeCat=catId;renderTabs();renderItems();scrollActiveTabIntoView();var calc=document.getElementById("calc");if(calc&&calc.scrollIntoView)calc.scrollIntoView({behavior:"smooth"});flash(document.querySelector(".calc-main"));}
+/* ⚠ МИНА: submitOrder кладёт заявку ТОЛЬКО в console.log (вебхук ниже закомментирован). НЕ вешать js-order на кнопку до подключения реального вебхука/Агбис — иначе телефоны клиентов теряются, а пользователь видит фейковый «успех». */
 function submitOrder(){
   var order={items:cart.map(function(l){return{name:catById(l.cat).items[l.idx][0],variant:l.vi,qty:l.qty,child:l.child,impreg:l.impreg,sum:lineTotal(l)};}),
     options:opts,totals:totals(),
@@ -1914,6 +1910,7 @@ function scrollActiveTabIntoView(){
 
 /*--- init ---*/
 function init(){
+  /* кэш разметки спящей модалки — НЕ удалять .modal-p, иначе null.innerHTML уронит init на загрузке */
   _modalHTML=document.querySelector(".modal-p").innerHTML;
   document.getElementById("yr").textContent=new Date().getFullYear();
   var d=document.getElementById("ordDate");if(d){var td=new Date();td.setDate(td.getDate());d.value=td.toISOString().slice(0,10);d.min=new Date().toISOString().slice(0,10);}
