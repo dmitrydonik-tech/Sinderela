@@ -906,8 +906,8 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .mapm-go:hover{background:var(--brass);color:#fff;border-color:var(--brass)}
 
 /* tabs scroll hint */
-@keyframes tabArrPulseR{0%,55%,100%{transform:translateY(-50%) translateX(0) scale(1)}30%{transform:translateY(-50%) translateX(6px) scale(1.16)}}
-@keyframes tabArrPulseL{0%,55%,100%{transform:translateY(-50%) translateX(0) scale(1)}30%{transform:translateY(-50%) translateX(-6px) scale(1.16)}}
+@keyframes tabArrPulseR{0%,55%,100%{transform:translateY(-50%) translateX(0) scale(1);background:var(--panel);color:var(--brass-d);border-color:var(--line2)}30%{transform:translateY(-50%) translateX(6px) scale(1.16);background:var(--brass);color:#fff;border-color:var(--brass)}}
+@keyframes tabArrPulseL{0%,55%,100%{transform:translateY(-50%) translateX(0) scale(1);background:var(--panel);color:var(--brass-d);border-color:var(--line2)}30%{transform:translateY(-50%) translateX(-6px) scale(1.16);background:var(--brass);color:#fff;border-color:var(--brass)}}
 .tabs-wrap.can-right .tab-arrow-r{animation:tabArrPulseR 1.6s ease-in-out infinite}
 .tabs-wrap.can-left .tab-arrow-l{animation:tabArrPulseL 1.6s ease-in-out infinite;animation-delay:-.8s}
 @media (prefers-reduced-motion: reduce){.tabs-wrap.can-right .tab-arrow-r,.tabs-wrap.can-left .tab-arrow-l{animation:none}}
