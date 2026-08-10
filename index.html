@@ -904,6 +904,11 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .mapm-list span{display:block;font-size:12px;color:var(--muted)}
 .mapm-go{flex:none;font-size:13px;font-weight:700;color:var(--brass-d);white-space:nowrap;border:1px solid var(--line2);border-radius:10px;padding:7px 12px;transition:.18s}
 .mapm-go:hover{background:var(--brass);color:#fff;border-color:var(--brass)}
+
+/* tabs scroll hint */
+@keyframes tabArrPulse{0%,55%,100%{transform:translateY(-50%) translateX(0)}30%{transform:translateY(-50%) translateX(4px)}}
+.tabs-wrap.can-right .tab-arrow-r{animation:tabArrPulse 1.7s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.tabs-wrap.can-right .tab-arrow-r{animation:none}}
 </style>
 </head>
 <body>
@@ -1916,7 +1921,7 @@ function init(){
   _modalHTML=document.querySelector(".modal-p").innerHTML;
   document.getElementById("yr").textContent=new Date().getFullYear();
   var d=document.getElementById("ordDate");if(d){var td=new Date();td.setDate(td.getDate());d.value=td.toISOString().slice(0,10);d.min=new Date().toISOString().slice(0,10);}
-  lang=detectLang();applyLang();
+  lang=detectLang();applyLang();setTimeout(function(){try{var _rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;var _tb=document.getElementById("tabs");if(!_rm&&_tb&&_tb.scrollWidth>_tb.clientWidth+8&&_tb.scrollLeft<4){_tb.scrollTo({left:34,behavior:"smooth"});setTimeout(function(){_tb.scrollTo({left:0,behavior:"smooth"});},680);}}catch(e){}},1000);
 
   function scrollCatStart(){var items=document.getElementById("items");if(!items)return;var hdr=document.querySelector(".hdr"),ctrl=document.querySelector(".calc-controls");var stick=0;if(hdr&&getComputedStyle(hdr).position==="sticky")stick+=hdr.offsetHeight;if(ctrl)stick+=ctrl.offsetHeight;var y=window.pageYOffset+items.getBoundingClientRect().top-stick-4;var beh=(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)?"auto":"smooth";window.scrollTo({top:Math.max(0,y),behavior:beh});var on=document.querySelector("#tabs .tab.on"),tb=document.getElementById("tabs");if(on&&tb){tb.scrollLeft=Math.max(0,on.offsetLeft-(tb.clientWidth-on.offsetWidth)/2);if(typeof updateTabFade==="function")updateTabFade();}}
   document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest(".tab");if(!b)return;activeCat=b.dataset.cat;query="";document.getElementById("q").value="";renderTabs();renderItems();scrollCatStart();});
