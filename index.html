@@ -1243,12 +1243,12 @@ var CATS=[
   hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
    ["Батник (в т.ч спорт)","Hanorac (incl. sport)",[180],0,"Sweatshirt","hoodie"],
-   ["Гольф","Golf",[170,145],0,"Turtleneck","turtleneck-long",[["l","длинный рукав","mânecă lungă","long sleeve"],["s","короткий рукав","mânecă scurtă","short sleeve"]]],
+   ["Гольф","Golf",[170,145],0,"Turtleneck","turtleneck-long",[["l","длинный рукав","mânecă lungă","long sleeve","turtleneck-long"],["s","короткий рукав","mânecă scurtă","short sleeve","turtleneck-short"]]],
    ["Джемпер","Jumper",[190],0,"Jumper","sweater"],
    ["Жилет (в т.ч спорт)","Vesta (incl. sport)",[180],0,"Vest","vest"],
    ["Кардиган","Cardigan",[190],0,"Cardigan","cardigan"],
    ["Кофта (в т.ч спорт)","Jachetă (incl. sport)",[190],0,"Knit top","sweater"],
-   ["Свитер","Pulover",[190,170],0,"Sweater","sweater",[["l","длинный рукав","mânecă lungă","long sleeve"],["s","короткий рукав","mânecă scurtă","short sleeve"]]],
+   ["Свитер","Pulover",[190,170],0,"Sweater","sweater",[["l","длинный рукав","mânecă lungă","long sleeve","sweater"],["s","короткий рукав","mânecă scurtă","short sleeve","sweater-short"]]],
    ["Свитшот (в т.ч спорт)","Pulover (incl. sport)",[180],0,"Sweatshirt","sweatshirt"],
    ["Толстовка (в т.ч спорт)","Bluza (incl. sport)",[180],0,"Sweatshirt","sweatshirt"],
    ["Худи (в т.ч спорт)","Gluga (incl. sport)",[180],0,"Hoodie","hoodie"]
@@ -1259,19 +1259,15 @@ var CATS=[
   sur:"furn",
   hint:["«Сложная фурнитура» (+20%): заклёпки, стразы, пайетки, вышивка, сложные молнии.","«Feronerie complexă» (+20%): nituri, strasuri, paiete, broderii, fermoare complexe.","“Complex fittings” (+20%): studs, rhinestones, sequins, embroidery, complex zippers."],
   items:[
-   ["Блузка с длинными рукавами","Bluza cu maneci lungi",[170],0,"Blouse","blouse-long"],
-   ["Блузка с короткими рукавами","Bluza cu maneci scurte",[145],0,"Blouse","blouse-short"],
+   ["Блузка","Bluză",[170,145],0,"Blouse","blouse-long",[["l","длинный рукав","mânecă lungă","long sleeve","blouse-long"],["s","короткий рукав","mânecă scurtă","short sleeve","blouse-short"]]],
    ["Болеро","Bolero",[145],0,"Bolero","bolero"],
    ["Майка","Maiou",[105],0,"Tank top","tank"],
-   ["Поло  с длинными рукавами","Polo *2  cu maneci lungi",[125],0,"Polo","polo-long"],
-   ["Поло с короткими рукавами","Polo cu maneci scurte",[115],0,"Polo","polo-short"],
-   ["Рубашка с длинными рукавами","Cămașă cu maneci lungi",[100],0,"Shirt","shirt-long"],
-   ["Рубашка с короткими рукавами","Cămașă cu maneci scurte",[90],0,"Shirt","shirt-short"],
+   ["Поло","Polo",[125,115],0,"Polo","polo-long",[["l","длинный рукав","mânecă lungă","long sleeve","polo-long"],["s","короткий рукав","mânecă scurtă","short sleeve","polo-short"]]],
+   ["Рубашка","Cămașă",[100,90],0,"Shirt","shirt-long",[["l","длинный рукав","mânecă lungă","long sleeve","shirt-long"],["s","короткий рукав","mânecă scurtă","short sleeve","shirt-short"]]],
    ["Топ","Top",[105],0,"Top","top"],
    ["Туника","Tunica",[115],0,"Tunic","tunic"],
-   ["Футболка  с короткими рукавами","Tricou cu maneci scurte",[105],0,"T-shirt","tshirt-short"],
-   ["Футболка с длинными рукавами","Tricou cu maneci lungi",[115],0,"T-shirt","tshirt-long"]
-]},
+   ["Футболка","Tricou",[115,105],0,"T-shirt","tshirt-long",[["l","длинный рукав","mânecă lungă","long sleeve","tshirt-long"],["s","короткий рукав","mânecă scurtă","short sleeve","tshirt-short"]]]
+  ]},
  {id:"suits",
   name:["Платья и костюмы","Rochii și costume","Dresses & suits"],
   variants:[],
@@ -1300,11 +1296,9 @@ var CATS=[
    ["Комбинезон длинный","Combinezon lung",[255],0,"Jumpsuit","jumpsuit"],
    ["Комбинезон короткий","Combinezon scurt",[205],0,"Jumpsuit","romper"],
    ["Лосины","Colanți",[80],0,"Leggings","leggings"],
-   ["Шорты (до 70 см.)","pânăaloni scurtă (până la 70 cm)",[125],0,"Shorts (up to 70 cm)","shorts"],
-   ["Шорты (от 70 см.)","pânăaloni scurtă (peste 70 cm)",[150],0,"Shorts (over 70 cm)","shorts"],
-   ["Юбка (до 70 см.)","Fusta (până la 70 cm)",[125],0,"Skirt (up to 70 cm)","skirt"],
-   ["Юбка (от 70 см.)","Fusta (peste 70 cm)",[190],0,"Skirt (over 70 cm)","skirt"]
-]},
+   ["Шорты","Pantaloni scurți",[125,150],0,"Shorts","shorts",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
+   ["Юбка","Fustă",[125,190],0,"Skirt","skirt",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]]
+  ]},
  {id:"acc",
   name:["Аксессуары","Accesorii","Accessories"],
   variants:[],
@@ -1333,30 +1327,23 @@ var CATS=[
   hint:["Чистка гладкой кожи — покраска включена в цену.","Curățarea pielii netede — vopsirea este inclusă în preț.","Smooth leather cleaning — dyeing is included in the price."],
   items:[
    ["Берет","Beret (sau bască)",[240],1,"Beret","beret"],
-   ["Брюки","pânăaloni",[565],1,"Trousers","trousers"],
+   ["Брюки","Pantaloni",[565],1,"Trousers","trousers"],
    ["Галстук","Cravată",[240],1,"Tie","tie"],
-   ["Жилет (без рукавов)","Vesta (fara maneci)",[595],1,"Vest","vest"],
+   ["Жилет (без рукавов)","Vestă (fără mâneci)",[595],1,"Vest","vest"],
    ["Капюшон","Glugă",[240],1,"Hood","hood"],
    ["Кепка","Șapcă",[240],1,"Cap","cap"],
-   ["Куркта, комб. с тканью (до 60 см )","Jachetă, combinată cu țesătură (până la 60 cm)",[655],1,"Jacket with fabric (up to 60 cm)","bomber"],
-   ["Куртка (более 90 см)","Jachetă (mai mult de 90 cm)",[895],1,"Jacket (over 90 cm)","bomber"],
-   ["Куртка (до 60 см)","Jachetă (până la 60 cm)",[770],1,"Jacket (up to 60 cm)","bomber"],
-   ["Куртка, комб. с тканью (более 60 см )","Jachetă, combinată cu țesătură (mai mult de 60 cm)",[760],1,"Jacket with fabric (over 60 cm)","bomber"],
+   ["Куртка","Jachetă",[770,895],1,"Jacket","bomber",[["a","до 60 см","până la 60 cm","up to 60 cm"],["b","более 90 см","peste 90 cm","over 90 cm"]]],
+   ["Куртка комб. с тканью","Jachetă combinată cu țesătură",[655,760],1,"Jacket with fabric","bomber",[["a","до 60 см","până la 60 cm","up to 60 cm"],["b","более 60 см","peste 60 cm","over 60 cm"]]],
    ["Перчатки","Mănuși",[240],1,"Gloves","gloves"],
-   ["Пиджак (до 60 см)","Sacou (până la 60 cm)",[770],1,"Blazer (up to 60 cm)","blazer"],
-   ["Пиджак (до 90 см)","Sacou (până la 90 cm)",[855],1,"Blazer (up to 90 cm)","blazer"],
-   ["Пиджак (до 90 см)","Sacou (până la 90 cm)",[855],1,"Blazer (up to 90 cm)","blazer"],
-   ["Платье, сарафан (более 90 см)","Rochie, Sarafan (mai mult de 90 cm)",[635],1,"Sundress (over 90 cm)","dress"],
-   ["Платье, сарафан (до 90 см)","Rochie, Sarafan (până la 90 cm)",[515],1,"Sundress (up to 90 cm)","dress"],
-   ["Плащ (более 90 см)","Mantou (mai mult de 90 cm)",[895],1,"Raincoat (over 90 cm)","raincoat"],
-   ["Плащ (до 90 см)","Mantou (până la 90 cm)",[855],1,"Raincoat (up to 90 cm)","raincoat"],
+   ["Пиджак","Sacou",[770,855],1,"Blazer","blazer",[["a","до 60 см","până la 60 cm","up to 60 cm"],["b","до 90 см","până la 90 cm","up to 90 cm"]]],
+   ["Платье, сарафан","Rochie, sarafan",[515,635],1,"Sundress","dress",[["b","до 90 см","până la 90 cm","up to 90 cm"],["b","более 90 см","peste 90 cm","over 90 cm"]]],
+   ["Плащ","Mantou",[855,895],1,"Raincoat","raincoat",[["b","до 90 см","până la 90 cm","up to 90 cm"],["b","более 90 см","peste 90 cm","over 90 cm"]]],
    ["Рубашка","Cămașă",[575],1,"Shirt","shirt-long"],
    ["Шапка","Căciulă",[240],1,"Hat","hat-leather"],
-   ["Шорты до 50 см","pânăaloni scurtă până la 50 cm",[435],1,"Shorts (up to 50 cm)","shorts"],
-   ["Шорты, Юбка от 50 см","pânăaloni, Fust? de la 50 cm",[555],1,"Shorts (over 50 cm)","skort"],
-   ["Юбка до 50 см","Fust? până la 50 cm",[435],1,"Skirt (up to 50 cm)","skirt"],
-   ["Юбка от 50 см","Fust? de la 50 cm",[555],1,"Skirt (over 50 cm)","skirt"]
-]},
+   ["Шорты до 50 см","Pantaloni scurți (până la 50 cm)",[435],1,"Shorts (up to 50 cm)","shorts"],
+   ["Шорты, юбка (от 50 см)","Pantaloni scurți, fustă (de la 50 cm)",[555],1,"Skort (over 50 cm)","skort"],
+   ["Юбка","Fustă",[435,555],1,"Skirt","skirt",[["a","до 50 см","până la 50 cm","up to 50 cm"],["b","от 50 см","de la 50 cm","over 50 cm"]]]
+  ]},
  {id:"suede",
   name:["Замша и нубук","Piele întoarsă și nubuc","Suede & nubuck"],
   variants:[["n", "Без покраски", "Fără vopsire", "No dyeing"], ["d", "С покраской", "Cu vopsire", "With dyeing"]],
@@ -1414,16 +1401,11 @@ var CATS=[
   items:[
    ["Балетки","Balerini",[300],1,"Ballet flats","flats"],
    ["Босоножки","Sandale cu barete",[250],1,"Sandals","sandals"],
-   ["Ботинки высокие","Ghete ?nalte",[350],1,"Boots","tall-boots"],
-   ["Ботинки низкие","Ghete joase",[330],1,"Boots","ankle-boots"],
+   ["Ботинки","Ghete",[350,330],1,"Boots","tall-boots",[["h","высокие","înalte","high","tall-boots"],["l","низкие","joase","low","ankle-boots"]]],
    ["Ботфорты, сапоги выше колен","Cizme peste genunchi",[450],1,"Over-knee boots","otk-boots"],
-   ["Валенки, UGG, аналог – высота до 20 см","Cizme tip UGG, până la 20 cm",[350],1,"Felt boots (up to 20 cm)","ugg"],
-   ["Валенки, UGG, аналог – высота от 20 см до 30 см","Cizme tip UGG, ?ntre 20–30 cm",[400],1,"Felt boots (over 20 cm)","ugg"],
-   ["Валенки, UGG, аналог – высота от 30 см","Cizme tip UGG, peste 30 cm",[450],1,"Felt boots (over 30 cm)","ugg"],
-   ["Кеды высокие","Tenisi înalți",[350],1,"Sneakers","sneakers-high"],
-   ["Кеды низкие","Tenisi joși",[300],1,"Sneakers","sneakers-low"],
-   ["Кроссовки высокие","Adidași înalți",[350],1,"Sneakers","running-high"],
-   ["Кроссовки низкие","Adidași joși",[330],1,"Sneakers","running-low"],
+   ["Валенки, UGG, аналог","Cizme tip UGG",[350,400,450],1,"Felt boots","ugg",[["a","до 20 см","până la 20 cm","up to 20 cm"],["b","20–30 см","20–30 cm","20–30 cm"],["c","от 30 см","peste 30 cm","over 30 cm"]]],
+   ["Кеды","Teniși",[350,300],1,"Sneakers","sneakers-high",[["h","высокие","înalți","high-top","sneakers-high"],["l","низкие","joși","low-top","sneakers-low"]]],
+   ["Кроссовки","Adidași",[350,330],1,"Running shoes","running-high",[["h","высокие","înalți","high-top","running-high"],["l","низкие","joși","low-top","running-low"]]],
    ["Лоферы","Loafers (sau pantofi loafers)",[300],1,"Loafers","loafers"],
    ["Мокасины","Mocassini",[300],1,"Moccasins","moccasins"],
    ["Полусапоги","Botine",[350],1,"Ankle boots","half-boots"],
@@ -1433,24 +1415,20 @@ var CATS=[
    ["Туфли","pânăofi",[300],1,"Shoes","pumps"],
    ["Шлепки","?lapi",[250],1,"Flip-flops","flipflops"],
    ["Эспадрильи","Espadrile",[300],1,"Espadrilles","espadrilles"]
-]},
+  ]},
  {id:"bags",
   name:["Сумки и ремни","Genți și curele","Bags & belts"],
   variants:[],
   hint:0,
   items:[
-   ["Пояс - НЕ из кожи","Centura - NU din piele",[55],1,"Belt","sash"],
-   ["Ремень - НЕ из кожи","Curea - NU din piele",[105],1,"Belt","belt"],
-   ["Пояс (кожа)","Centură (piele)",[240],1,"Belt (leather)","sash"],
-   ["Ремень (кожа)","Curea (piele)",[240],1,"Belt (leather)","belt"],
-   ["Пояс (замша)","Centură (piele întoarsă)",[180],1,"Belt (suede)","sash"],
-   ["Ремень (замша)","Curea (piele întoarsă)",[180],1,"Belt (suede)","belt"],
+   ["Пояс","Centură",[55,240,180],1,"Sash","sash",[["t","текстиль","textil","textile"],["k","кожа","piele","leather"],["z","замша","piele întoarsă","suede"]]],
+   ["Ремень","Curea",[105,240,180],1,"Belt","belt",[["t","текстиль","textil","textile"],["k","кожа","piele","leather"],["z","замша","piele întoarsă","suede"]]],
    ["Клатч","Clutch",[100],1,"Clutch","clutch"],
    ["Портфель","Servietă",[100],1,"Briefcase","briefcase"],
    ["Рюкзак","Rucsac",[100],1,"Backpack","backpack"],
    ["Сумка","Geantă",[100],1,"Bag","bag"],
    ["Чемодан","Valiză",[100],1,"Suitcase","suitcase"]
-]},
+  ]},
  {id:"bedding",
   name:["Постельное и полотенца","Lenjerie și prosoape","Bedding & towels"],
   variants:[],
@@ -1480,14 +1458,12 @@ var CATS=[
   hint:0,
   items:[
    ["Игрушка 1кг (маркировка обязат.)","Jucărie 1kg (etichetare obligatorie)",[60],0,"Soft toy","toy"],
-   ["Ткань без наполнителя 1м²","țesătură fără umplutură 1m²",[45],0,"Fabric unpadded","fabric"],
+   ["Ткань без наполнителя 1м²","Țesătură fără umplutură 1m²",[45],0,"Fabric unpadded","fabric"],
    ["Фартук","Șorț",[80],0,"Apron","apron"],
    ["Скатерть настольная","Față de masă",[50],0,"Tablecloth","tablecloth"],
    ["Чехлы с наполнителем до 2см 1м²","Huse cu umplutură ≤2cm 1m²",[150],0,"Cover padded (up to 2 cm)","cushion-cover"],
-   ["Шторы плотные, гобелен 1м²","Draperii groase, goblen 1m²",[50],0,"Curtains","curtain"],
-   ["Шторы с подкладкой 1м²","Draperii cu căptușeală 1m²",[60],0,"Curtains","curtain"],
-   ["Шторы тонкие, тюль 1м²","Draperii subțiri, tul 1m²",[45],0,"Curtains","curtain"]
-]}
+   ["Шторы 1м²","Draperii 1m²",[45,50,60],0,"Curtains","curtain",[["a","тонкие, тюль","subțiri, tul","sheer, tulle"],["b","плотные, гобелен","groase, goblen","heavy, tapestry"],["c","с подкладкой","cu căptușeală","lined"]]]
+  ]}
 ];
 
 /*========= I18N =========*/
@@ -1670,7 +1646,7 @@ function renderItems(){
     var vh="";
     if(vs.length>1){vh='<div class="variants">';vs.forEach(function(v,i){var dis=it[2][i]==null;vh+='<button class="vbtn'+(i===vi?" on":"")+'" data-vpick="'+e.c.id+'|'+e.idx+'|'+i+'"'+(dis?" disabled":"")+'>'+ (lang==="ru"?v[1]:lang==="ro"?v[2]:v[3]) +'</button>';});vh+='</div>';}
     var act=line?stepperHTML(e.c.id,e.idx,vi,line.qty):'<button class="add" data-add="'+e.c.id+'|'+e.idx+'|'+vi+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5h15l-1.1 8.2a2.2 2.2 0 0 1-2.2 1.9H7.8a2.2 2.2 0 0 1-2.2-1.9L4.5 8.5Z"/><path d="M8.5 8.5 12 3.8l3.5 4.7"/><path d="M9.7 12v3.2M14.3 12v3.2"/></svg>'+L("add_btn")+'</button>';
-    h+='<div class="item'+(line?" in":"")+'" data-key="'+e.c.id+'|'+e.idx+'"><div class="item-ic">'+iconFor(it)+'</div><div class="item-main"><div class="item-t"><span class="item-nm">'+nm(it)+'</span><span class="item-pr">'+price+' <small>'+CUR[lang]+'</small></span></div>'+vh+((e.c.sur==="impreg")?'<div class="variants"><button class="vbtn imp'+(impON?' on':'')+'" data-cimp="'+e.c.id+'|'+e.idx+'">'+L('impreg')+'</button></div>':'')+'<div class="item-act">'+act+'</div></div></div>';
+    h+='<div class="item'+(line?" in":"")+'" data-key="'+e.c.id+'|'+e.idx+'"><div class="item-ic">'+iconFor(it,(vs[vi]&&vs[vi][4]))+'</div><div class="item-main"><div class="item-t"><span class="item-nm">'+nm(it)+'</span><span class="item-pr">'+price+' <small>'+CUR[lang]+'</small></span></div>'+vh+((e.c.sur==="impreg")?'<div class="variants"><button class="vbtn imp'+(impON?' on':'')+'" data-cimp="'+e.c.id+'|'+e.idx+'">'+L('impreg')+'</button></div>':'')+'<div class="item-act">'+act+'</div></div></div>';
   });
   host.innerHTML=h;
   document.getElementById("noRes").style.display=list.length?"none":"block";
@@ -1881,8 +1857,8 @@ var ICONS={
  hanger:'<path d="M12 5a2 2 0 1 1 1.8 2C13 7.2 12 7.9 12 9"/><path d="M4.5 17.5 12 12l7.5 5.5a1 1 0 0 1-.6 1.8H5.1a1 1 0 0 1-.6-1.8Z"/>'
 };
 var ICONSRC={"knee-boots":"assets/icons/knee-boots.png","womens-blazer":"assets/icons/womens-blazer.png","half-boots":"assets/icons/half-boots.png","slip-ons":"assets/icons/slip-ons.png","coat-sleeveless":"assets/icons/coat-sleeveless.png","running-high":"assets/icons/running-high.png","running-low":"assets/icons/running-low.png","ankle-boots":"assets/icons/ankle-boots.png","apron":"assets/icons/apron.png","backpack":"assets/icons/backpack.png","bag":"assets/icons/bag.png","beanie":"assets/icons/beanie.png","bedsheet":"assets/icons/bedsheet.png","belt":"assets/icons/belt.png","beret":"assets/icons/beret.png","blanket":"assets/icons/blanket.png","blazer":"assets/icons/blazer.png","blouse-long":"assets/icons/blouse-long.png","blouse-short":"assets/icons/blouse-short.png","bolero":"assets/icons/bolero.png","bomber":"assets/icons/bomber.png","briefcase":"assets/icons/briefcase.png","cap":"assets/icons/cap.png","cardigan":"assets/icons/cardigan.png","clutch":"assets/icons/clutch.png","coat":"assets/icons/coat.png","curtain":"assets/icons/curtain.png","cushion-cover":"assets/icons/cushion-cover.png","denim-jacket":"assets/icons/denim-jacket.png","dress":"assets/icons/dress.png","duvet":"assets/icons/duvet.png","duvet-cover":"assets/icons/duvet-cover.png","espadrilles":"assets/icons/espadrilles.png","fabric":"assets/icons/fabric.png","flats":"assets/icons/flats.png","flipflops":"assets/icons/flipflops.png","fur":"assets/icons/fur.png","fur-coat":"assets/icons/fur-coat.png","fur-collar":"assets/icons/fur-collar.png","fur-hat":"assets/icons/fur-hat.png","fur-lining":"assets/icons/fur-lining.png","fur-vest":"assets/icons/fur-vest.png","garment":"assets/icons/garment.png","gloves":"assets/icons/gloves.png","gown":"assets/icons/gown.png","hat":"assets/icons/hat.png","hat-leather":"assets/icons/hat-leather.png","hood":"assets/icons/hood.png","hoodie":"assets/icons/hoodie.png","jacket":"assets/icons/jacket.png","jeans":"assets/icons/jeans.png","joggers":"assets/icons/joggers.png","jumpsuit":"assets/icons/jumpsuit.png","kerchief":"assets/icons/kerchief.png","knit-vest":"assets/icons/knit-vest.png","leggings":"assets/icons/leggings.png","loafers":"assets/icons/loafers.png","mattress-pad":"assets/icons/mattress-pad.png","moccasins":"assets/icons/moccasins.png","napkin":"assets/icons/napkin.png","otk-boots":"assets/icons/otk-boots.png","pajamas":"assets/icons/pajamas.png","pants":"assets/icons/pants.png","pashmina":"assets/icons/pashmina.png","pelt":"assets/icons/pelt.png","pillow":"assets/icons/pillow.png","pillowcase":"assets/icons/pillowcase.png","polo-long":"assets/icons/polo-long.png","polo-short":"assets/icons/polo-short.png","puffer-coat":"assets/icons/puffer-coat.png","puffer-jacket":"assets/icons/puffer-jacket.png","puffer-vest":"assets/icons/puffer-vest.png","pumps":"assets/icons/pumps.png","raincoat":"assets/icons/raincoat.png","robe":"assets/icons/robe.png","romper":"assets/icons/romper.png","sandals":"assets/icons/sandals.png","sash":"assets/icons/sash.png","scarf":"assets/icons/scarf.png","shawl":"assets/icons/shawl.png","shearling":"assets/icons/shearling.png","shirt":"assets/icons/shirt.png","shirt-long":"assets/icons/shirt-long.png","shirt-short":"assets/icons/shirt-short.png","shoe":"assets/icons/shoe.png","shorts":"assets/icons/shorts.png","skirt":"assets/icons/skirt.png","skort":"assets/icons/skort.png","sneakers-high":"assets/icons/sneakers-high.png","sneakers-low":"assets/icons/sneakers-low.png","stole":"assets/icons/stole.png","suitcase":"assets/icons/suitcase.png","sweater":"assets/icons/sweater.png","sweater-short":"assets/icons/sweater-short.png","sweatshirt":"assets/icons/sweatshirt.png","tablecloth":"assets/icons/tablecloth.png","tall-boots":"assets/icons/tall-boots.png","tank":"assets/icons/tank.png","tie":"assets/icons/tie.png","tights":"assets/icons/tights.png","top":"assets/icons/top.png","towel":"assets/icons/towel.png","toy":"assets/icons/toy.png","trench":"assets/icons/trench.png","trousers":"assets/icons/trousers.png","tshirt":"assets/icons/tshirt.png","tshirt-long":"assets/icons/tshirt-long.png","tshirt-short":"assets/icons/tshirt-short.png","tunic":"assets/icons/tunic.png","turtleneck-long":"assets/icons/turtleneck-long.png","turtleneck-short":"assets/icons/turtleneck-short.png","tuxedo":"assets/icons/tuxedo.png","ugg":"assets/icons/ugg.png","vest":"assets/icons/vest.png","waistcoat":"assets/icons/waistcoat.png","wedding":"assets/icons/wedding.png"};
-var ICONVER="12";
-function iconFor(it){var k=(it&&it[5])||"garment";return '<img class="gic" src="'+(ICONSRC[k]||ICONSRC.garment)+'?v='+ICONVER+'" alt="" loading="lazy">';}
+var ICONVER="13";
+function iconFor(it,ov){var k=(ov)||(it&&it[5])||"garment";return '<img class="gic" src="'+(ICONSRC[k]||ICONSRC.garment)+'?v='+ICONVER+'" alt="" loading="lazy">';}
 function jumpToItem(catId,name){
   var c=catById(catId);if(!c)return;
   var idx=-1;for(var i=0;i<c.items.length;i++){if(c.items[i][0]===name){idx=i;break;}}
