@@ -1304,22 +1304,19 @@ var CATS=[
   variants:[],
   hint:0,
   items:[
-   ["Берет - НЕ из кожи","Bereta din blana artificiala - NU din piele",[55],0,"Beret","beret"],
-   ["Галстук - НЕ из кожи","Cravata - NU din piele",[40],0,"Tie","tie"],
-   ["Капюшон - НЕ из кожи","Gluga - NU din piele",[70],0,"Hood","hood"],
-   ["Кепка текстиль - НЕ из кожи","Sapca textil - NU din piele",[70],0,"Cap","cap"],
-   ["Палантин - НЕ из меха","Pelerina - NU din blana",[115],0,"Stole","stole"],
-   ["Палантин","Pelerina",[235],0,"Stole","stole"],
-   ["Пашмина - НЕ из меха","Pashmina - NU din blana",[115],0,"Pashmina","pashmina"],
-   ["Пашмина","Pashmina",[235],0,"Pashmina","pashmina"],
-   ["Перчатки - НЕ из кожи","Manuti de lana - NU din piele",[105],0,"Gloves","gloves"],
-   ["Платок - НЕ из меха","Esarfa - NU din blana",[60],0,"Kerchief","kerchief"],
-   ["Подстёжка из искусственного меха","Captuseala din blana artificiala",[235],0,"Liner faux","fur-lining"],
-   ["Подстёжка тканевая - НЕ из меха","Captuseala textila - NU din blana",[115],0,"Liner","fur-lining"],
-   ["Шаль - НЕ из меха.","Sal - NU din blana",[115],0,"Shawl","shawl"],
-   ["Шапка - НЕ из кожи","Palarie - NU din piele",[105],0,"Hat","beanie"],
-   ["Шарф - НЕ из кожи","Fular - NU din piele",[105],0,"Scarf","scarf"]
-]},
+   ["Берет (не кожа)","Beretă (non-piele)",[55],0,"Beret","beret"],
+   ["Галстук (не кожа)","Cravată (non-piele)",[40],0,"Tie","tie"],
+   ["Капюшон (не кожа)","Glugă (non-piele)",[70],0,"Hood","hood"],
+   ["Кепка (не кожа)","Șapcă (non-piele)",[70],0,"Cap","cap"],
+   ["Палантин","Pelerină",[115,235],0,"Stole","stole",[["a","без меха","fără blană","fur-free"],["b","с мехом","cu blană","with fur"]]],
+   ["Пашмина","Pashmina",[115,235],0,"Pashmina","pashmina",[["a","без меха","fără blană","fur-free"],["b","с мехом","cu blană","with fur"]]],
+   ["Перчатки (не кожа)","Mănuși (non-piele)",[105],0,"Gloves","gloves"],
+   ["Платок (не мех)","Batic (non-blană)",[60],0,"Kerchief","kerchief"],
+   ["Подстёжка","Căptușeală",[115,235],0,"Liner","fur-lining",[["a","тканевая","textilă","textile"],["b","искусственный мех","blană artificială","faux fur"]]],
+   ["Шаль (не мех)","Șal (non-blană)",[115],0,"Shawl","shawl"],
+   ["Шапка (не кожа)","Pălărie (non-piele)",[105],0,"Hat","beanie"],
+   ["Шарф (не кожа)","Fular (non-piele)",[105],0,"Scarf","scarf"]
+  ]},
  {id:"leather",
   name:["Гладкая кожа","Piele netedă","Smooth leather"],
   variants:[],
@@ -1351,33 +1348,22 @@ var CATS=[
   hint:["«Без покраски» — только чистка. «С покраской» — восстановление цвета.","„Fără vopsire” — doar curățare. „Cu vopsire” — restaurarea culorii.","“No dyeing” — cleaning only. “With dyeing” — colour restoration."],
   items:[
    ["Берет","Beret (sau bască)",[180,255],1,"Beret","beret"],
-   ["Брюки","Pantaloni",[415,595],1,"Trousers","trousers"],
    ["Галстук","Cravată",[180,255],1,"Tie","tie"],
-   ["Дубленка (более 90 см)","Jachetă de piele întoarsă (mai mult de 90 cm)",[750,1075],1,"Sheepskin coat (over 90 cm)","shearling"],
-   ["Дубленка (до 60 см)","Jachetă de piele întoarsă (până la 60 cm)",[570,815],1,"Sheepskin coat (up to 60 cm)","shearling"],
-   ["Дубленка (от 60 до 90 см)","Jachetă de piele întoarsă (de la 60 până la 90 cm)",[680,965],1,"Sheepskin coat (up to 90 cm)","shearling"],
+   ["Дублёнка","Jachetă de piele întoarsă",[570,815,680,965,750,1075],1,"Sheepskin coat","shearling",[["a","до 60 см","până la 60 cm","up to 60 cm"],["b","60–90 см","60–90 cm","60–90 cm"],["c","более 90 см","peste 90 cm","over 90 cm"]]],
    ["Жилет (без рукавов)","Vestă (fără mâneci)",[440,900],1,"Vest","vest"],
    ["Капюшон","Glugă",[180,255],1,"Hood","hood"],
    ["Кепка","Șapcă",[180,255],1,"Cap","cap"],
-   ["Куркта, комб. с тканью (до 60 см )","Jachetă, combinată cu țesătură (până la 60 cm)",[485,690],1,"Jacket with fabric (up to 60 cm)","bomber"],
-   ["Куртка (более 90 см)","Jachetă (mai mult de 90 cm)",[660,945],1,"Jacket (over 90 cm)","bomber"],
-   ["Куртка (до 60 см)","Jachetă (până la 60 cm)",[565,810],1,"Jacket (up to 60 cm)","bomber"],
-   ["Куртка (до 90 см)","Jachetă (până la 90 cm)",[630,900],1,"Jacket (up to 90 cm)","bomber"],
-   ["Куртка, комб. с тканью (более 60 см )","Jachetă, combinată cu țesătură (mai mult de 60 cm)",[560,800],1,"Jacket with fabric (over 60 cm)","bomber"],
+   ["Куртка","Jachetă",[565,810,630,900,660,945],1,"Jacket","bomber",[["a","до 60 см","până la 60 cm","up to 60 cm"],["b","до 90 см","până la 90 cm","up to 90 cm"],["c","более 90 см","peste 90 cm","over 90 cm"]]],
+   ["Куртка комб. с тканью","Jachetă combinată cu țesătură",[485,690,560,800],1,"Jacket with fabric","bomber",[["a","до 60 см","până la 60 cm","up to 60 cm"],["b","более 60 см","peste 60 cm","over 60 cm"]]],
    ["Перчатки","Mănuși",[180,255],1,"Gloves","gloves"],
-   ["Пиджак (до 60 см)","Sacou (până la 60 cm)",[565,625],1,"Blazer (up to 60 cm)","blazer"],
-   ["Пиджак (до 90 см)","Sacou (până la 90 cm)",[630,810],1,"Blazer (up to 90 cm)","blazer"],
-   ["Платье, сарафан (более 90 см)","Rochie, Sarafan (mai mult de 90 cm)",[470,670],1,"Sundress (over 90 cm)","dress"],
-   ["Платье, сарафан (до 90 см)","Rochie, Sarafan (până la 90 cm)",[380,540],1,"Sundress (up to 90 cm)","dress"],
-   ["Плащ (более 90 см)","Mantou (mai mult de 90 cm)",[660,945],1,"Raincoat (over 90 cm)","raincoat"],
-   ["Плащ (до 90 см)","Mantou (până la 90 cm)",[630,900],1,"Raincoat (up to 90 cm)","raincoat"],
+   ["Пиджак","Sacou",[565,625,630,810],1,"Blazer","blazer",[["a","до 60 см","până la 60 cm","up to 60 cm"],["b","до 90 см","până la 90 cm","up to 90 cm"]]],
+   ["Платье, сарафан","Rochie, sarafan",[380,540,470,670],1,"Sundress","dress",[["b","до 90 см","până la 90 cm","up to 90 cm"],["c","более 90 см","peste 90 cm","over 90 cm"]]],
+   ["Плащ","Mantou",[630,900,660,945],1,"Raincoat","raincoat",[["b","до 90 см","până la 90 cm","up to 90 cm"],["c","более 90 см","peste 90 cm","over 90 cm"]]],
    ["Рубашка","Cămașă",[420,605],1,"Shirt","shirt-long"],
    ["Шапка","Căciulă",[180,255],1,"Hat","hat-leather"],
-   ["Шорты до 50 см","Pantaloni scurți până la 50 cm",[320,460],1,"Shorts (up to 50 cm)","shorts"],
-   ["Шорты от 50 см","Pantaloni de la 50 cm",[410,460],1,"Shorts (over 50 cm)","shorts"],
-   ["Юбка до 50 см","Fustă până la 50 cm",[320,585],1,"Skirt (up to 50 cm)","skirt"],
-   ["Юбка от 50 см","Fustă de la 50 cm",[410,585],1,"Skirt (over 50 cm)","skirt"]
-]},
+   ["Шорты","Pantaloni scurți",[320,460,410,460],1,"Shorts","shorts",[["a","до 50 см","până la 50 cm","up to 50 cm"],["b","от 50 см","de la 50 cm","over 50 cm"]]],
+   ["Юбка","Fustă",[320,585,410,585],1,"Skirt","skirt",[["a","до 50 см","până la 50 cm","up to 50 cm"],["b","от 50 см","de la 50 cm","over 50 cm"]]]
+  ]},
  {id:"fur",
   name:["Натуральный мех","Blană naturală","Natural fur"],
   variants:[],
@@ -1596,6 +1582,7 @@ function plural(n){n=Math.abs(n)|0;if(lang==="ru"){var a=n%10,b=n%100;if(a===1&&
 function catById(id){for(var i=0;i<CATS.length;i++)if(CATS[i].id===id)return CATS[i];}
 function nm(arr){return lang==="ru"?arr[0]:lang==="ro"?arr[1]:arr[4];}
 function firstVi(it){for(var i=0;i<it[2].length;i++)if(it[2][i]!=null)return i;return 0;}
+function varLabel(it,cat,vi){var sz=it[6],dy=cat.variants,LG=function(v){return lang==="ru"?v[1]:lang==="ro"?v[2]:v[3];};if(sz&&sz.length&&dy&&dy.length){var nD=dy.length,si=Math.floor(vi/nD),di=vi%nD;return LG(sz[si])+", "+LG(dy[di]);}var vs=(sz&&sz.length?sz:dy);return vs.length>1?LG(vs[vi]):"";}
 function keyOf(cat,idx){return cat+"|"+idx;}
 function getVi(cat,idx){var k=keyOf(cat,idx);if(cardVar[k]==null)cardVar[k]=firstVi(catById(cat).items[idx]);return cardVar[k];}
 function findLine(cat,idx,vi){for(var i=0;i<cart.length;i++){var l=cart[i];if(l.cat===cat&&l.idx===idx&&l.vi===vi)return l;}return null;}
@@ -1643,8 +1630,9 @@ function renderItems(){
   list.forEach(function(e){
     var it=e.c.items[e.idx],vs=(it[6]&&it[6].length?it[6]:e.c.variants),vi=getVi(e.c.id,e.idx);
     var line=findLine(e.c.id,e.idx,vi);var impON=(e.c.sur==="impreg")?(line?line.impreg:!!cardImp[keyOf(e.c.id,e.idx)]):false;var price=impON?Math.round(it[2][vi]*1.2):it[2][vi];
-    var vh="";
-    if(vs.length>1){vh='<div class="variants">';vs.forEach(function(v,i){var dis=it[2][i]==null;vh+='<button class="vbtn'+(i===vi?" on":"")+'" data-vpick="'+e.c.id+'|'+e.idx+'|'+i+'"'+(dis?" disabled":"")+'>'+ (lang==="ru"?v[1]:lang==="ro"?v[2]:v[3]) +'</button>';});vh+='</div>';}
+    var vh="",_sz=it[6],_dy=e.c.variants;
+    if(_sz&&_sz.length&&_dy&&_dy.length){var _nD=_dy.length,_si=Math.floor(vi/_nD),_di=vi%_nD,_lg=function(v){return lang==="ru"?v[1]:lang==="ro"?v[2]:v[3];};vh='<div class="variants">';_sz.forEach(function(v,si){var fi=si*_nD+_di,dis=it[2][fi]==null;vh+='<button class="vbtn'+(si===_si?" on":"")+'" data-vpick="'+e.c.id+'|'+e.idx+'|'+fi+'"'+(dis?" disabled":"")+'>'+_lg(v)+'</button>';});vh+='</div><div class="variants">';_dy.forEach(function(v,di){var fi=_si*_nD+di,dis=it[2][fi]==null;vh+='<button class="vbtn'+(di===_di?" on":"")+'" data-vpick="'+e.c.id+'|'+e.idx+'|'+fi+'"'+(dis?" disabled":"")+'>'+_lg(v)+'</button>';});vh+='</div>';}
+    else if(vs.length>1){vh='<div class="variants">';vs.forEach(function(v,i){var dis=it[2][i]==null;vh+='<button class="vbtn'+(i===vi?" on":"")+'" data-vpick="'+e.c.id+'|'+e.idx+'|'+i+'"'+(dis?" disabled":"")+'>'+ (lang==="ru"?v[1]:lang==="ro"?v[2]:v[3]) +'</button>';});vh+='</div>';}
     var act=line?stepperHTML(e.c.id,e.idx,vi,line.qty):'<button class="add" data-add="'+e.c.id+'|'+e.idx+'|'+vi+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5h15l-1.1 8.2a2.2 2.2 0 0 1-2.2 1.9H7.8a2.2 2.2 0 0 1-2.2-1.9L4.5 8.5Z"/><path d="M8.5 8.5 12 3.8l3.5 4.7"/><path d="M9.7 12v3.2M14.3 12v3.2"/></svg>'+L("add_btn")+'</button>';
     h+='<div class="item'+(line?" in":"")+'" data-key="'+e.c.id+'|'+e.idx+'"><div class="item-ic">'+iconFor(it,(vs[vi]&&vs[vi][4]))+'</div><div class="item-main"><div class="item-t"><span class="item-nm">'+nm(it)+'</span><span class="item-pr">'+price+' <small>'+CUR[lang]+'</small></span></div>'+vh+((e.c.sur==="impreg")?'<div class="variants"><button class="vbtn imp'+(impON?' on':'')+'" data-cimp="'+e.c.id+'|'+e.idx+'">'+L('impreg')+'</button></div>':'')+'<div class="item-act">'+act+'</div></div></div>';
   });
@@ -1672,7 +1660,7 @@ function renderCart(){var _ce=document.querySelector(".cart");if(_ce)_ce.classLi
   var h="";
   cart.forEach(function(l,i){
     var it=catById(l.cat).items[l.idx],vs=(it[6]&&it[6].length?it[6]:catById(l.cat).variants);
-    var vlabel=vs.length>1?(lang==="ru"?vs[l.vi][1]:lang==="ro"?vs[l.vi][2]:vs[l.vi][3]):"";
+    var vlabel=varLabel(it,catById(l.cat),l.vi);
     var sur=catById(l.cat).sur;var impLbl=(sur==="impreg"&&l.impreg)?(lang==="ru"?"пропитка":lang==="ro"?"impregnare":"impregnation"):"";
     var oc=(sur==="furn")?'<button class="oc'+(l.impreg?" on":"")+'" data-impreg="'+i+'">'+L(sur)+'</button>':'';
     h+='<div class="cline"><div class="cline-t"><div class="cline-nm">'+nm(it)+(vlabel?'<small>'+vlabel+'</small>':'')+(impLbl?'<small>+ '+impLbl+'</small>':'')+'</div><div class="cline-pr">'+money(lineTotal(l))+'</div></div>'+
@@ -1753,7 +1741,7 @@ function renderOrderItems(){
   if(!cart.length){h='<p class="sub">'+L("cart_empty")+'</p>';}
   cart.forEach(function(l,i){
     var it=catById(l.cat).items[l.idx],vs=(it[6]&&it[6].length?it[6]:catById(l.cat).variants);
-    var vlabel=vs.length>1?" · "+(lang==="ru"?vs[l.vi][1]:lang==="ro"?vs[l.vi][2]:vs[l.vi][3]):"";
+    var _vl=varLabel(it,catById(l.cat),l.vi);var vlabel=_vl?" · "+_vl:"";
     h+='<div class="cline"><div class="cline-t"><div class="cline-nm">'+nm(it)+'<small>'+(vlabel?vlabel.replace(" · ",""):"")+'</small></div><div class="cline-pr">'+money(lineTotal(l))+'</div></div>'+
        '<div class="cline-b"><span style="font-size:12px;color:var(--muted)"></span><div class="stepper sm">'+(l.qty<=1?'<button class="st-trash" data-cq="'+i+'|-1" aria-label="'+L("aria_del")+'">'+TRASH+'</button>':'<button data-cq="'+i+'|-1">−</button>')+'<span>'+l.qty+'</span><button data-cq="'+i+'|1">+</button></div></div></div>';
   });
@@ -1857,7 +1845,7 @@ var ICONS={
  hanger:'<path d="M12 5a2 2 0 1 1 1.8 2C13 7.2 12 7.9 12 9"/><path d="M4.5 17.5 12 12l7.5 5.5a1 1 0 0 1-.6 1.8H5.1a1 1 0 0 1-.6-1.8Z"/>'
 };
 var ICONSRC={"knee-boots":"assets/icons/knee-boots.png","womens-blazer":"assets/icons/womens-blazer.png","half-boots":"assets/icons/half-boots.png","slip-ons":"assets/icons/slip-ons.png","coat-sleeveless":"assets/icons/coat-sleeveless.png","running-high":"assets/icons/running-high.png","running-low":"assets/icons/running-low.png","ankle-boots":"assets/icons/ankle-boots.png","apron":"assets/icons/apron.png","backpack":"assets/icons/backpack.png","bag":"assets/icons/bag.png","beanie":"assets/icons/beanie.png","bedsheet":"assets/icons/bedsheet.png","belt":"assets/icons/belt.png","beret":"assets/icons/beret.png","blanket":"assets/icons/blanket.png","blazer":"assets/icons/blazer.png","blouse-long":"assets/icons/blouse-long.png","blouse-short":"assets/icons/blouse-short.png","bolero":"assets/icons/bolero.png","bomber":"assets/icons/bomber.png","briefcase":"assets/icons/briefcase.png","cap":"assets/icons/cap.png","cardigan":"assets/icons/cardigan.png","clutch":"assets/icons/clutch.png","coat":"assets/icons/coat.png","curtain":"assets/icons/curtain.png","cushion-cover":"assets/icons/cushion-cover.png","denim-jacket":"assets/icons/denim-jacket.png","dress":"assets/icons/dress.png","duvet":"assets/icons/duvet.png","duvet-cover":"assets/icons/duvet-cover.png","espadrilles":"assets/icons/espadrilles.png","fabric":"assets/icons/fabric.png","flats":"assets/icons/flats.png","flipflops":"assets/icons/flipflops.png","fur":"assets/icons/fur.png","fur-coat":"assets/icons/fur-coat.png","fur-collar":"assets/icons/fur-collar.png","fur-hat":"assets/icons/fur-hat.png","fur-lining":"assets/icons/fur-lining.png","fur-vest":"assets/icons/fur-vest.png","garment":"assets/icons/garment.png","gloves":"assets/icons/gloves.png","gown":"assets/icons/gown.png","hat":"assets/icons/hat.png","hat-leather":"assets/icons/hat-leather.png","hood":"assets/icons/hood.png","hoodie":"assets/icons/hoodie.png","jacket":"assets/icons/jacket.png","jeans":"assets/icons/jeans.png","joggers":"assets/icons/joggers.png","jumpsuit":"assets/icons/jumpsuit.png","kerchief":"assets/icons/kerchief.png","knit-vest":"assets/icons/knit-vest.png","leggings":"assets/icons/leggings.png","loafers":"assets/icons/loafers.png","mattress-pad":"assets/icons/mattress-pad.png","moccasins":"assets/icons/moccasins.png","napkin":"assets/icons/napkin.png","otk-boots":"assets/icons/otk-boots.png","pajamas":"assets/icons/pajamas.png","pants":"assets/icons/pants.png","pashmina":"assets/icons/pashmina.png","pelt":"assets/icons/pelt.png","pillow":"assets/icons/pillow.png","pillowcase":"assets/icons/pillowcase.png","polo-long":"assets/icons/polo-long.png","polo-short":"assets/icons/polo-short.png","puffer-coat":"assets/icons/puffer-coat.png","puffer-jacket":"assets/icons/puffer-jacket.png","puffer-vest":"assets/icons/puffer-vest.png","pumps":"assets/icons/pumps.png","raincoat":"assets/icons/raincoat.png","robe":"assets/icons/robe.png","romper":"assets/icons/romper.png","sandals":"assets/icons/sandals.png","sash":"assets/icons/sash.png","scarf":"assets/icons/scarf.png","shawl":"assets/icons/shawl.png","shearling":"assets/icons/shearling.png","shirt":"assets/icons/shirt.png","shirt-long":"assets/icons/shirt-long.png","shirt-short":"assets/icons/shirt-short.png","shoe":"assets/icons/shoe.png","shorts":"assets/icons/shorts.png","skirt":"assets/icons/skirt.png","skort":"assets/icons/skort.png","sneakers-high":"assets/icons/sneakers-high.png","sneakers-low":"assets/icons/sneakers-low.png","stole":"assets/icons/stole.png","suitcase":"assets/icons/suitcase.png","sweater":"assets/icons/sweater.png","sweater-short":"assets/icons/sweater-short.png","sweatshirt":"assets/icons/sweatshirt.png","tablecloth":"assets/icons/tablecloth.png","tall-boots":"assets/icons/tall-boots.png","tank":"assets/icons/tank.png","tie":"assets/icons/tie.png","tights":"assets/icons/tights.png","top":"assets/icons/top.png","towel":"assets/icons/towel.png","toy":"assets/icons/toy.png","trench":"assets/icons/trench.png","trousers":"assets/icons/trousers.png","tshirt":"assets/icons/tshirt.png","tshirt-long":"assets/icons/tshirt-long.png","tshirt-short":"assets/icons/tshirt-short.png","tunic":"assets/icons/tunic.png","turtleneck-long":"assets/icons/turtleneck-long.png","turtleneck-short":"assets/icons/turtleneck-short.png","tuxedo":"assets/icons/tuxedo.png","ugg":"assets/icons/ugg.png","vest":"assets/icons/vest.png","waistcoat":"assets/icons/waistcoat.png","wedding":"assets/icons/wedding.png"};
-var ICONVER="13";
+var ICONVER="14";
 function iconFor(it,ov){var k=(ov)||(it&&it[5])||"garment";return '<img class="gic" src="'+(ICONSRC[k]||ICONSRC.garment)+'?v='+ICONVER+'" alt="" loading="lazy">';}
 function jumpToItem(catId,name){
   var c=catById(catId);if(!c)return;
