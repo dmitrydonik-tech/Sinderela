@@ -913,6 +913,9 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 @media (prefers-reduced-motion: reduce){.tabs-wrap.can-right .tab-arrow-r,.tabs-wrap.can-left .tab-arrow-l{animation:none}}
 .hero-call{display:none}
 @media(max-width:900px){.hero-calc{display:none}.hero-call{display:inline-flex}}
+.age-seg{display:flex;gap:6px;margin-top:9px}
+.age-btn{flex:1;padding:6px 4px;border:1px solid var(--line2);border-radius:9px;background:var(--panel2);color:var(--muted);font-size:11px;font-weight:700;line-height:1.15;cursor:pointer;transition:.16s}
+.age-btn.on{background:var(--brass);color:#fff;border-color:var(--brass)}
 </style>
 </head>
 <body>
@@ -1266,7 +1269,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 /*========= DATA: PRICES (MDL) — реальный прайс клиента =========*/
 /* item: [ru, ro, [prices aligned to variants], d6(readiness 6 days) ] ; null price = вариант недоступен */
 var CATS=[
- {id:"outer",
+ {id:"outer",child:1,
   name:["Верхняя одежда","Îmbrăcăminte exterioară","Outerwear"],
   variants:[],
   sur:"furn",
@@ -1284,7 +1287,7 @@ var CATS=[
    ["Шуба (искусственный мех)","Haină din blană artificială",[375,465],1,"Fur coat (faux)","fur-coat",[["u","до 70 см","până la 70 cm","up to 70 cm"],["o","от 70 см","peste 70 cm","over 70 cm"]]],
    ["Жилет с наполнителем","Vestă cu umplutură",[260],0,"Vest (padded)","puffer-vest"]
   ]},
- {id:"knit",
+ {id:"knit",child:1,
   name:["Свитеры и трикотаж","Tricotaje","Knitwear"],
   variants:[],
   sur:"furn",
@@ -1301,7 +1304,7 @@ var CATS=[
    ["Толстовка (в т.ч спорт)","Bluza (incl. sport)",[180],0,"Sweatshirt","zip-sweat"],
    ["Худи (в т.ч спорт)","Gluga (incl. sport)",[180],0,"Hoodie","hoodie"]
   ]},
- {id:"casual",
+ {id:"casual",child:1,
   name:["Рубашки, блузки, футболки","Cămăși, bluze, tricouri","Shirts & blouses"],
   variants:[],
   sur:"furn",
@@ -1316,7 +1319,7 @@ var CATS=[
    ["Туника","Tunica",[115],0,"Tunic","tunic"],
    ["Футболка","Tricou",[115,105],0,"T-shirt","tshirt-long",[["l","длинный рукав","mânecă lungă","long sleeve","tshirt-long"],["s","короткий рукав","mânecă scurtă","short sleeve","tshirt-short"]]]
   ]},
- {id:"suits",
+ {id:"suits",child:1,
   name:["Платья и костюмы","Rochii și costume","Dresses & suits"],
   variants:[],
   sur:"furn",
@@ -1330,7 +1333,7 @@ var CATS=[
    ["Платье, Сарафан","Rochie, Rochie fara maneci",[205],0,"Sundress","dress"],
    ["Смокинг, фрак","Smoking, Frac",[275],0,"Tuxedo","tuxedo"]
 ]},
- {id:"bottoms",
+ {id:"bottoms",child:1,
   name:["Брюки, юбки, шорты","Pantaloni, fuste, pantaloni scurți","Trousers & skirts"],
   variants:[],
   sur:"furn",
@@ -1636,6 +1639,7 @@ function getVi(cat,idx){var k=keyOf(cat,idx);if(cardVar[k]==null)cardVar[k]=firs
 function findLine(cat,idx,vi){for(var i=0;i<cart.length;i++){var l=cart[i];if(l.cat===cat&&l.idx===idx&&l.vi===vi)return l;}return null;}
 
 function lineUnit(l){return catById(l.cat).items[l.idx][2][l.vi];}
+var CHILD_EX={"Платье Вечернее":1,"Платье Свадебное":1,"Смокинг, фрак":1};
 function childF(c){return c==="u3"?0.5:c==="u12"?0.7:1;}
 function lineTotal(l){return Math.round(lineUnit(l)*l.qty*childF(l.child)*(l.impreg?1.2:1));}
 
@@ -1711,8 +1715,12 @@ function renderCart(){var _ce=document.querySelector(".cart");if(_ce)_ce.classLi
     var vlabel=varLabel(it,catById(l.cat),l.vi);
     var sur=catById(l.cat).sur;var impLbl=(sur==="impreg"&&l.impreg)?(lang==="ru"?"пропитка":lang==="ro"?"impregnare":"impregnation"):"";
     var oc=(sur==="furn")?'<button class="oc'+(l.impreg?" on":"")+'" data-impreg="'+i+'">'+L(sur)+'</button>':'';
+    var _ce=(catById(l.cat).child)&&!CHILD_EX[it[0]];
+    var cc=_ce?'<div class="age-seg"><button class="age-btn'+((!l.child||l.child==="none")?" on":"")+'" data-child="'+i+'|none">'+L("child_no")+'</button>'+
+      '<button class="age-btn'+(l.child==="u3"?" on":"")+'" data-child="'+i+'|u3">'+L("child_u3")+'</button>'+
+      '<button class="age-btn'+(l.child==="u12"?" on":"")+'" data-child="'+i+'|u12">'+L("child_u12")+'</button></div>':'';
     h+='<div class="cline"><div class="cline-t"><div class="cline-nm">'+nm(it)+(vlabel?'<small>'+vlabel+'</small>':'')+(impLbl?'<small>+ '+impLbl+'</small>':'')+'</div><div class="cline-pr">'+money(lineTotal(l))+'</div></div>'+
-       '<div class="cline-b"><div class="cline-opts">'+oc+'</div><div class="stepper sm">'+(l.qty<=1?'<button class="st-trash" data-cq="'+i+'|-1" aria-label="'+L("aria_del")+'">'+TRASH+'</button>':'<button data-cq="'+i+'|-1" aria-label="−">−</button>')+'<span>'+l.qty+'</span><button data-cq="'+i+'|1" aria-label="+">+</button></div></div></div>';
+       '<div class="cline-b"><div class="cline-opts">'+oc+'</div><div class="stepper sm">'+(l.qty<=1?'<button class="st-trash" data-cq="'+i+'|-1" aria-label="'+L("aria_del")+'">'+TRASH+'</button>':'<button data-cq="'+i+'|-1" aria-label="−">−</button>')+'<span>'+l.qty+'</span><button data-cq="'+i+'|1" aria-label="+">+</button></div></div>'+cc+'</div>';
   });
   body.innerHTML=h;
   renderTotals(t);
