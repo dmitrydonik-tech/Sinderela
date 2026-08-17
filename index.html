@@ -1004,7 +1004,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
     </div>
   </div>
   <div class="hero-media"><div class="hero-video">
-    <video id="heroVid" muted loop playsinline poster="assets/hero-poster.webp" preload="none">
+    <video id="heroVid" muted playsinline poster="assets/hero-poster.webp" preload="none">
       <source data-src="assets/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-badge">
@@ -1991,6 +1991,7 @@ function init(){
   if(!rm){setTimeout(function(){try{tabsEl.scrollTo({left:60,behavior:"smooth"});setTimeout(function(){tabsEl.scrollTo({left:0,behavior:"smooth"});},680);}catch(e){}},700);}
   if(rm){var v=document.getElementById("heroVid");if(v){v.removeAttribute("autoplay");v.pause&&v.pause();}}
   else{var hv=document.getElementById("heroVid");if(hv){try{hv.muted=true;hv.setAttribute("muted","");}catch(e){}
+    var HSRC=["assets/hero.mp4","assets/hero-showreel.mp4"],hIdx=0;hv.addEventListener("ended",function(){hIdx=(hIdx+1)%HSRC.length;var s=hv.querySelector("source");if(s){s.setAttribute("src",HSRC[hIdx]);hv.load();var p2=hv.play&&hv.play();if(p2&&p2.catch)p2.catch(function(){});}});
     var started=false;var startVideo=function(){if(started)return;started=true;var sc=hv.querySelector("source");if(sc&&!sc.getAttribute("src")&&sc.dataset.src){sc.setAttribute("src",sc.dataset.src);hv.load();}var pr=hv.play&&hv.play();if(pr&&pr.catch)pr.catch(function(){});};
     if(document.readyState==="complete")setTimeout(startVideo,300);else window.addEventListener("load",function(){setTimeout(startVideo,300);});
     ["touchstart","pointerdown","click","scroll"].forEach(function(ev){window.addEventListener(ev,startVideo,{passive:true,once:true});});
