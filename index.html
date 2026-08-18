@@ -3,6 +3,9 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.google.com" crossorigin>
+<link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
 <!-- Consent Mode v2 + dataLayer helper -->
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});try{if(localStorage.getItem('sinderela_consent')==='granted')gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}catch(e){}window.track=function(ev,p){window.dataLayer=window.dataLayer||[];var o={event:ev};if(p)for(var k in p)o[k]=p[k];dataLayer.push(o);};</script>
 <!-- Google Tag Manager (lazy: first interaction or idle — keeps PageSpeed lab clean) -->
@@ -975,7 +978,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
     <h3 id="mapmT" data-i18n="map_title">Наши приёмные пункты</h3>
     <p class="mapm-sub" data-i18n="map_sub">Выберите ближайший — или закажем курьера</p>
     <!-- Карта. Пока — Google-embed с меткой на главном офисе (без ключа). Когда дадут доступ: заменить src на «Мои карты» с пинами всех точек: https://www.google.com/maps/d/embed?mid=... -->
-    <div class="mapm-frame"><iframe src="https://www.google.com/maps?q=Str.%20Miron%20Costin%2025%2C%20Chi%C8%99in%C4%83u%2C%20Moldova&z=13&hl=ru&output=embed" title="Карта приёмных пунктов Sinderela" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="mapm-frame"><iframe id="mapmFrame" data-src="https://www.google.com/maps?q=Str.%20Miron%20Costin%2025%2C%20Chi%C8%99in%C4%83u%2C%20Moldova&z=13&hl=ru&output=embed" title="Карта приёмных пунктов Sinderela" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     <ul class="mapm-list">
       <li><div><b data-i18n="addr1">ул. Мирон Костин, 25</b><span data-i18n="ft_addr_main">Главный офис и производство</span></div><a class="mapm-go" href="https://www.google.com/maps/dir/?api=1&destination=Str.%20Miron%20Costin%2025%2C%20Chi%C8%99in%C4%83u" target="_blank" rel="noopener" data-i18n="map_route">Маршрут</a></li>
       <li><div><b data-i18n="addr2">бул. Траян, 6/1</b></div><a class="mapm-go" href="https://www.google.com/maps/dir/?api=1&destination=Bd.%20Traian%206/1%2C%20Chi%C8%99in%C4%83u" target="_blank" rel="noopener" data-i18n="map_route">Маршрут</a></li>
@@ -1976,7 +1979,10 @@ function init(){
   document.getElementById("stPlus").addEventListener("click",function(){opts.stain++;document.getElementById("stVal").textContent=opts.stain;renderCart();});
   document.getElementById("stMinus").addEventListener("click",function(){if(opts.stain>0)opts.stain--;document.getElementById("stVal").textContent=opts.stain;renderCart();});
 
-  bind(".js-order",openOrder);var _mapm=document.querySelector(".js-mapm");bind(".js-mapm-open",function(){if(_mapm){_mapm.hidden=false;lockScroll();}});bind(".js-mapm-close",function(){if(_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});bind(".js-tocalc",function(){var c=document.getElementById("calc");if(c&&c.scrollIntoView)c.scrollIntoView({behavior:"smooth"});closeDrawer();});
+  bind(".js-order",openOrder);var _mapm=document.querySelector(".js-mapm");
+  var _mapWarm=false;function warmMap(){if(_mapWarm)return;_mapWarm=true;var f=document.getElementById("mapmFrame");if(f&&!f.getAttribute("src")&&f.dataset.src){f.setAttribute("src",f.dataset.src);}}
+  document.querySelectorAll(".js-mapm-open").forEach(function(el){["pointerenter","touchstart","focus"].forEach(function(ev){el.addEventListener(ev,warmMap,{passive:true,once:true});});});
+  bind(".js-mapm-open",function(){warmMap();if(_mapm){_mapm.hidden=false;lockScroll();}});bind(".js-mapm-close",function(){if(_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});bind(".js-tocalc",function(){var c=document.getElementById("calc");if(c&&c.scrollIntoView)c.scrollIntoView({behavior:"smooth"});closeDrawer();});
   bind(".js-wa-generic",function(){openWA(false);});
   bind(".js-tg-generic",function(){openTG(false);});
   bind(".js-vb-generic",function(){openVB(false);});
