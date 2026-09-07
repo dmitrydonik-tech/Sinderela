@@ -1,0 +1,12 @@
+{
+  "name": "sinderela-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sinderela — лендинг химчистки. Здесь только тесты и dev-тулинг; сам сайт — статический index.html + assets/.",
+  "scripts": {
+    "test": "node tests/check-site.mjs && node tests/icons.mjs && node tests/pricing.mjs && node tests/i18n.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  }
+}

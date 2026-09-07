@@ -9,3 +9,15 @@
 # Рабочие бэкапы иконок — на диске остаются, но НЕ публикуются
 /assets/icons_backup_*/
 /assets/icons/*_prev_*.png
+
+# --- Dev-тулинг: коммитим в репо (нужно для CI/тестов/воспроизводимости) ---
+# На сам сайт не влияет (Pages отдаёт index.html+assets). Это тестовый код, не секреты.
+!/tests/
+!/tests/**
+!/tools/
+!/tools/**
+!/.github/
+!/.github/**
+!/package.json
+!/package-lock.json
+# node_modules и бэкапы по-прежнему игнорируются (не разигнорены выше)
