@@ -14,7 +14,7 @@ const results = [];
 const eq = (name, got, exp) => results.push({ name, ok: JSON.stringify(got) === JSON.stringify(exp), got, exp });
 const truthy = (name, got) => results.push({ name, ok: !!got, got, exp: 'truthy' });
 
-const launchOpts = { args: ['--no-sandbox'] };
+const launchOpts = { args: ['--no-sandbox', '--disable-dev-shm-usage'] };
 try { if (existsSync(CHROME)) launchOpts.executablePath = CHROME; } catch {}
 const b = await chromium.launch(launchOpts);
 const p = await b.newPage();

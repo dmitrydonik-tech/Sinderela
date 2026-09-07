@@ -5,7 +5,7 @@ const _pw = await import(process.env.PW || 'playwright-core');
 const chromium = _pw.chromium || (_pw.default && _pw.default.chromium);
 const CHROME = process.env.CHROME_PATH || "/sessions/awesome-ecstatic-tesla/.cache/ms-playwright/chromium-1228/chrome-linux/chrome";
 
-const launchOpts = { args: ['--no-sandbox'] };
+const launchOpts = { args: ['--no-sandbox', '--disable-dev-shm-usage'] };
 try { if (existsSync(CHROME)) launchOpts.executablePath = CHROME; } catch {}
 const b = await chromium.launch(launchOpts);
 const p = await b.newPage();
