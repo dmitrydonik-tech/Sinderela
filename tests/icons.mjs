@@ -12,7 +12,8 @@ const m = html.match(/var ICONVER="(\d+)"/);
 if (!m) { console.log('❌ icons: не найден var ICONVER в index.html'); process.exit(1); }
 const ver = +m[1];
 
-const files = readdirSync(ICONS).filter(f => f.toLowerCase().endsWith('.png')).sort();
+// только опубликованные иконки: исключаем бэкапы *_prev_* (их нет в репо — см. .gitignore)
+const files = readdirSync(ICONS).filter(f => f.toLowerCase().endsWith('.png') && !f.includes('_prev_')).sort();
 const hashes = {};
 for (const f of files) hashes[f] = createHash('md5').update(readFileSync(new URL(f, ICONS))).digest('hex').slice(0, 12);
 

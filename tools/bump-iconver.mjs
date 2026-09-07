@@ -16,7 +16,7 @@ copyFileSync(HTML, new URL(`index-BACKUP-iconver-${Date.now()}.html`, ROOT));
 s = s.replace(/var ICONVER="\d+"/, `var ICONVER="${next}"`);
 writeFileSync(HTML, s);
 
-const files = readdirSync(ICONS).filter(f => f.toLowerCase().endsWith('.png')).sort();
+const files = readdirSync(ICONS).filter(f => f.toLowerCase().endsWith('.png') && !f.includes('_prev_')).sort();
 const hashes = {};
 for (const f of files) hashes[f] = createHash('md5').update(readFileSync(new URL(f, ICONS))).digest('hex').slice(0, 12);
 writeFileSync(new URL('.iconver.json', ICONS), JSON.stringify({ ver: next, hashes }, null, 0));
