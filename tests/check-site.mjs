@@ -43,9 +43,10 @@ check(/hreflang="x-default"/.test(html), 'Есть hreflang x-default');
 check(/"@type":\s*"Organization"/.test(html), 'JSON-LD Organization есть');
 
 const points = (html.match(/"@type":\s*"DryCleaningOrLaundry"/g) || []).length;
-check(points === 8, `8 точек в JSON-LD (найдено ${points})`);
+check(points === 9, `9 точек в JSON-LD (найдено ${points})`);
 
-check(!/Alecu\s*Russo/i.test(html) && !/Алеку\s*Руссо/i.test(html) && !/А\.\s*Руссо/i.test(html), 'Точка на ремонте (Russo 28) отсутствует');
+// Russo 28 (Filiala 5) — ремонт завершён, филиал снова работает и добавлен на сайт (подтверждено клиентом 2026-09).
+check(/Alecu\s*Russo/i.test(html) && /Алеку\s*Руссо/i.test(html), 'Филиал Russo 28 присутствует (ремонт завершён)');
 
 // ---------- СЧЁТЧИКИ ----------
 check(html.includes('GTM-N4VK9XP4'), 'Контейнер GTM вставлен');
