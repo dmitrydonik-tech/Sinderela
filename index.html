@@ -946,13 +946,13 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .mapm{position:fixed;inset:0;z-index:95;display:flex;align-items:center;justify-content:center;padding:16px}
 .mapm[hidden]{display:none}
 .mapm-bd{position:absolute;inset:0;background:rgba(23,34,59,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
-.mapm-p{position:relative;width:min(680px,96vw);max-height:92vh;overflow-y:auto;background:var(--bg);border-radius:22px;box-shadow:var(--shadow);padding:26px 24px}
+.mapm-p{position:relative;width:min(680px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;background:var(--bg);border-radius:22px;box-shadow:var(--shadow);padding:26px 24px}
 .mapm-x{position:absolute;top:14px;right:16px;width:36px;height:36px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:16px;color:var(--ink);cursor:pointer}
 .mapm-p h3{font-size:20px;color:var(--ink);margin:0 0 4px}
 .mapm-sub{color:var(--muted);font-size:13.5px;margin:0 0 16px}
-.mapm-frame{border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-bottom:16px;aspect-ratio:16/10;background:var(--panel2)}
+.mapm-frame{border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-bottom:12px;aspect-ratio:16/10;background:var(--panel2);flex:none}
 .mapm-frame iframe{width:100%;height:100%;border:0;display:block}
-.mapm-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.mapm-list{list-style:none;margin:0;padding:0 2px;display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow-y:auto}
 .mapm-list li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 8px;border-bottom:1px dashed var(--line);cursor:pointer;border-radius:10px;transition:background .15s}
 .mapm-list li:last-child{border-bottom:none}
 .mapm-list li:hover{background:var(--panel2)}
@@ -1239,7 +1239,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
       <div class="ft-addr"><b data-i18n="addr6">ул. Михай Витязул, 14</b><span data-i18n="addr_super">в супермаркете «Nr.1»</span></div>
       <div class="ft-addr"><b data-i18n="addr7">ул. И. Виеру, 20</b></div>
       <div class="ft-addr"><b data-i18n="addr8">ул. Н. Милеску Спэтару, 65</b><span data-i18n="addr_super">в супермаркете «Nr.1»</span></div>
-      <a class="line" href="https://www.google.com/maps/d/viewer?mid=1E4_x-zhHtbojGZeLfqWuMyzCng7FOio&hl=ru" target="_blank" rel="noopener" data-i18n="ft_map">Открыть на карте →</a>
+      <a class="line" href="https://www.google.com/maps?cid=4045932950512527012" target="_blank" rel="noopener" data-i18n="ft_map">Открыть на карте →</a>
     </div>
     <div>
       <h3 data-i18n="ft_contacts_h">Контакты</h3>
@@ -2037,10 +2037,10 @@ function init(){
   bind(".js-order",openOrder);var _mapm=document.querySelector(".js-mapm");
   var _mapWarm=false;
   function loadBranch(li){var f=document.getElementById("mapmFrame");if(!f||!li)return;var u=li.getAttribute("data-embed");document.querySelectorAll(".mapm-list li").forEach(function(x){x.classList.remove("is-active");});li.classList.add("is-active");if(u&&f.getAttribute("src")!==u){f.setAttribute("src",u);}}
-  function warmMap(){if(_mapWarm)return;_mapWarm=true;loadBranch(document.querySelector(".mapm-list li.is-active")||document.querySelector(".mapm-list li"));}
+  function warmMap(){if(_mapWarm)return;if(!_mapm||_mapm.hidden)return;_mapWarm=true;loadBranch(document.querySelector(".mapm-list li.is-active")||document.querySelector(".mapm-list li"));}
   document.querySelectorAll(".js-mapm-open").forEach(function(el){["pointerenter","touchstart","focus"].forEach(function(ev){el.addEventListener(ev,warmMap,{passive:true,once:true});});});
   document.querySelectorAll(".mapm-list li").forEach(function(li){li.addEventListener("click",function(e){if(e.target.closest(".mapm-go"))return;loadBranch(li);});li.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&!e.target.closest(".mapm-go")){e.preventDefault();loadBranch(li);}});});
-  bind(".js-mapm-open",function(){warmMap();if(_mapm){_mapm.hidden=false;lockScroll();}});bind(".js-mapm-close",function(){if(_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});bind(".js-tocalc",function(){var c=document.getElementById("calc");if(c&&c.scrollIntoView)c.scrollIntoView({behavior:"smooth"});closeDrawer();});
+  bind(".js-mapm-open",function(){if(_mapm){_mapm.hidden=false;lockScroll();}requestAnimationFrame(function(){requestAnimationFrame(warmMap);});});bind(".js-mapm-close",function(){if(_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&_mapm&&!_mapm.hidden){_mapm.hidden=true;unlockScroll();}});bind(".js-tocalc",function(){var c=document.getElementById("calc");if(c&&c.scrollIntoView)c.scrollIntoView({behavior:"smooth"});closeDrawer();});
   bind(".js-wa-generic",function(){openWA(false);});
   bind(".js-tg-generic",function(){openTG(false);});
   bind(".js-vb-generic",function(){openVB(false);});
