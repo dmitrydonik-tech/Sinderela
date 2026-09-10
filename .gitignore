@@ -6,6 +6,13 @@
 !/assets/**
 !/.gitignore
 
+# --- Файлы, которые ДОЛЖНЫ уехать на хостинг вместе с сайтом ---
+# robots.txt и sitemap.xml лежали на диске, но не публиковались (не были в белом списке).
+# _headers — заголовки кеша/безопасности для Cloudflare Pages / Netlify (на GitHub Pages не работает).
+!/robots.txt
+!/sitemap.xml
+!/_headers
+
 # Рабочие бэкапы иконок — на диске остаются, но НЕ публикуются
 /assets/icons_backup_*/
 /assets/icons/*_prev_*.png
