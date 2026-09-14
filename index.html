@@ -710,13 +710,17 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .serv:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .serv:focus-visible{outline:2.5px solid var(--brass);outline-offset:3px}
 .serv .from::after{content:" ›";font-weight:800}
-.serv{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--ink);min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
-.serv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;transition:transform .5s,opacity .3s}
-.serv:hover img{transform:scale(1.05);opacity:.72}
-.serv-sc{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,35,0) 34%,rgba(15,20,35,.86) 100%)}
+/* Карточки «Что чистим». БАЗА = СВЕТЛАЯ тема (она здесь по умолчанию).
+   Тёмные значения — ниже, в @media (prefers-color-scheme: dark). См. AGENT_HANDOFF §17. */
+.serv{position:relative;border-radius:var(--radius);overflow:hidden;background:#fff;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.serv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:transform .5s,opacity .3s}
+.serv:hover img{transform:scale(1.05);opacity:.94}
+.serv-sc{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,35,0) 34%,rgba(15,20,35,.52) 100%)}
 .serv-c{position:relative;padding:18px}
 .serv-c h3{font-size:19px;font-weight:800}
-.serv-c p{font-size:13px;opacity:.86;margin:4px 0 8px;line-height:1.4}
+.serv-c p{font-size:13px;opacity:1;margin:4px 0 8px;line-height:1.4}
+/* Тень вытягивает читаемость на светлых фото (белое платье, полотенца), картинку не трогает. */
+.serv-c h3,.serv-c p{text-shadow:0 1px 3px rgba(15,20,35,.9),0 0 7px rgba(15,20,35,.7),0 0 20px rgba(15,20,35,.5)}
 .serv-c .from{font-size:13px;font-weight:700;color:#eBD9BA}
 .serv.plain{background:var(--panel);border:1px solid var(--line);color:var(--ink);min-height:170px}
 .serv.plain .serv-c{position:static}
@@ -921,7 +925,13 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
   .btn-primary:hover{background:var(--brass-d)}
   .lang button.on,.tab.on,.vbtn.on,.seg button.on,.chips-row button.on{background:var(--brass);color:#16120a;border-color:var(--brass)}
   .stepper{background:#2a3446}
+  /* Карточки «Что чистим» в тёмной теме — возврат к прежнему виду (фото на тёмно-синем). */
   .serv{background:#0f1626}
+  .serv img{opacity:.82}
+  .serv:hover img{opacity:.72}
+  .serv-sc{background:linear-gradient(180deg,rgba(15,20,35,0) 34%,rgba(15,20,35,.86) 100%)}
+  .serv-c h3,.serv-c p{text-shadow:none}
+  .serv-c p{opacity:.86}
   .fl{background:#131d31}
   .ft{background:#0b111d;color:var(--sub)}
   .item{box-shadow:0 6px 18px -12px rgba(0,0,0,.55)}.item.in{background:#202b3f;box-shadow:0 0 0 2px rgba(203,159,99,.6),0 22px 44px -18px rgba(0,0,0,.6);transform:scale(1.02)}.vbtn.on{background:var(--brass-bg);color:var(--brass-d);border-color:var(--brass)}
@@ -1168,12 +1178,12 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 <section id="services" class="sec"><div class="wrap">
   <div class="sec-head"><span class="eyebrow" data-i18n="serv_eyebrow">Что мы чистим</span><h2 data-i18n="serv_h2">Услуги для любых вещей</h2><p data-i18n="serv_p">От повседневной рубашки до свадебного платья и любимых кроссовок.</p></div>
   <div class="serv-grid">
-    <div class="serv" data-jumpcat="outer" role="button" tabindex="0"><img src="assets/outer-coat.webp?v=1" alt="" loading="lazy" width="1400" height="788"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv1_h">Верхняя одежда</h3><p data-i18n="sv1_p">Пальто, пуховики, плащи, тренчи</p><span class="from" data-i18n="sv1_f">от 195 лей</span></div></div>
-    <div class="serv" data-jumpcat="leather" role="button" tabindex="0"><img src="assets/leather-jacket.webp?v=1" alt="" loading="lazy" width="1400" height="788"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv2_h">Кожа и замша</h3><p data-i18n="sv2_p">Куртки, дублёнки, чистка и покраска</p><span class="from" data-i18n="sv2_f">от 415 лей</span></div></div>
-    <div class="serv" data-jumpcat="suits" role="button" tabindex="0"><img src="assets/dress-gown.webp?v=1" alt="" loading="lazy" width="1400" height="788"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv3_h">Платья и свадебные</h3><p data-i18n="sv3_p">Вечерние, свадебные, деликатная чистка</p><span class="from" data-i18n="sv3_f">от 205 лей</span></div></div>
-    <div class="serv" data-jumpcat="shoes" role="button" tabindex="0"><img src="assets/sneakers-clean.webp?v=1" alt="" loading="lazy" width="1400" height="788"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv4_h">Сникер-химчистка</h3><p data-i18n="sv4_p">Кроссовки, кеды, покраска и пропитка</p><span class="from" data-i18n="sv4_f">от 330 лей</span></div></div>
-    <div class="serv" data-jumpcat="bedding" role="button" tabindex="0"><img src="assets/home-textile.webp?v=1" alt="Дом и текстиль — химчистка" loading="lazy" width="1440" height="960"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv5_h">Дом и текстиль</h3><p data-i18n="sv5_p">Шторы, пледы, подушки</p><span class="from" data-i18n="sv5_f">цена по запросу</span></div></div>
-    <div class="serv" data-jumpcat="fur" role="button" tabindex="0"><img src="assets/fur-shearling.webp?v=1" alt="Мех и дублёнки — химчистка" loading="lazy" width="1440" height="960"><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv6_h">Мех и дублёнки</h3><p data-i18n="sv6_p">Натуральный и искусственный мех, реставрация</p><span class="from" data-i18n="sv6_f">от 165 лей</span></div></div>
+    <div class="serv" data-jumpcat="outer" role="button" tabindex="0"><picture><source srcset="assets/outer-coat.webp?v=2" media="(prefers-color-scheme: dark)" width="1000" height="667"><img src="assets/outer-coat-light.webp?v=2" alt="" loading="lazy" width="1000" height="667"></picture><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv1_h">Верхняя одежда</h3><p data-i18n="sv1_p">Пальто, пуховики, плащи, тренчи</p><span class="from" data-i18n="sv1_f">от 195 лей</span></div></div>
+    <div class="serv" data-jumpcat="leather" role="button" tabindex="0"><picture><source srcset="assets/leather-jacket.webp?v=2" media="(prefers-color-scheme: dark)" width="1000" height="667"><img src="assets/leather-jacket-light.webp?v=2" alt="" loading="lazy" width="1000" height="667"></picture><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv2_h">Кожа и замша</h3><p data-i18n="sv2_p">Куртки, дублёнки, чистка и покраска</p><span class="from" data-i18n="sv2_f">от 415 лей</span></div></div>
+    <div class="serv" data-jumpcat="suits" role="button" tabindex="0"><picture><source srcset="assets/dress-gown.webp?v=2" media="(prefers-color-scheme: dark)" width="1000" height="667"><img src="assets/dress-gown-light.webp?v=2" alt="" loading="lazy" width="1000" height="667"></picture><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv3_h">Платья и свадебные</h3><p data-i18n="sv3_p">Вечерние, свадебные, деликатная чистка</p><span class="from" data-i18n="sv3_f">от 205 лей</span></div></div>
+    <div class="serv" data-jumpcat="shoes" role="button" tabindex="0"><picture><source srcset="assets/sneakers-clean.webp?v=2" media="(prefers-color-scheme: dark)" width="1000" height="667"><img src="assets/sneakers-clean-light.webp?v=2" alt="" loading="lazy" width="1000" height="667"></picture><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv4_h">Сникер-химчистка</h3><p data-i18n="sv4_p">Кроссовки, кеды, покраска и пропитка</p><span class="from" data-i18n="sv4_f">от 330 лей</span></div></div>
+    <div class="serv" data-jumpcat="bedding" role="button" tabindex="0"><picture><source srcset="assets/home-textile.webp?v=2" media="(prefers-color-scheme: dark)" width="1000" height="667"><img src="assets/home-textile-light.webp?v=2" alt="Дом и текстиль — химчистка" loading="lazy" width="1000" height="667"></picture><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv5_h">Дом и текстиль</h3><p data-i18n="sv5_p">Шторы, пледы, подушки</p><span class="from" data-i18n="sv5_f">цена по запросу</span></div></div>
+    <div class="serv" data-jumpcat="fur" role="button" tabindex="0"><picture><source srcset="assets/fur-shearling.webp?v=2" media="(prefers-color-scheme: dark)" width="1000" height="667"><img src="assets/fur-shearling-light.webp?v=2" alt="Мех и дублёнки — химчистка" loading="lazy" width="1000" height="667"></picture><div class="serv-sc"></div><div class="serv-c"><h3 data-i18n="sv6_h">Мех и дублёнки</h3><p data-i18n="sv6_p">Натуральный и искусственный мех, реставрация</p><span class="from" data-i18n="sv6_f">от 165 лей</span></div></div>
   </div>
 </div></section>
 
