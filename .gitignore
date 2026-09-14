@@ -12,6 +12,8 @@
 !/robots.txt
 !/sitemap.xml
 !/_headers
+# privacy.html — политика конфиденциальности, отдельная страница сайта.
+!/privacy.html
 
 # Рабочие бэкапы иконок — на диске остаются, но НЕ публикуются
 /assets/icons_backup_*/

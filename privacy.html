@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Политика конфиденциальности · Sinderela</title>
+<meta name="description" content="Как химчистка Sinderela обрабатывает персональные данные: какие данные собираются, зачем, кому передаются и какие у вас права.">
+<meta name="robots" content="noindex, nofollow"><!-- ⚠ СНЯТЬ В ДЕНЬ ЗАПУСКА вместе с noindex в index.html -->
+<link rel="canonical" href="https://sinderela.md/privacy.html">
+<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1626" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<style>
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+20A0-20AB,U+20AD-20C0,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/manrope-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/manrope-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/manrope-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+20A0-20AB,U+20AD-20C0,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/manrope-cyrillic-800-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/manrope-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2212,U+FEFF,U+FFFD}
+
+:root{
+  color-scheme:light dark;
+  --bg:#F4F1EA; --panel:#FFFFFF; --panel2:#FBF9F4;
+  --ink:#17223B; --ink2:#38435c; --muted:#726b5b;
+  --line:#E7E1D5; --brass:#A97B4F; --brass-bg:#F2E9D8;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0f1626; --panel:#18212f; --panel2:#1c2637;
+        --ink:#ECEAE3; --ink2:#c3c9d6; --muted:#868fa4;
+        --line:#2b3547; --brass:#cb9f63; --brass-bg:#2b2317;}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:28px 20px 80px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.back{display:inline-flex;align-items:center;gap:7px;color:var(--ink2);text-decoration:none;font-weight:700;font-size:14px}
+.back:hover{color:var(--brass)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--panel)}
+.lang button{border:0;background:transparent;color:var(--ink2);font:inherit;font-size:13px;font-weight:700;padding:7px 13px;cursor:pointer}
+.lang button.on{background:var(--brass);color:#fff}
+h1{font-size:30px;font-weight:800;line-height:1.2;margin:0 0 8px}
+.upd{color:var(--muted);font-size:13.5px;margin:0 0 30px}
+h2{font-size:19px;font-weight:800;margin:34px 0 10px;padding-top:2px}
+h3{font-size:15.5px;font-weight:700;margin:20px 0 6px}
+p,li{color:var(--ink2)}
+p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:22px}
+li{margin-bottom:6px}
+a{color:var(--brass)}
+table{width:100%;border-collapse:collapse;margin:0 0 14px;font-size:14.5px}
+th,td{text-align:left;padding:9px 11px;border:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+th{background:var(--panel2);font-weight:700;color:var(--ink)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 14px}
+.fill{background:var(--brass-bg);border:1px dashed var(--brass);border-radius:12px;padding:14px 16px;margin:0 0 18px;font-size:14.5px;color:var(--ink)}
+.fill b{color:var(--brass)}
+mark{background:var(--brass-bg);color:var(--brass);font-weight:700;padding:1px 5px;border-radius:5px;border:1px dashed var(--brass)}
+.foot{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+[data-lang]{display:none}
+[data-lang].on{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="back" href="index.html">&#8592; <span class="t-back">На сайт</span></a>
+    <div class="lang" role="group" aria-label="Язык / Limba / Language">
+      <button type="button" data-set="ru" class="on">RU</button>
+      <button type="button" data-set="ro">RO</button>
+      <button type="button" data-set="en">EN</button>
+    </div>
+  </div>
+
+
+<!-- ═══════════════════════════ RU ═══════════════════════════ -->
+<div data-lang="ru" class="on">
+  <h1>Политика конфиденциальности</h1>
+  <p class="upd">Редакция от 14 сентября 2026 года. Документ составлен в соответствии с Законом Республики Молдова № 195/2024 о защите персональных данных (в силе с 23 августа 2026 года).</p>
+
+  <h2>1. Кто обрабатывает ваши данные</h2>
+  <div class="card">
+    <p style="margin:0"><b>«SINDERELA» SRL</b><br>
+    IDNO: 1003600072247<br>
+    Юридический адрес: мун. Кишинёв, ул. Мирча чел Бэтрын, 3<br>
+    Электронная почта: <a href="mailto:office@sinderela.md">office@sinderela.md</a><br>
+    Телефон: <a href="tel:+37369438080">069 43 80 80</a></p>
+  </div>
+  <p>Далее — «мы» или «Sinderela». Мы являемся оператором персональных данных в значении Закона № 195/2024.</p>
+
+  <h2>2. Какие данные мы обрабатываем</h2>
+
+  <h3>2.1. Данные, которые вы вводите в калькулятор заказа</h3>
+  <p>Имя, номер телефона, адрес забора вещей, желаемые дата и время, комментарий к заказу, а также состав самого заказа.</p>
+  <p><b>Важно, как это устроено технически:</b> пока вы заполняете форму, эти данные остаются только в вашем браузере — сайт никуда их не отправляет и нигде не сохраняет. Они покидают устройство лишь в тот момент, когда вы сами нажимаете кнопку отправки в WhatsApp или Viber. Тогда данные уходят в выбранный вами мессенджер в виде обычного сообщения, и мы получаем их там.</p>
+
+  <h3>2.2. Данные, которые вы присылаете нам сами</h3>
+  <p>Содержание вашей переписки в WhatsApp, Viber, Telegram, по электронной почте или по телефону — включая то, что вы решите сообщить дополнительно.</p>
+
+  <h3>2.3. Технические данные о посещении сайта</h3>
+  <p>Собираются <b>только если вы дали согласие</b> в баннере cookie: обезличенные сведения о просмотрах страниц, источнике перехода, типе устройства и браузера, приблизительном регионе. Собираются через Google Analytics (Google Tag Manager). Если вы нажали «Только необходимые» — аналитика не запускается.</p>
+
+  <h3>2.4. Локальное хранилище браузера</h3>
+  <p>Мы сохраняем в вашем браузере три технических значения: выбранный язык интерфейса, ваш ответ на баннер cookie и (на тестовой версии сайта) выбранную тему оформления. Это не персональные данные, они никуда не передаются и удаляются вместе с данными сайта в настройках браузера.</p>
+
+  <h2>3. Зачем и на каком основании</h2>
+  <table>
+    <tr><th>Цель</th><th>Данные</th><th>Основание</th></tr>
+    <tr><td>Принять заказ, приехать за вещами, выполнить чистку, связаться по заказу</td><td>п. 2.1, 2.2</td><td>Исполнение договора и меры до его заключения (ст. 5 ч. 1 п. b Закона 195/2024)</td></tr>
+    <tr><td>Бухгалтерский и налоговый учёт оказанных услуг</td><td>данные заказа</td><td>Исполнение обязанности, предусмотренной законом</td></tr>
+    <tr><td>Понимать, как посетители пользуются сайтом, и улучшать его</td><td>п. 2.3</td><td>Ваше согласие, которое можно отозвать в любой момент</td></tr>
+  </table>
+  <p>Мы не принимаем решений, порождающих юридические последствия, автоматически и без участия человека. Профилирование не применяется.</p>
+
+  <h2>4. Кому передаются данные</h2>
+  <p>Мы не продаём персональные данные и не передаём их третьим лицам для их собственных целей. Данные могут стать доступны следующим участникам:</p>
+  <ul>
+    <li><b>Мессенджеры (WhatsApp — Meta Platforms Ireland; Viber — Rakuten Viber).</b> Если вы отправляете заказ через мессенджер, сообщение проходит через его инфраструктуру на условиях его собственной политики конфиденциальности. Выбор канала за вами — можно позвонить или написать на почту.</li>
+    <li><b>Google Ireland Ltd</b> — аналитика сайта, только при вашем согласии.</li>
+    <li><b>Хостинг-провайдер сайта</b> — техническое размещение страниц.</li>
+    <li><b>Государственные органы</b> — если этого требует закон и в предусмотренном им порядке.</li>
+  </ul>
+  <p>Часть этих компаний находится в Европейском союзе или использует стандартные договорные условия ЕС. Передача данных за пределы Республики Молдова происходит в страны с надлежащим уровнем защиты либо на основании таких условий.</p>
+
+  <h2>5. Сколько мы храним данные</h2>
+  <ul>
+    <li><b>Переписка и контактные данные — 1 год</b> с момента последнего обращения. Храним ровно столько, сколько нужно для повторного обращения и разбора претензии по свежему заказу.</li>
+    <li><b>Первичные документы по оказанным услугам — 6 лет</b> (бухгалтерский и налоговый учёт), как того требует законодательство Республики Молдова. Этот срок сократить нельзя.</li>
+    <li>Аналитические данные — в обезличенном виде, согласно настройкам Google Analytics.</li>
+  </ul>
+  <p>По истечении срока данные удаляются или обезличиваются.</p>
+
+  <h2>6. Ваши права</h2>
+  <p>В соответствии с Законом № 195/2024 вы вправе:</p>
+  <ul>
+    <li>получить подтверждение, обрабатываем ли мы ваши данные, и копию этих данных;</li>
+    <li>потребовать исправить неточные данные;</li>
+    <li>потребовать удалить данные («право быть забытым»);</li>
+    <li>потребовать ограничить обработку;</li>
+    <li>получить свои данные в машиночитаемом виде и передать их другому оператору;</li>
+    <li>возразить против обработки;</li>
+    <li>отозвать согласие — это не затрагивает законность обработки до отзыва.</li>
+  </ul>
+  <p>Чтобы воспользоваться любым из этих прав, напишите на <a href="mailto:office@sinderela.md">office@sinderela.md</a>. Мы ответим в срок, установленный законом. Мы можем попросить подтвердить личность — чтобы не передать ваши данные постороннему.</p>
+  <p>Если вы считаете, что мы нарушили ваши права, вы можете подать жалобу в <b>Национальный центр по защите персональных данных Республики Молдова</b>: <a href="https://datepersonale.md" target="_blank" rel="noopener">datepersonale.md</a>.</p>
+
+  <h2>7. Файлы cookie</h2>
+  <p>Технически необходимые cookie и локальное хранилище нужны, чтобы сайт работал: запомнить язык и ваш ответ про cookie. Они не требуют согласия.</p>
+  <p>Аналитические cookie Google Analytics подключаются <b>только после вашего согласия</b>. До ответа на баннер аналитика не загружается. Изменить решение можно, очистив данные сайта в настройках браузера — баннер появится снова.</p>
+
+  <h2>8. Безопасность</h2>
+  <p>Сайт работает по защищённому протоколу HTTPS. Доступ к заказам и переписке имеют только сотрудники, которым это нужно по работе. Полностью исключить риски при передаче данных через интернет невозможно, но мы принимаем разумные технические и организационные меры.</p>
+
+  <h2>9. Дети</h2>
+  <p>Услуги предназначены для совершеннолетних. Мы не собираем сознательно данные детей. Если вам стало известно, что ребёнок передал нам свои данные, напишите на <a href="mailto:office@sinderela.md">office@sinderela.md</a> — мы их удалим.</p>
+
+  <h2>10. Изменения политики</h2>
+  <p>Мы можем обновлять эту политику. Актуальная редакция всегда доступна по адресу <a href="https://sinderela.md/privacy.html">sinderela.md/privacy.html</a>, дата редакции указана вверху страницы.</p>
+</div>
+
+
+<!-- ═══════════════════════════ RO ═══════════════════════════ -->
+<div data-lang="ro">
+  <h1>Politica de confidențialitate</h1>
+  <p class="upd">Versiunea din 14 septembrie 2026. Document întocmit în conformitate cu Legea Republicii Moldova nr. 195/2024 privind protecția datelor cu caracter personal (în vigoare din 23 august 2026).</p>
+
+  <h2>1. Cine prelucrează datele dumneavoastră</h2>
+  <div class="card">
+    <p style="margin:0"><b>„SINDERELA” SRL</b><br>
+    IDNO: 1003600072247<br>
+    Adresa juridică: mun. Chișinău, str. Mircea cel Bătrîn, 3<br>
+    E-mail: <a href="mailto:office@sinderela.md">office@sinderela.md</a><br>
+    Telefon: <a href="tel:+37369438080">069 43 80 80</a></p>
+  </div>
+  <p>În continuare — „noi” sau „Sinderela”. Suntem operator de date cu caracter personal în sensul Legii nr. 195/2024.</p>
+
+  <h2>2. Ce date prelucrăm</h2>
+
+  <h3>2.1. Datele introduse în calculatorul de comandă</h3>
+  <p>Numele, numărul de telefon, adresa de ridicare, data și ora dorite, comentariul la comandă, precum și conținutul comenzii.</p>
+  <p><b>Important, cum funcționează tehnic:</b> cât timp completați formularul, aceste date rămân exclusiv în browserul dumneavoastră — site-ul nu le transmite și nu le stochează nicăieri. Ele părăsesc dispozitivul doar în momentul în care apăsați chiar dumneavoastră butonul de trimitere prin WhatsApp sau Viber. Atunci datele ajung în mesageria aleasă sub forma unui mesaj obișnuit, iar noi le primim acolo.</p>
+
+  <h3>2.2. Datele pe care ni le transmiteți direct</h3>
+  <p>Conținutul corespondenței prin WhatsApp, Viber, Telegram, e-mail sau telefon — inclusiv ceea ce alegeți să ne comunicați suplimentar.</p>
+
+  <h3>2.3. Date tehnice despre vizitarea site-ului</h3>
+  <p>Se colectează <b>doar dacă ați consimțit</b> în bannerul de cookie: informații anonimizate despre paginile vizualizate, sursa accesării, tipul dispozitivului și al browserului, regiunea aproximativă. Se colectează prin Google Analytics (Google Tag Manager). Dacă ați ales „Doar necesare” — analitica nu pornește.</p>
+
+  <h3>2.4. Stocarea locală a browserului</h3>
+  <p>Păstrăm în browserul dumneavoastră trei valori tehnice: limba aleasă a interfeței, răspunsul la bannerul de cookie și (pe versiunea de test) tema aleasă. Nu sunt date cu caracter personal, nu se transmit nicăieri și se șterg odată cu datele site-ului din setările browserului.</p>
+
+  <h2>3. În ce scop și în ce temei</h2>
+  <table>
+    <tr><th>Scopul</th><th>Datele</th><th>Temeiul</th></tr>
+    <tr><td>Preluarea comenzii, ridicarea articolelor, curățarea, contactarea privind comanda</td><td>pct. 2.1, 2.2</td><td>Executarea contractului și măsuri premergătoare (art. 5 alin. 1 lit. b din Legea 195/2024)</td></tr>
+    <tr><td>Evidența contabilă și fiscală a serviciilor prestate</td><td>datele comenzii</td><td>Îndeplinirea unei obligații legale</td></tr>
+    <tr><td>Înțelegerea modului de utilizare a site-ului și îmbunătățirea lui</td><td>pct. 2.3</td><td>Consimțământul dumneavoastră, revocabil oricând</td></tr>
+  </table>
+  <p>Nu luăm decizii cu efecte juridice în mod automat, fără intervenție umană. Nu aplicăm profilarea.</p>
+
+  <h2>4. Cui sunt transmise datele</h2>
+  <p>Nu vindem date cu caracter personal și nu le transmitem terților pentru scopurile proprii ale acestora. Datele pot deveni accesibile următorilor participanți:</p>
+  <ul>
+    <li><b>Aplicații de mesagerie (WhatsApp — Meta Platforms Ireland; Viber — Rakuten Viber).</b> Dacă trimiteți comanda prin mesagerie, mesajul trece prin infrastructura acesteia, în condițiile politicii ei de confidențialitate. Alegerea canalului vă aparține — puteți suna sau scrie pe e-mail.</li>
+    <li><b>Google Ireland Ltd</b> — analitica site-ului, doar cu consimțământul dumneavoastră.</li>
+    <li><b>Furnizorul de găzduire</b> — găzduirea tehnică a paginilor.</li>
+    <li><b>Autoritățile publice</b> — dacă legea o cere și în modul prevăzut de aceasta.</li>
+  </ul>
+  <p>O parte dintre aceste companii se află în Uniunea Europeană sau utilizează clauzele contractuale standard ale UE. Transferul datelor în afara Republicii Moldova are loc către țări cu nivel adecvat de protecție sau în temeiul unor astfel de clauze.</p>
+
+  <h2>5. Cât timp păstrăm datele</h2>
+  <ul>
+    <li><b>Corespondența și datele de contact — 1 an</b> de la ultima solicitare. Le păstrăm exact atât cât este necesar pentru o solicitare repetată și pentru soluționarea unei reclamații privind o comandă recentă.</li>
+    <li><b>Documentele primare privind serviciile prestate — 6 ani</b> (evidența contabilă și fiscală), conform legislației Republicii Moldova. Acest termen nu poate fi scurtat.</li>
+    <li>Datele analitice — în formă anonimizată, conform setărilor Google Analytics.</li>
+  </ul>
+  <p>La expirarea termenului, datele se șterg sau se anonimizează.</p>
+
+  <h2>6. Drepturile dumneavoastră</h2>
+  <p>În conformitate cu Legea nr. 195/2024, aveți dreptul:</p>
+  <ul>
+    <li>să obțineți confirmarea dacă vă prelucrăm datele și o copie a acestora;</li>
+    <li>să cereți rectificarea datelor inexacte;</li>
+    <li>să cereți ștergerea datelor („dreptul de a fi uitat”);</li>
+    <li>să cereți restricționarea prelucrării;</li>
+    <li>să primiți datele într-un format care poate fi citit automat și să le transferați altui operator;</li>
+    <li>să vă opuneți prelucrării;</li>
+    <li>să retrageți consimțământul — fără a afecta legalitatea prelucrării anterioare retragerii.</li>
+  </ul>
+  <p>Pentru exercitarea oricăruia dintre aceste drepturi, scrieți la <a href="mailto:office@sinderela.md">office@sinderela.md</a>. Vom răspunde în termenul prevăzut de lege. Vă putem solicita confirmarea identității — pentru a nu transmite datele dumneavoastră unei persoane străine.</p>
+  <p>Dacă apreciați că v-am încălcat drepturile, puteți depune o plângere la <b>Centrul Național pentru Protecția Datelor cu Caracter Personal al Republicii Moldova</b>: <a href="https://datepersonale.md" target="_blank" rel="noopener">datepersonale.md</a>.</p>
+
+  <h2>7. Fișiere cookie</h2>
+  <p>Cookie-urile strict necesare și stocarea locală asigură funcționarea site-ului: rețin limba și răspunsul dumneavoastră privind cookie-urile. Nu necesită consimțământ.</p>
+  <p>Cookie-urile analitice Google Analytics se activează <b>doar după consimțământul dumneavoastră</b>. Până la răspunsul la banner, analitica nu se încarcă. Puteți schimba decizia ștergând datele site-ului din setările browserului — bannerul va reapărea.</p>
+
+  <h2>8. Securitate</h2>
+  <p>Site-ul funcționează prin protocolul securizat HTTPS. Acces la comenzi și corespondență au doar angajații cărora le este necesar pentru activitate. Riscurile transmiterii datelor prin internet nu pot fi excluse complet, însă aplicăm măsuri tehnice și organizatorice rezonabile.</p>
+
+  <h2>9. Copii</h2>
+  <p>Serviciile sunt destinate persoanelor majore. Nu colectăm în mod conștient date ale copiilor. Dacă aflați că un copil ne-a transmis datele sale, scrieți la <a href="mailto:office@sinderela.md">office@sinderela.md</a> — le vom șterge.</p>
+
+  <h2>10. Modificarea politicii</h2>
+  <p>Putem actualiza această politică. Versiunea actuală este întotdeauna disponibilă la <a href="https://sinderela.md/privacy.html">sinderela.md/privacy.html</a>, data versiunii fiind indicată în partea de sus a paginii.</p>
+</div>
+
+
+<!-- ═══════════════════════════ EN ═══════════════════════════ -->
+<div data-lang="en">
+  <h1>Privacy Policy</h1>
+  <p class="upd">Version of 14 September 2026. Prepared in accordance with Law No. 195/2024 of the Republic of Moldova on the Protection of Personal Data (in force since 23 August 2026).</p>
+
+  <h2>1. Who processes your data</h2>
+  <div class="card">
+    <p style="margin:0"><b>"SINDERELA" SRL</b><br>
+    IDNO: 1003600072247<br>
+    Registered address: mun. Chișinău, str. Mircea cel Bătrîn, 3<br>
+    Email: <a href="mailto:office@sinderela.md">office@sinderela.md</a><br>
+    Phone: <a href="tel:+37369438080">069 43 80 80</a></p>
+  </div>
+  <p>Referred to below as "we" or "Sinderela". We are the data controller within the meaning of Law No. 195/2024.</p>
+
+  <h2>2. What data we process</h2>
+
+  <h3>2.1. Data you enter in the order calculator</h3>
+  <p>Your name, phone number, pickup address, preferred date and time, order comment, and the contents of the order itself.</p>
+  <p><b>Important — how this works technically:</b> while you fill in the form, this data stays in your browser only. The website does not transmit or store it anywhere. It leaves your device solely at the moment you yourself press the button to send via WhatsApp or Viber. At that point the data goes to your chosen messenger as an ordinary message, and that is where we receive it.</p>
+
+  <h3>2.2. Data you send us directly</h3>
+  <p>The content of your correspondence via WhatsApp, Viber, Telegram, email or phone — including anything you choose to tell us in addition.</p>
+
+  <h3>2.3. Technical data about your visit</h3>
+  <p>Collected <b>only if you have given consent</b> in the cookie banner: anonymised information about page views, referral source, device and browser type, approximate region. Collected via Google Analytics (Google Tag Manager). If you chose "Essential only", analytics does not start.</p>
+
+  <h3>2.4. Browser local storage</h3>
+  <p>We store three technical values in your browser: your chosen interface language, your answer to the cookie banner, and (on the test version of the site) your chosen colour theme. These are not personal data, they are not transmitted anywhere, and they are removed together with site data in your browser settings.</p>
+
+  <h2>3. Purposes and legal bases</h2>
+  <table>
+    <tr><th>Purpose</th><th>Data</th><th>Legal basis</th></tr>
+    <tr><td>Accepting the order, collecting the items, cleaning them, contacting you about the order</td><td>2.1, 2.2</td><td>Performance of a contract and pre-contractual steps (art. 5(1)(b) of Law 195/2024)</td></tr>
+    <tr><td>Accounting and tax records of services provided</td><td>order data</td><td>Compliance with a legal obligation</td></tr>
+    <tr><td>Understanding how visitors use the site and improving it</td><td>2.3</td><td>Your consent, which may be withdrawn at any time</td></tr>
+  </table>
+  <p>We do not make decisions producing legal effects automatically, without human involvement. No profiling is applied.</p>
+
+  <h2>4. Who the data is shared with</h2>
+  <p>We do not sell personal data and do not pass it to third parties for their own purposes. The data may become accessible to:</p>
+  <ul>
+    <li><b>Messaging apps (WhatsApp — Meta Platforms Ireland; Viber — Rakuten Viber).</b> If you send your order via a messenger, the message passes through that provider's infrastructure under its own privacy policy. The choice of channel is yours — you may call us or write by email instead.</li>
+    <li><b>Google Ireland Ltd</b> — website analytics, only with your consent.</li>
+    <li><b>Our hosting provider</b> — technical hosting of the pages.</li>
+    <li><b>Public authorities</b> — where required by law and in the manner it prescribes.</li>
+  </ul>
+  <p>Some of these companies are located in the European Union or rely on EU standard contractual clauses. Transfers outside the Republic of Moldova are made to countries with an adequate level of protection or on the basis of such clauses.</p>
+
+  <h2>5. How long we keep data</h2>
+  <ul>
+    <li><b>Correspondence and contact data — 1 year</b> from your last enquiry. We keep it only as long as needed for a repeat enquiry and for resolving a complaint about a recent order.</li>
+    <li><b>Primary records of services provided — 6 years</b> (accounting and tax), as required by the legislation of the Republic of Moldova. This period cannot be shortened.</li>
+    <li>Analytics data — in anonymised form, according to Google Analytics settings.</li>
+  </ul>
+  <p>Once the period expires, the data is deleted or anonymised.</p>
+
+  <h2>6. Your rights</h2>
+  <p>Under Law No. 195/2024 you have the right to:</p>
+  <ul>
+    <li>obtain confirmation as to whether we process your data, and a copy of it;</li>
+    <li>request rectification of inaccurate data;</li>
+    <li>request erasure of your data (the "right to be forgotten");</li>
+    <li>request restriction of processing;</li>
+    <li>receive your data in a machine-readable format and transfer it to another controller;</li>
+    <li>object to processing;</li>
+    <li>withdraw consent — without affecting the lawfulness of processing before withdrawal.</li>
+  </ul>
+  <p>To exercise any of these rights, write to <a href="mailto:office@sinderela.md">office@sinderela.md</a>. We will reply within the period set by law. We may ask you to confirm your identity — so as not to disclose your data to someone else.</p>
+  <p>If you believe we have infringed your rights, you may lodge a complaint with the <b>National Center for Personal Data Protection of the Republic of Moldova</b>: <a href="https://datepersonale.md" target="_blank" rel="noopener">datepersonale.md</a>.</p>
+
+  <h2>7. Cookies</h2>
+  <p>Strictly necessary cookies and local storage keep the site working: they remember your language and your cookie choice. They do not require consent.</p>
+  <p>Google Analytics cookies are enabled <b>only after your consent</b>. Until you answer the banner, analytics does not load. You can change your decision by clearing the site data in your browser settings — the banner will appear again.</p>
+
+  <h2>8. Security</h2>
+  <p>The site runs over the secure HTTPS protocol. Only staff who need it for their work have access to orders and correspondence. Risks in transmitting data over the internet cannot be eliminated entirely, but we apply reasonable technical and organisational measures.</p>
+
+  <h2>9. Children</h2>
+  <p>Our services are intended for adults. We do not knowingly collect children's data. If you become aware that a child has given us their data, write to <a href="mailto:office@sinderela.md">office@sinderela.md</a> and we will delete it.</p>
+
+  <h2>10. Changes to this policy</h2>
+  <p>We may update this policy. The current version is always available at <a href="https://sinderela.md/privacy.html">sinderela.md/privacy.html</a>, with the version date shown at the top of the page.</p>
+</div>
+
+  <div class="foot">
+    <span class="t-foot">© <span id="yr"></span> Sinderela · Химчистка премиум-класса, Кишинёв</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var T={ru:{back:"На сайт",foot:"Химчистка премиум-класса, Кишинёв",title:"Политика конфиденциальности · Sinderela"},
+          ro:{back:"Înapoi la site",foot:"Curățătorie chimică premium, Chișinău",title:"Politica de confidențialitate · Sinderela"},
+          en:{back:"Back to site",foot:"Premium dry cleaning, Chișinău",title:"Privacy Policy · Sinderela"}};
+  function setLang(v){
+    document.querySelectorAll("[data-lang]").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-lang")===v); });
+    document.querySelectorAll(".lang button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-set")===v); });
+    document.documentElement.lang = v==="ro" ? "ro" : v==="en" ? "en" : "ru";
+    document.querySelector(".t-back").textContent = T[v].back;
+    document.querySelector(".t-foot").innerHTML = "© <span id=\"yr\">"+new Date().getFullYear()+"</span> Sinderela · "+T[v].foot;
+    document.title = T[v].title;
+    try{ localStorage.setItem("sinderela_lang", v); }catch(e){}
+    history.replaceState(null,"","#"+v);
+  }
+  // язык: из адреса, иначе тот же, что выбран на сайте, иначе ru
+  var v=(location.hash||"").replace("#","");
+  if(["ru","ro","en"].indexOf(v)<0){ try{ v=localStorage.getItem("sinderela_lang")||"ru"; }catch(e){ v="ru"; } }
+  if(["ru","ro","en"].indexOf(v)<0) v="ru";
+  setLang(v);
+  document.querySelector(".lang").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-set]"); if(b) setLang(b.getAttribute("data-set"));
+  });
+})();
+</script>
+</body>
+</html>
