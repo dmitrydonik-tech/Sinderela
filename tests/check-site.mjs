@@ -48,6 +48,24 @@ check(points === 9, `9 точек в JSON-LD (найдено ${points})`);
 // Russo 28 (Filiala 5) — ремонт завершён, филиал снова работает и добавлен на сайт (подтверждено клиентом 2026-09).
 check(/Alecu\s*Russo/i.test(html) && /Алеку\s*Руссо/i.test(html), 'Филиал Russo 28 присутствует (ремонт завершён)');
 
+// ---------- СОГЛАСОВАННОСТЬ СПИСКОВ ФИЛИАЛОВ ----------
+// Филиал приходится добавлять в ЧЕТЫРЁХ местах: список модалки, список подвала,
+// JSON-LD и ключи i18n addrN. В сентябре 2026 Алеку Руссо 28 попал в модалку и JSON-LD,
+// но НЕ в подвал — разошлось на месяц и заметил клиент. Эта проверка ловит такой разъезд.
+const mapmBlock  = (html.match(/<ul class="mapm-list"[\s\S]*?<\/ul>/) || [''])[0];
+const mapmCount  = (mapmBlock.match(/<li\b/g) || []).length;
+const footerCount = (html.match(/class="ft-addr[^"]*"/g) || []).length;  // у главного офиса класс "ft-addr main"
+check(mapmCount > 0 && mapmCount === footerCount,
+      `Списки филиалов совпадают: модалка ${mapmCount} = подвал ${footerCount}`);
+
+// те же адреса, не только количество: сверяем набор ключей addrN
+const keysIn = (block) => new Set((block.match(/data-i18n="(addr\d+)"/g) || []).map(s => s.slice(11, -1)));
+const footerBlock = (html.match(/<h3 data-i18n="ft_addr_h"[\s\S]*?<\/div>\s*<div>/) || [''])[0];
+const mk = keysIn(mapmBlock), fk = keysIn(footerBlock);
+const missing = [...mk].filter(k => !fk.has(k)).concat([...fk].filter(k => !mk.has(k)));
+check(mk.size > 0 && missing.length === 0,
+      `Адреса модалки и подвала — один набор${missing.length ? ' (разошлись: ' + missing.join(', ') + ')' : ''}`);
+
 // ---------- СЧЁТЧИКИ ----------
 check(html.includes('GTM-N4VK9XP4'), 'Контейнер GTM вставлен');
 check(html.includes('googletagmanager.com/ns.html'), 'GTM noscript вставлен');
