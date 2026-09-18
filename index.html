@@ -2165,18 +2165,44 @@ if(document.readyState!=="loading")init();else document.addEventListener("DOMCon
 
   /* <picture><source media="(prefers-color-scheme: dark)"> браузер разбирает СВОИМ алгоритмом
      выбора картинки и смотрит на НАСТОЯЩУЮ тему системы — подмена CSS-медиазапроса выше
-     на него не действует. Поэтому переключаем и его media тоже, тем же способом. */
-  var picSrc=[].slice.call(document.querySelectorAll("picture source[media]"))
-                .filter(function(s){ return /prefers-color-scheme/.test(s.media); });
-  picSrc.forEach(function(s){ s.setAttribute("data-media-orig", s.media); });
+     на него не действует. Переключать надо и картинки.
+
+     ⚠ РАНЬШЕ здесь менялся ТОЛЬКО атрибут media у <source>. На десктопе и в эмуляции
+     работало, а на реальном Android карточки оставались ПУСТЫМИ: подмена media заставляет
+     браузер заново выбирать источник, и в связке с loading="lazy" он терял кадр —
+     показывался белый фон карточки с градиентом, без фото.
+     Теперь надёжнее: прямо назначаем нужный файл И в source.srcset, И в img.src, плюс
+     снимаем lazy на время принудительной темы, чтобы загрузка не откладывалась. Какой бы
+     путь браузер ни выбрал — он получит правильный файл и реально его скачает. */
+  var pics=[];
+  [].slice.call(document.querySelectorAll("picture")).forEach(function(pic){
+    var s=pic.querySelector("source[media]"), i=pic.querySelector("img");
+    if(!s||!i||!/prefers-color-scheme/.test(s.getAttribute("media")||"")) return;
+    pics.push({s:s,i:i,
+      media:s.getAttribute("media"), dark:s.getAttribute("srcset"),
+      light:i.getAttribute("src"),  lazy:i.getAttribute("loading")});
+  });
+  function applyPics(v){
+    pics.forEach(function(o){
+      if(v==="auto"){
+        o.s.setAttribute("media",o.media); o.s.setAttribute("srcset",o.dark);
+        if(o.lazy) o.i.setAttribute("loading",o.lazy); else o.i.removeAttribute("loading");
+        if(o.i.getAttribute("src")!==o.light) o.i.setAttribute("src",o.light);
+        return;
+      }
+      var want = (v==="dark") ? o.dark : o.light;
+      o.s.setAttribute("media","not all");
+      o.s.setAttribute("srcset",want);
+      o.i.setAttribute("loading","eager");
+      if(o.i.getAttribute("src")!==want) o.i.setAttribute("src",want);
+    });
+  }
 
   function apply(v){
     try{
       rule.media.mediaText = v==="dark" ? "all" : v==="light" ? "not all" : orig;
     }catch(e){ return; }
-    picSrc.forEach(function(s){
-      s.media = v==="dark" ? "all" : v==="light" ? "not all" : s.getAttribute("data-media-orig");
-    });
+    applyPics(v);
     /* Ключевое слово "only" — штатный отказ от ПРИНУДИТЕЛЬНОГО затемнения страниц
        (Chrome/Edge "Auto dark mode for web contents"). Без него браузер, у которого
        эта настройка включена, увидит светлую страницу при тёмной системе и сам
