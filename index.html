@@ -2177,7 +2177,13 @@ if(document.readyState!=="loading")init();else document.addEventListener("DOMCon
     picSrc.forEach(function(s){
       s.media = v==="dark" ? "all" : v==="light" ? "not all" : s.getAttribute("data-media-orig");
     });
-    document.documentElement.style.colorScheme = v==="auto" ? "" : v;
+    /* Ключевое слово "only" — штатный отказ от ПРИНУДИТЕЛЬНОГО затемнения страниц
+       (Chrome/Edge "Auto dark mode for web contents"). Без него браузер, у которого
+       эта настройка включена, увидит светлую страницу при тёмной системе и сам
+       её проинвертирует: фон станет коричнево-чёрным, текст побелеет, а картинки
+       останутся светлыми — получается каша. В режиме "авто" ничего не навязываем. */
+    document.documentElement.style.colorScheme =
+      v==="auto" ? "" : (v==="light" ? "only light" : "only dark");
     box.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-th")===v); });
     try{ localStorage.setItem("thsw", v); }catch(e){}
   }
