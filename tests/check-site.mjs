@@ -45,13 +45,12 @@ check(/"@type":\s*"Organization"/.test(html), 'JSON-LD Organization есть');
 const points = (html.match(/"@type":\s*"DryCleaningOrLaundry"/g) || []).length;
 check(points === 9, `9 точек в JSON-LD (найдено ${points})`);
 
-// Russo 28 (Filiala 5) — ремонт завершён, филиал снова работает и добавлен на сайт (подтверждено клиентом 2026-09).
+// Филиал Russo 28 работает и присутствует на сайте.
 check(/Alecu\s*Russo/i.test(html) && /Алеку\s*Руссо/i.test(html), 'Филиал Russo 28 присутствует (ремонт завершён)');
 
 // ---------- СОГЛАСОВАННОСТЬ СПИСКОВ ФИЛИАЛОВ ----------
-// Филиал приходится добавлять в ЧЕТЫРЁХ местах: список модалки, список подвала,
-// JSON-LD и ключи i18n addrN. В сентябре 2026 Алеку Руссо 28 попал в модалку и JSON-LD,
-// но НЕ в подвал — разошлось на месяц и заметил клиент. Эта проверка ловит такой разъезд.
+// Филиал присутствует в ЧЕТЫРЁХ местах: список модалки, список подвала,
+// JSON-LD и ключи i18n addrN. Проверка ловит рассинхрон между ними.
 const mapmBlock  = (html.match(/<ul class="mapm-list"[\s\S]*?<\/ul>/) || [''])[0];
 const mapmCount  = (mapmBlock.match(/<li\b/g) || []).length;
 const footerCount = (html.match(/class="ft-addr[^"]*"/g) || []).length;  // у главного офиса класс "ft-addr main"
@@ -84,7 +83,7 @@ const faqLdQ = (faqLd || []).map(x => x.q);
 const faqDiff = faqLdQ.filter(q => !faqHtml.includes(q)).concat(faqHtml.filter(q => !faqLdQ.includes(q)));
 check(faqLd !== null && faqLd.length === faqHtml.length && faqDiff.length === 0,
       `FAQ: вопросы в HTML и FAQPage совпадают${faqDiff.length ? ' (разошлись: ' + faqDiff.map(q => '«' + q + '»').join(', ') + ')' : ''}`);
-// ответ живёт в ТРЁХ местах (HTML <p>, JSON-LD, словарь ru) — сентябрь 2026: правка формулировки нашла третье место только по assert.
+// ответ живёт в ТРЁХ местах (HTML <p>, JSON-LD, словарь ru) — правим все три сразу.
 const faqBadA = faqPairs.filter(h => { const l = (faqLd || []).find(x => x.q === h.q); return l && l.a !== h.a; }).map(h => h.q);
 check(faqLd !== null && faqBadA.length === 0,
       `FAQ: ответы в HTML и FAQPage совпадают${faqBadA.length ? ' (разошлись у: ' + faqBadA.map(q => '«' + q + '»').join(', ') + ')' : ''}`);
