@@ -66,6 +66,29 @@ const missing = [...mk].filter(k => !fk.has(k)).concat([...fk].filter(k => !mk.h
 check(mk.size > 0 && missing.length === 0,
       `Адреса модалки и подвала — один набор${missing.length ? ' (разошлись: ' + missing.join(', ') + ')' : ''}`);
 
+// ---------- FAQ: HTML и JSON-LD FAQPage — один набор вопросов ----------
+// Вопрос живёт в ДВУХ местах: <details class="faq-i"><summary> и "Question" в FAQPage.
+// Google требует, чтобы размеченные вопросы были видны на странице — при правке текста
+// в одном месте и забытом втором разметка становится невалидной. Сверяем посимвольно (RU).
+const unesc = s => s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"');
+const faqPairs = [...html.matchAll(/<details class="faq-i"><summary[^>]*>([^<]*)<\/summary><p[^>]*>([^<]*)<\/p>/g)]
+  .map(m => ({ q: unesc(m[1]).trim(), a: unesc(m[2]).trim() }));
+const faqHtml = faqPairs.map(x => x.q);
+const faqLd   = (() => { try {
+  const ld = JSON.parse((html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1]);
+  const f = (ld['@graph'] || []).find(n => n['@type'] === 'FAQPage');
+  return f ? f.mainEntity.map(q => ({ q: q.name.trim(), a: (q.acceptedAnswer?.text || '').trim() })) : [];
+} catch { return null; } })();
+check(faqLd !== null && faqLd.length > 0 && faqHtml.length > 0, `FAQPage в JSON-LD есть и парсится (${faqLd ? faqLd.length : 'JSON битый'} вопросов, в HTML ${faqHtml.length})`);
+const faqLdQ = (faqLd || []).map(x => x.q);
+const faqDiff = faqLdQ.filter(q => !faqHtml.includes(q)).concat(faqHtml.filter(q => !faqLdQ.includes(q)));
+check(faqLd !== null && faqLd.length === faqHtml.length && faqDiff.length === 0,
+      `FAQ: вопросы в HTML и FAQPage совпадают${faqDiff.length ? ' (разошлись: ' + faqDiff.map(q => '«' + q + '»').join(', ') + ')' : ''}`);
+// ответ живёт в ТРЁХ местах (HTML <p>, JSON-LD, словарь ru) — сентябрь 2026: правка формулировки нашла третье место только по assert.
+const faqBadA = faqPairs.filter(h => { const l = (faqLd || []).find(x => x.q === h.q); return l && l.a !== h.a; }).map(h => h.q);
+check(faqLd !== null && faqBadA.length === 0,
+      `FAQ: ответы в HTML и FAQPage совпадают${faqBadA.length ? ' (разошлись у: ' + faqBadA.map(q => '«' + q + '»').join(', ') + ')' : ''}`);
+
 // ---------- СЧЁТЧИКИ ----------
 check(html.includes('GTM-N4VK9XP4'), 'Контейнер GTM вставлен');
 check(html.includes('googletagmanager.com/ns.html'), 'GTM noscript вставлен');
