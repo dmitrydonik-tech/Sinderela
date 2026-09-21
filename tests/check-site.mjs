@@ -89,6 +89,20 @@ const faqBadA = faqPairs.filter(h => { const l = (faqLd || []).find(x => x.q ===
 check(faqLd !== null && faqBadA.length === 0,
       `FAQ: ответы в HTML и FAQPage совпадают${faqBadA.length ? ' (разошлись у: ' + faqBadA.map(q => '«' + q + '»').join(', ') + ')' : ''}`);
 
+// третье место — словарь I18N.ru: applyLang() перезаписывает <p> из него, так что рассинхрон
+// HTML ↔ словарь на глаз не виден (на экране всегда словарь). Словарь — JS, не JSON; значения
+// там простые строки в двойных кавычках без экранирования, поэтому достаточно regex по блоку ru.
+const ruDict = (html.match(/var I18N=\{\s*ru:\{([\s\S]*?)\n\s*ro:\{/) || ['', ''])[1];
+const ruFaq  = Object.fromEntries([...ruDict.matchAll(/\b(faq\d+_[qa]):"([^"]*)"/g)].map(m => [m[1], m[2].trim()]));
+const ruBad  = faqPairs.flatMap((h, i) => {
+  const n = i + 1, out = [];
+  if (ruFaq[`faq${n}_q`] !== h.q) out.push(`faq${n}_q`);
+  if (ruFaq[`faq${n}_a`] !== h.a) out.push(`faq${n}_a`);
+  return out;
+});
+check(ruDict.length > 0 && Object.keys(ruFaq).length === faqPairs.length * 2 && ruBad.length === 0,
+      `FAQ: словарь I18N.ru совпадает с HTML${!ruDict.length ? ' (блок ru не найден)' : ruBad.length ? ' (разошлись: ' + ruBad.join(', ') + ')' : ''}`);
+
 // ---------- СЧЁТЧИКИ ----------
 check(html.includes('GTM-N4VK9XP4'), 'Контейнер GTM вставлен');
 check(html.includes('googletagmanager.com/ns.html'), 'GTM noscript вставлен');
