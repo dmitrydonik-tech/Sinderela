@@ -2,6 +2,10 @@
 # Игнорируем всё, кроме index.html и папки assets.
 *
 !/index.html
+!/ro/
+!/ro/**
+!/en/
+!/en/**
 !/assets/
 !/assets/**
 !/.gitignore
@@ -10,6 +14,7 @@
 # robots.txt и sitemap.xml лежали на диске, но не публиковались (не были в белом списке).
 # _headers — заголовки кеша/безопасности для Cloudflare Pages / Netlify (на GitHub Pages не работает).
 !/robots.txt
+!/.htaccess
 !/sitemap.xml
 !/_headers
 # privacy.html — политика конфиденциальности, отдельная страница сайта.

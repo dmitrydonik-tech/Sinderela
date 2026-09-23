@@ -1,0 +1,29 @@
+# Sinderela — redirects for migration WordPress -> static one-pager
+RewriteEngine On
+
+# Force HTTPS + canonical host (non-www)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://sinderela.md/$1 [R=301,L]
+
+# RU service pages -> anchors
+RewriteRule ^uslugi/?$                 /#services [R=301,L,NE]
+RewriteRule ^uslugi/.+$                /#services [R=301,L,NE]
+RewriteRule ^uslugi-i-czeny/?$         /#calc     [R=301,L,NE]
+RewriteRule ^o-nas/?$                  /#footer   [R=301,L,NE]
+RewriteRule ^first-line/?$             /#trust    [R=301,L,NE]
+
+# RO service pages -> RO-версия нового сайта (НЕ на русскую: человек искал по-румынски).
+# Сама /ro/ — настоящая страница (ro/index.html), правило её не перехватывает.
+# RO service pages -> anchors
+RewriteRule ^ro/acasa/?$               /ro/          [R=301,L,NE]
+RewriteRule ^ro/servicii/?$            /ro/#services [R=301,L,NE]
+RewriteRule ^ro/servicii/.+$           /ro/#services [R=301,L,NE]
+RewriteRule ^ro/preturi-si-servicii/?$ /ro/#calc     [R=301,L,NE]
+RewriteRule ^ro/despre-noi/?$          /ro/#footer   [R=301,L,NE]
+RewriteRule ^ro/first-line-servicii/?$ /ro/#trust    [R=301,L,NE]
+
+# WordPress junk -> 410 Gone (dropped from index faster than 404)
+RewriteRule ^wp-(admin|content|includes|json)/ - [G,L]
+RewriteRule ^(author|feed)/ - [G,L]
+RewriteRule ^\?p= - [G,L]
