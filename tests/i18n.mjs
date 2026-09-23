@@ -1,4 +1,4 @@
-// tests/i18n.mjs — полнота переводов. Все data-i18n(-html/-aria) ключи должны быть заполнены в RU/RO/EN.
+// tests/i18n.mjs — полнота переводов. Все data-i18n(-html/-aria/-ph/-alt) ключи должны быть заполнены в RU/RO/EN.
 // Запуск: PW=<...> CHROME_PATH=<...> LD_LIBRARY_PATH=<...> node tests/i18n.mjs   (в CI — просто node tests/i18n.mjs)
 import { existsSync } from 'node:fs';
 const _pw = await import(process.env.PW || 'playwright-core');
@@ -13,7 +13,10 @@ await p.goto(new URL('../index.html', import.meta.url).href);
 await p.waitForTimeout(300);
 
 const r = await p.evaluate(() => {
-  const attrs = ['data-i18n', 'data-i18n-html', 'data-i18n-aria'];
+  // Полный список переводимых атрибутов — должен совпадать с applyLang() в index.html.
+  // Добавляешь туда новый data-i18n-* — добавь и сюда, иначе его ключи не проверяются на полноту
+  // и попадают в «неиспользуемые» (так было с data-i18n-alt до 23.09.2026).
+  const attrs = ['data-i18n', 'data-i18n-html', 'data-i18n-aria', 'data-i18n-ph', 'data-i18n-alt'];
   const used = new Set();
   attrs.forEach(a => document.querySelectorAll('[' + a + ']').forEach(el => { const k = el.getAttribute(a); if (k) used.add(k); }));
   const langs = Object.keys(I18N);
