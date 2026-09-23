@@ -2361,7 +2361,10 @@ function init(){
   else{var hv=document.getElementById("heroVid");if(hv){try{hv.muted=true;hv.setAttribute("muted","");}catch(e){}
     var started=false;var startVideo=function(){if(started)return;started=true;var sc=hv.querySelector("source");if(sc&&!sc.getAttribute("src")&&sc.dataset.src){sc.setAttribute("src",sc.dataset.src);hv.load();}var pr=hv.play&&hv.play();if(pr&&pr.catch)pr.catch(function(){});};
     if(document.readyState==="complete")setTimeout(startVideo,300);else window.addEventListener("load",function(){setTimeout(startVideo,300);});
-    ["touchstart","pointerdown","click","scroll"].forEach(function(ev){window.addEventListener(ev,startVideo,{passive:true,once:true});});
+    /* scroll убран из триггеров (сент. 2026): прокрутка к калькулятору сама запускала
+   загрузку 1.4 МБ в то же HTTP/2-соединение и с тем же приоритетом, что иконки каталога.
+   Видео по-прежнему стартует от касания/клика и по таймеру ниже. */
+  ["touchstart","pointerdown","click"].forEach(function(ev){window.addEventListener(ev,startVideo,{passive:true,once:true});});
   }}
   applyPriceUpdates();
 }
