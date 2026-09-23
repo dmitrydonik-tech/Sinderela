@@ -2008,7 +2008,15 @@ function applyLang(){
    пришедший из поиска на /ro/, увидел бы русский, а Google — расхождение контента и URL.
    PAGE_LANG подставляет tools/build-langs.mjs; правится ТОЛЬКО в index.html. */
 var PAGE_LANG="ru";/*BUILD:PAGE_LANG*/
-var LANG_URL={ru:"/",ro:"/ro/",en:"/en/"};
+/* Адрес другой версии считается ОТ ТЕКУЩЕГО пути, а не жёстко от корня домена.
+   Жёсткое "/ro/" верно только для sinderela.md, а на staging (github.io/Sinderela/)
+   увело бы на несуществующий github.io/ro/. Проверено — именно так и увело. */
+function langHref(l){
+  var b=location.pathname.replace(/index\.html$/,"");
+  if(PAGE_LANG!=="ru")b=b.replace(new RegExp("/"+PAGE_LANG+"/$"),"/");
+  if(b.charAt(b.length-1)!=="/")b+="/";
+  return l==="ru"?b:b+l+"/";
+}
 function detectLang(){return PAGE_LANG;}
 function _detectLangByBrowser(){
   try{var sv=localStorage.getItem("sinderela_lang");if(sv==="ru"||sv==="ro"||sv==="en")return sv;}catch(e){}
@@ -2328,8 +2336,9 @@ function init(){
   document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){
     var l=b.dataset.lang;if(l===PAGE_LANG)return;
     /* локально (file://) навигации нет — переключаем на месте, чтобы файл можно было смотреть с диска */
-    if(location.protocol==="file:"||!LANG_URL[l]){setLang(l);return;}
-    location.href=LANG_URL[l]+location.hash;
+    /* на file:// каталог без index.html не открывается — переключаем на месте */
+    if(location.protocol==="file:"){setLang(l);return;}
+    location.href=langHref(l)+location.hash;
   });});
   document.querySelectorAll(".js-burger").forEach(function(b){b.addEventListener("click",function(){document.querySelector(".js-drawer").classList.toggle("open");});});
   document.querySelectorAll(".js-mlink").forEach(function(a){a.addEventListener("click",closeDrawer);});

@@ -75,6 +75,17 @@ for (const lang of ['ro', 'en']) {
   ok(`${LANGS[lang].path}: абсолютные https://sinderela.md/assets/ целы`, (h.match(/https:\/\/sinderela\.md\/assets\//g) || []).length === (src.match(/https:\/\/sinderela\.md\/assets\//g) || []).length, 'целы');
 }
 
+// ---------- 5-бис) переключатель считает адрес от текущего пути ----------
+// Жёсткое LANG_URL={ru:"/",…} работало бы только на sinderela.md: на staging
+// github.io/Sinderela/ оно уводило на github.io/ro/ (404). Проверено живьём 23.09.2026.
+for (const lang of Object.keys(LANGS)) {
+  const file = join(ROOT, LANGS[lang].path);
+  if (!existsSync(file)) continue;
+  const h = readFileSync(file, 'utf8');
+  ok(`${LANGS[lang].path}: адрес версии считается от location.pathname`, /function langHref\(l\)/.test(h) && /location\.pathname/.test(h), 'есть');
+  ok(`${LANGS[lang].path}: нет жёсткой карты LANG_URL`, !/LANG_URL/.test(h), 'нет');
+}
+
 // ---------- 6) sitemap перечисляет все три версии ----------
 const sm = readFileSync(join(ROOT, 'sitemap.xml'), 'utf8');
 for (const lang of Object.keys(LANGS)) {
