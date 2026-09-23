@@ -161,33 +161,104 @@ const parse = await p.evaluate(() => {
     s10len: by['2S10'] ? by['2S10'].length : 0
   };
 });
+// Разбор цены проверяем напрямую: опубликованный CSV отдаёт числа «как отображается»
+// в таблице, поэтому сюда приезжает любой формат, который клиент выставил колонке.
+// Опасные значения ловит ещё и коридор цен — но он может быть расширен, и тогда
+// строгий разбор останется единственной защитой. Поэтому тестируем его отдельно.
+const pr = await p.evaluate(() => ({
+  ok:  [_price('400'), _price('400.00'), _price('400,00'), _price(' 1 075,00 '), _price('1 075,00')],
+  bad: [_price('400,00 lei'), _price('1,075'), _price('1,075.00'), _price('0x1F4'),
+        _price('4e2'), _price('.5'), _price('450.5'), _price('-400'), _price('')]
+}));
+eq('синк: _price принимает нормальные форматы', pr.ok, [400, 400, 400, 1075, 1075]);
+eq('синк: _price отвергает валюту/тысячи/hex/экспоненту/дробное', pr.bad, [null, null, null, null, null, null, null, null, null]);
+
 eq('синк: "Смокинг, фрак" (запятая в кавычках) => 4P7=275', parse.smoking, 275);
 eq('синк: дубль 1D33 => 2 кандидата (Простыня+Скатерть)', parse.d33len, 2);
 eq('синк: дубль 2S10 => 2 кандидата (Свитер+Туника)', parse.s10len, 2);
 
-// ---------- 4) applyPriceUpdates: разводка дублей по названию + fallback ----------
-const applyRes = await p.evaluate(async () => {
-  const idx = (catId, name) => catById(catId).items.findIndex(it => it[0] === name);
-  const prostynya = () => catById('bedding').items[idx('bedding', 'Простыня')][2][0];
-  const skatert = () => catById('hometex').items[idx('hometex', 'Скатерть настольная')][2][0];
-  const sviter = () => catById('knit').items[idx('knit', 'Свитер')][2][1]; // vi1 = 2S10
-  const before = { prostynya: prostynya(), skatert: skatert(), sviter: sviter() };
-  const csv = [
-    '№,Наименование,,Ед,Цена',
-    '1D33,Простыня (кроме шелк) полуторная,,шт.,133',
-    '1D33,Скатерть настольная 1м²,,м2,66',
-    '2S10,Свитер с коротк. рукав. *1,,шт.,180',
-    '2S10,Туника *1,,шт.,200'
-  ].join('\n');
-  window.PRICE_CSV_URL = 'http://local/test.csv';
-  window.fetch = () => Promise.resolve({ ok: true, text: () => Promise.resolve(csv) });
-  applyPriceUpdates();
-  await new Promise(r => setTimeout(r, 300));
-  return { before, after: { prostynya: prostynya(), skatert: skatert(), sviter: sviter() } };
+// ---------- 4) applyPriceUpdates: разводка дублей, коридор цен, формат колонки ----------
+// ВАЖНО: слой применяет обновление по принципу «всё или ничего» — если распозналось меньше
+// 90% кодов PRICEMAP, не применяется НИЧЕГО. Поэтому CSV здесь строится ПОЛНЫЙ, из самой карты,
+// а сценарий задаётся точечными переопределениями. Маленький CSV из четырёх строк слой
+// (правильно) отвергнет целиком, и тест проверял бы не то.
+const applyScenario = async (spec) => {
+  await p.goto(HTML.href);
+  await p.waitForTimeout(400);
+  return p.evaluate(async (spec) => {
+    const val = (id, name, k = 0) => { const c = catById(id); const i = c.items.findIndex(it => it[0] === name); return i < 0 ? null : c.items[i][2][k]; };
+    const probe = () => ({
+      prostynya: val('bedding', 'Простыня'), skatert: val('hometex', 'Скатерть настольная'),
+      sviter: val('knit', 'Свитер', 1), jemper: val('knit', 'Джемпер')
+    });
+    const before = probe();
+    const over = spec.over || {}, seen = new Set(), rows = [];
+    for (const code in PRICEMAP) for (const t of PRICEMAP[code]) {
+      const dedup = code + '|' + t[3]; if (seen.has(dedup)) continue; seen.add(dedup);
+      const hint = t[4] || '', key = code + '|' + hint;
+      if (spec.drop === key) continue;                       // сценарий «строку удалили из таблицы»
+      const nm = hint ? ('Услуга ' + hint + 'ное изделие') : ('Услуга ' + code);
+      const price = over[key] === undefined ? t[3] : over[key];
+      const cell = spec.fmt === 'currency'
+        ? '"' + Number(price).toFixed(2).replace('.', ',') + ' lei"'   // формат «Валюта» в таблице
+        : String(price);
+      rows.push([code, nm, '', 'шт.', cell].concat(spec.tail ? [spec.tail] : []).join(','));
+    }
+    const head = '№,Наименование,,Ед,Цена' + (spec.tail ? ',Год' : '');
+    const csv = (spec.noHead ? rows : [head].concat(rows)).concat(spec.extra || []).join('\n');
+    window.PRICE_CSV_URL = 'http://local/test.csv';
+    window.fetch = () => Promise.resolve({ ok: true, text: () => Promise.resolve(csv) });
+    if (spec.cart) addLine(CATS[0].id, 0, 0);
+    applyPriceUpdates();
+    await new Promise(r => setTimeout(r, 450));
+    return { before, after: probe() };
+  }, spec);
+};
+
+// 4.1 полный CSV с теми же ценами — ничего не должно измениться
+let A = await applyScenario({});
+eq('синк: CSV с текущими ценами ничего не меняет', A.after, A.before);
+
+// 4.2 обычное обновление; «Туника» лишней строкой не должна перебить «Свитер»
+A = await applyScenario({
+  over: { '1D33|простын': 133, '1D33|скатерт': 66, '2S10|свитер': 180 },
+  extra: ['2S10,Туника *1,,шт.,200']
 });
-eq('синк apply: Простыня 120->133 (дубль 1D33)', applyRes.after.prostynya, 133);
-eq('синк apply: Скатерть 50->66 (дубль 1D33)', applyRes.after.skatert, 66);
-eq('синк apply: Свитер 170->180 (2S10, не Туника 200)', applyRes.after.sviter, 180);
+eq('синк apply: Простыня 120->133 (дубль 1D33)', A.after.prostynya, 133);
+eq('синк apply: Скатерть 50->66 (дубль 1D33)', A.after.skatert, 66);
+eq('синк apply: Свитер 170->180 (2S10, не Туника 200)', A.after.sviter, 180);
+
+// 4.3 РЕГРЕССИЯ: строку дубля удалили из таблицы — его цена НЕ должна уехать в соседа.
+// До сент. 2026 «Скатерть» получала цену «Простыни» (50 -> 133): hint проверялся только
+// при нескольких кандидатах. Теперь hint обязателен всегда.
+// Цена 95 подобрана намеренно: она попадает и в коридор «Простыни» (база 120), и в коридор
+// «Скатерти» (база 50, коридор 25..100). Возьми 133 — ошибку перехватил бы коридор, и тест
+// зеленел бы даже со сломанной проверкой названия. Проверено обратным прогоном.
+A = await applyScenario({ over: { '1D33|простын': 95 }, drop: '1D33|скатерт' });
+eq('синк: удалённая строка дубля не перебивает соседа', [A.after.prostynya, A.after.skatert], [95, 50]);
+
+// 4.4 коридор вменяемости: опечатка «лишний ноль» не доезжает до посетителя
+A = await applyScenario({ over: { '1D33|простын': 1200 } });
+eq('синк: цена вне коридора (x10) отвергнута', A.after.prostynya, A.before.prostynya);
+
+// 4.5 формат колонки «Валюта» в таблице — обновление отменяется ЦЕЛИКОМ, а не тихо умирает
+A = await applyScenario({ over: { '1D33|простын': 133 }, fmt: 'currency' });
+eq('синк: валютный формат отменяет обновление целиком', A.after, A.before);
+
+// 4.6 клиент добавил числовой столбец справа — цена берётся из колонки «Цена» по заголовку
+A = await applyScenario({ over: { '1D33|простын': 133 }, tail: 2026 });
+eq('синк: лишний столбец справа не подменяет цены', [A.after.prostynya, A.after.jemper], [133, A.before.jemper]);
+
+// 4.7 тот же столбец, но заголовка нет — колонка неоднозначна, не применяем ничего
+A = await applyScenario({ over: { '1D33|простын': 133 }, tail: 2026, noHead: true });
+eq('синк: неоднозначная колонка цены — обновления нет', A.after, A.before);
+
+// 4.8 корзина не пуста — не меняем сумму под пользователем
+A = await applyScenario({ over: { '1D33|простын': 133 }, cart: true });
+eq('синк: при непустой корзине обновление отложено', A.after, A.before);
+
+await p.goto(HTML.href);
+await p.waitForTimeout(400);
 
 const fb = await p.evaluate(async () => {
   const idx = catById('knit').items.findIndex(it => it[0] === 'Джемпер');
