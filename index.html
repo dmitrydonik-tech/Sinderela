@@ -2239,6 +2239,32 @@ function parsePriceCSV(txt){
   }
   return by;
 }
+/* Прогрев иконок каталога. Переключение раздела требует 6–16 новых файлов, и на медленном
+   канале это 300–450 мс ожидания каждый раз. После облегчения набора (сент. 2026: 1351 → 273 КБ)
+   его можно целиком подтянуть в фоне, пока человек читает первый экран, — тогда переключения
+   становятся мгновенными. Пути берутся из ICONSRC, поэтому в версиях /ro/ и /en/ (где сборка
+   переписывает их в ../assets/) прогрев работает без отдельной настройки.
+   НЕ прогреваем при включённой экономии трафика и на 2G: там лишние 273 КБ вредны.
+   Грузим пачками по 8 с паузой и с низким приоритетом, чтобы не мешать тому,
+   что человек видит прямо сейчас. */
+function warmIcons(){
+  try{
+    var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+    if(c&&(c.saveData||/2g/.test(c.effectiveType||"")))return;
+  }catch(e){}
+  var urls=[],seen={},k,u;
+  for(k in ICONSRC){ if(!ICONSRC.hasOwnProperty(k))continue; u=ICONSRC[k]; if(u&&!seen[u]){seen[u]=1;urls.push(u+"?v="+ICONVER);} }
+  var i=0;
+  (function step(){
+    var n=0,im;
+    while(i<urls.length&&n<8){
+      im=new Image();
+      try{im.decoding="async";im.fetchPriority="low";}catch(e){}
+      im.src=urls[i++];n++;
+    }
+    if(i<urls.length)setTimeout(step,150);
+  })();
+}
 function applyPriceUpdates(){
   if(!PRICE_CSV_URL)return;
   var ctrl=("AbortController" in window)?new AbortController():null;
@@ -2359,7 +2385,7 @@ function init(){
   if(rm){var v=document.getElementById("heroVid");if(v){v.removeAttribute("autoplay");v.pause&&v.pause();}}
   else{var hv=document.getElementById("heroVid");if(hv){try{hv.muted=true;hv.setAttribute("muted","");}catch(e){}
     var started=false;var startVideo=function(){if(started)return;started=true;var sc=hv.querySelector("source");if(sc&&!sc.getAttribute("src")&&sc.dataset.src){sc.setAttribute("src",sc.dataset.src);hv.load();}var pr=hv.play&&hv.play();if(pr&&pr.catch)pr.catch(function(){});};
-    if(document.readyState==="complete")setTimeout(startVideo,300);else window.addEventListener("load",function(){setTimeout(startVideo,300);});
+    if(document.readyState==="complete"){setTimeout(startVideo,300);setTimeout(warmIcons,1500);}else window.addEventListener("load",function(){setTimeout(startVideo,300);setTimeout(warmIcons,1500);});
     /* scroll убран из триггеров (сент. 2026): прокрутка к калькулятору сама запускала
    загрузку 1.4 МБ в то же HTTP/2-соединение и с тем же приоритетом, что иконки каталога.
    Видео по-прежнему стартует от касания/клика и по таймеру ниже. */
