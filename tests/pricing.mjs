@@ -8,7 +8,12 @@ const chromium = _pw.chromium || (_pw.default && _pw.default.chromium);
 
 const HTML = new URL('../index.html', import.meta.url);
 const SNAP = new URL('./prices.snapshot.json', import.meta.url);
-const CHROME = process.env.CHROME_PATH || "/sessions/awesome-ecstatic-tesla/.cache/ms-playwright/chromium-1228/chrome-linux/chrome";
+// Путь к браузеру: явный CHROME_PATH → старая песочница (Linux) → системный Chrome на Mac.
+// Раньше был только линуксовый путь, и на Mac тест падал без ручной настройки.
+const CHROME = process.env.CHROME_PATH || [
+  "/sessions/awesome-ecstatic-tesla/.cache/ms-playwright/chromium-1228/chrome-linux/chrome",
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+].find(p => { try { return existsSync(p); } catch { return false; } }) || "";
 
 const results = [];
 const eq = (name, got, exp) => results.push({ name, ok: JSON.stringify(got) === JSON.stringify(exp), got, exp });
