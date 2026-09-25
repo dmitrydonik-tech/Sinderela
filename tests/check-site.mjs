@@ -1,5 +1,5 @@
 // tests/check-site.mjs — release gate. Run: node tests/check-site.mjs
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const errors = [];
@@ -101,6 +101,18 @@ const ruBad  = faqPairs.flatMap((h, i) => {
 });
 check(ruDict.length > 0 && Object.keys(ruFaq).length === faqPairs.length * 2 && ruBad.length === 0,
       `FAQ: словарь I18N.ru совпадает с HTML${!ruDict.length ? ' (блок ru не найден)' : ruBad.length ? ' (разошлись: ' + ruBad.join(', ') + ')' : ''}`);
+
+// ---------- llms.txt: справка для ИИ-систем ----------
+// Пятое место, где живут филиалы (после модалки, подвала, JSON-LD и i18n) и единый телефон.
+// Разойдётся с сайтом — ИИ начнёт называть неверные адреса, а именно разнобой данных
+// о компании и мешает ей появляться в ответах ассистентов (аудит сент. 2026).
+const LLMS = new URL('../llms.txt', import.meta.url);
+const llms = existsSync(LLMS) ? readFileSync(LLMS, 'utf8') : '';
+check(llms.includes('+373 69 43 80 80') && !/022[\s-]?4[34]/.test(llms), 'llms.txt: единый телефон, без старых городских номеров');
+const ruDictL = (html.match(/var I18N=\{\s*ru:\{([\s\S]*?)\n\s*ro:\{/) || ['', ''])[1];
+const addrRu = [...ruDictL.matchAll(/\baddr\d+:"([^"]*)"/g)].map(m => m[1].split(',')[0].replace(/^(ул|бул|шос)\.\s*/, '').trim());
+const missL = addrRu.filter(a => !llms.includes(a));
+check(llms && addrRu.length > 0 && missL.length === 0, `llms.txt: все ${addrRu.length} пунктов из словаря на месте${missL.length ? ' (нет: ' + missL.join(', ') + ')' : ''}`);
 
 // ---------- СЧЁТЧИКИ ----------
 check(html.includes('GTM-N4VK9XP4'), 'Контейнер GTM вставлен');
