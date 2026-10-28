@@ -1,4 +1,6 @@
 # Sinderela — redirects for migration WordPress -> static one-pager
+# Карта сверена с картой сайта WordPress (wp-sitemap.xml, 36 адресов) и проверена
+# на Apache 2.4 локально 28.10.2026. В день переезда — прогнать ещё раз на хостинге.
 RewriteEngine On
 
 # Force HTTPS + canonical host (non-www)
@@ -15,7 +17,6 @@ RewriteRule ^first-line/?$             /#trust    [R=301,L,NE]
 
 # RO service pages -> RO-версия нового сайта (НЕ на русскую: человек искал по-румынски).
 # Сама /ro/ — настоящая страница (ro/index.html), правило её не перехватывает.
-# RO service pages -> anchors
 RewriteRule ^ro/acasa/?$               /ro/          [R=301,L,NE]
 RewriteRule ^ro/servicii/?$            /ro/#services [R=301,L,NE]
 RewriteRule ^ro/servicii/.+$           /ro/#services [R=301,L,NE]
@@ -23,7 +24,14 @@ RewriteRule ^ro/preturi-si-servicii/?$ /ro/#calc     [R=301,L,NE]
 RewriteRule ^ro/despre-noi/?$          /ro/#footer   [R=301,L,NE]
 RewriteRule ^ro/first-line-servicii/?$ /ro/#trust    [R=301,L,NE]
 
+# Старые карты сайта WordPress -> новая (их помнит Search Console)
+RewriteRule ^(ro/)?(sitemap_index|wp-sitemap[^/]*)\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^(ro/)?index\.php$ /$1 [R=301,L]
+
 # WordPress junk -> 410 Gone (dropped from index faster than 404)
-RewriteRule ^wp-(admin|content|includes|json)/ - [G,L]
-RewriteRule ^(author|feed)/ - [G,L]
-RewriteRule ^\?p= - [G,L]
+# ?p=123 / ?page_id=123 — старые короткие ссылки WordPress (query string ловится только RewriteCond)
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id)=\d [NC]
+RewriteRule ^(ro/)?$ - [G,L]
+RewriteRule ^(ro/)?wp- - [G,L]
+RewriteRule ^(ro/)?(xmlrpc\.php|readme\.html|license\.txt)$ - [G,L]
+RewriteRule ^(ro/)?(author|feed|comments|blocks|users|my-account|product-tag|category|tag)(/|$) - [G,L]
