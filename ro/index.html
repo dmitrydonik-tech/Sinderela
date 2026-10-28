@@ -718,8 +718,8 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 .burger i{width:19px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
 
 /* mobile drawer */
-.drawer{position:fixed;inset:0;z-index:80;background:rgba(23,34,59,.4);opacity:0;pointer-events:none;transition:.25s}
-.drawer.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;inset:0;z-index:80;background:rgba(23,34,59,.4);opacity:0;visibility:hidden;pointer-events:none;transition:.25s}
+.drawer.open{opacity:1;visibility:visible;pointer-events:auto}
 .drawer-p{position:absolute;top:0;right:0;height:100%;width:min(84%,340px);background:var(--bg);padding:22px;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column;gap:6px}
 .drawer.open .drawer-p{transform:none}
 .drawer-p .dc{align-self:flex-end;width:42px;height:42px;border-radius:12px;border:1px solid var(--line2);font-size:20px}
@@ -1188,7 +1188,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 <!-- ============ HEADER ============ -->
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a href="#top" class="brand" aria-label="Sinderela">
+    <a href="#top" class="brand">
       <img class="brand-cr brand-cr-lt" src="../assets/crest.webp?v=2" alt="" aria-hidden="true" width="295" height="200"><img class="brand-cr brand-cr-dk" src="../assets/crest-dark.webp?v=2" alt="" aria-hidden="true" width="295" height="200">
       <span class="wm"><b>SINDERELA</b><span data-i18n="tagline">CURĂȚĂTORIE CHIMICĂ · 1997</span></span>
     </a>
@@ -1213,7 +1213,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 </header>
 
 <!-- mobile drawer -->
-<div class="drawer js-drawer"><div class="drawer-p">
+<div class="drawer js-drawer"><nav class="drawer-p" aria-label="Меню" data-i18n-aria="aria_menu">
   <button class="dc js-burger" aria-label="Закрыть" data-i18n-aria="aria_close">✕</button>
   <a href="#calc" class="js-mlink" data-i18n="nav_prices">Цены</a>
   <a href="#services" class="js-mlink" data-i18n="nav_services">Услуги</a>
@@ -1222,7 +1222,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
   <a href="#footer" class="js-mlink" data-i18n="nav_contacts">Контакты</a>
   <a href="tel:+37369438080" class="js-mlink">069 43 80 80</a>
   <button class="btn btn-brass btn-block js-tocalc" style="margin-top:14px" data-i18n="cta_calcorder">Рассчитать и заказать</button>
-</div></div>
+</nav></div>
 
 <!-- Модалка «Найти ближайший пункт» (вариант C: Google My Maps). Слот карты ниже — вставить iframe, когда будет ссылка. -->
 <div class="mapm js-mapm" role="dialog" aria-modal="true" aria-labelledby="mapmT" hidden>
@@ -1564,7 +1564,7 @@ h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
 <script>
 /*========= DATA: PRICES (MDL) — реальный прайс клиента =========*/
 /* item: [ru, ro, [prices aligned to variants], d6(readiness 6 days) ] ; null price = вариант недоступен */
-/* Формат товара: [RU, RO, prices[], d6, EN, iconKey, variants?] — доступ через itPrices/itD6/itIcon/itVars */
+/* Формат товара: [RU, RO, prices[], d6, EN, iconKey, variants?] — доступ через itPrices/itIcon/itVars (d6 читается как it[3]) */
 var CATS=[
  {id:"outer",child:1,
   name:["Верхняя одежда","Îmbrăcăminte exterioară","Outerwear"],
@@ -1936,7 +1936,7 @@ function nm(arr){return lang==="ru"?arr[0]:lang==="ro"?arr[1]:arr[4];}
 function firstVi(it){for(var i=0;i<itPrices(it).length;i++)if(itPrices(it)[i]!=null)return i;return 0;}
 /* Товар CATS = [0:RU, 1:RO, 2:prices[], 3:d6(готовность 6дн), 4:EN, 5:iconKey, 6:variants?].
    Именованные обёртки вместо magic-индексов (см. tech_debt/04): */
-function itPrices(it){return it[2];}function itD6(it){return it[3];}function itIcon(it){return it[5];}function itVars(it){return it[6];}
+function itPrices(it){return it[2];}function itIcon(it){return it[5];}function itVars(it){return it[6];}
 function varLabel(it,cat,vi){var sz=itVars(it),dy=cat.variants,LG=function(v){return lang==="ru"?v[1]:lang==="ro"?v[2]:v[3];};if(sz&&sz.length&&dy&&dy.length){var nD=dy.length,si=Math.floor(vi/nD),di=vi%nD;return LG(sz[si])+", "+LG(dy[di]);}var vs=(sz&&sz.length?sz:dy);return vs.length>1?LG(vs[vi]):"";}
 function keyOf(cat,idx){return cat+"|"+idx;}
 function getVi(cat,idx){var k=keyOf(cat,idx);if(cardVar[k]==null)cardVar[k]=firstVi(catById(cat).items[idx]);return cardVar[k];}
@@ -2015,7 +2015,7 @@ function renderCart(){var _ce=document.querySelector(".cart");if(_ce)_ce.classLi
   if(!has){updateMobileBar(t);return;}
   var h="";
   cart.forEach(function(l,i){
-    var it=catById(l.cat).items[l.idx],vs=(itVars(it)&&itVars(it).length?itVars(it):catById(l.cat).variants);
+    var it=catById(l.cat).items[l.idx];
     var vlabel=varLabel(it,catById(l.cat),l.vi);
     var sur=catById(l.cat).sur;var impLbl=(sur==="impreg"&&l.impreg)?(lang==="ru"?"пропитка":lang==="ro"?"impregnare":"impregnation"):"";
     var oc=(sur==="furn")?'<button class="oc'+(l.impreg?" on":"")+'" data-impreg="'+i+'">'+L(sur)+'</button>':'';
@@ -2078,15 +2078,6 @@ function langHref(l){
   return l==="ru"?b:b+l+"/";
 }
 function detectLang(){return PAGE_LANG;}
-function _detectLangByBrowser(){
-  try{var sv=localStorage.getItem("sinderela_lang");if(sv==="ru"||sv==="ro"||sv==="en")return sv;}catch(e){}
-  var ls=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||navigator.userLanguage||"ru"];
-  for(var i=0;i<ls.length;i++){var c=(ls[i]||"").toLowerCase();
-    if(c.indexOf("ru")===0)return "ru";
-    if(c.indexOf("ro")===0||c.indexOf("mo")===0)return "ro";
-    if(c.indexOf("en")===0)return "en";}
-  return "ru";
-}
 function setLang(l){if(l===lang)return;lang=l;try{localStorage.setItem("sinderela_lang",l);}catch(e){}applyLang();}
 
 /*--- order modal ---*/
@@ -2095,7 +2086,6 @@ function lockScroll(){_lockY=window.scrollY||window.pageYOffset||0;var b=documen
 function unlockScroll(){var b=document.body;b.style.position="";b.style.top="";b.style.left="";b.style.right="";b.style.width="";window.scrollTo(0,_lockY);}
 /* Открывает СПЯЩУЮ форму заказа. Класс-триггер .js-order сейчас НИ на одной кнопке — форма недостижима намеренно (ждёт интеграции Агбис). */
 function openOrder(){
-  var t=totals();
   if(!cart.length){closeDrawer();var c=document.getElementById("calc");if(c.scrollIntoView)c.scrollIntoView({behavior:"smooth"});flash(document.querySelector(".calc-main"));return;}
   step=1;setStep();renderOrderItems();
   _lastFocus=document.activeElement;document.querySelector(".js-modal").classList.add("open");lockScroll();
@@ -2115,7 +2105,7 @@ function renderOrderItems(){
   var h="";
   if(!cart.length){h='<p class="sub">'+L("cart_empty")+'</p>';}
   cart.forEach(function(l,i){
-    var it=catById(l.cat).items[l.idx],vs=(itVars(it)&&itVars(it).length?itVars(it):catById(l.cat).variants);
+    var it=catById(l.cat).items[l.idx];
     var _vl=varLabel(it,catById(l.cat),l.vi);var vlabel=_vl?" · "+_vl:"";
     h+='<div class="cline"><div class="cline-t"><div class="cline-nm">'+nm(it)+'<small>'+(vlabel?vlabel.replace(" · ",""):"")+'</small></div><div class="cline-pr">'+money(lineTotal(l))+'</div></div>'+
        '<div class="cline-b"><span style="font-size:12px;color:var(--muted)"></span><div class="stepper sm">'+(l.qty<=1?'<button class="st-trash" data-cq="'+i+'|-1" aria-label="'+L("aria_del")+'">'+TRASH+'</button>':'<button data-cq="'+i+'|-1">−</button>')+'<span>'+l.qty+'</span><button data-cq="'+i+'|1">+</button></div></div></div>';
@@ -2201,24 +2191,6 @@ function bindModal(){
 }
 
 /*--- garment icons + jump + tab affordance ---*/
-function svgIcon(p){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>';}
-var ICONS={
- tshirt:'<path d="M8 3 4 6l2.6 2L8 7v13h8V7l1.4 1L20 6l-4-3-1.8 1.7a3 3 0 0 1-4.4 0Z"/>',
- shirt:'<path d="M9 3 5 6l2 2v11h10V8l2-2-4-3-3 3-3-3Z"/><path d="M9 3l3 3 3-3"/>',
- coat:'<path d="M9 3 5 5l1 4-1 1v10h14V10l-1-1 1-4-4-2-3 3-3-3Z"/><path d="M12 6v13"/>',
- jacket:'<path d="M9 3 5 5v14h14V5l-4-2-3 2-3-2Z"/><path d="M12 5v14"/>',
- dress:'<path d="M9 3a3 3 0 0 0 6 0"/><path d="M9 3 7 8l1.6 1L6 21h12l-2.6-11L17 9l-2-6"/>',
- skirt:'<path d="M8 4h8l3.5 17H4.5L8 4Z"/><path d="M8 4c1 1.6 7 1.6 8 0"/>',
- pants:'<path d="M7 3h10l-.6 18h-3.8L12 11l-.6 10H7.6L7 3Z"/>',
- sweater:'<path d="M8 4 4 7l2 2.6L8 8.4V20h8V8.4l2 1.2L20 7l-4-3"/><path d="M9 4c.7 1.6 5.3 1.6 6 0"/>',
- hoodie:'<path d="M8 5 4 8l2 2 2-1v10h8V9l2 1 2-2-4-3"/><path d="M9 5a3 3 0 0 0 6 0"/>',
- shoe:'<path d="M3 16l.6-4 3.6.6 3 2.6h9A1.6 1.6 0 0 1 21 18v.5H4a1 1 0 0 1-1-1Z"/><path d="M7 12.6l1 2M10.5 15l.5-2.5"/>',
- bag:'<path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 8V6.4a3 3 0 0 1 6 0V8"/>',
- hat:'<path d="M4 18h16"/><path d="M6.5 18c0-6 2.6-10 5.5-10s5.5 4 5.5 10"/>',
- fur:'<path d="M8 4 5 6v13h14V6l-3-2-4 3-4-3Z"/><path d="M8 4c1.5 2 6.5 2 8 0"/><path d="M12 7v12"/>',
- vest:'<path d="M9 3 7 6v13h10V6l-2-3-3 3-3-3Z"/><path d="M12 6v13"/>',
- hanger:'<path d="M12 5a2 2 0 1 1 1.8 2C13 7.2 12 7.9 12 9"/><path d="M4.5 17.5 12 12l7.5 5.5a1 1 0 0 1-.6 1.8H5.1a1 1 0 0 1-.6-1.8Z"/>'
-};
 var ICONSRC={"jumper":"../assets/icons/jumper.png","button-knit":"../assets/icons/button-knit.png","zip-sweat":"../assets/icons/zip-sweat.png","henley":"../assets/icons/henley.png","heeled-sandals":"../assets/icons/heeled-sandals.png","knee-boots":"../assets/icons/knee-boots.png","womens-blazer":"../assets/icons/womens-blazer.png","half-boots":"../assets/icons/half-boots.png","slip-ons":"../assets/icons/slip-ons.png","coat-sleeveless":"../assets/icons/coat-sleeveless.png","running-high":"../assets/icons/running-high.png","running-low":"../assets/icons/running-low.png","ankle-boots":"../assets/icons/ankle-boots.png","apron":"../assets/icons/apron.png","backpack":"../assets/icons/backpack.png","bag":"../assets/icons/bag.png","beanie":"../assets/icons/beanie.png","bedsheet":"../assets/icons/bedsheet.png","belt":"../assets/icons/belt.png","beret":"../assets/icons/beret.png","blanket":"../assets/icons/blanket.png","blazer":"../assets/icons/blazer.png","blouse-long":"../assets/icons/blouse-long.png","blouse-short":"../assets/icons/blouse-short.png","bolero":"../assets/icons/bolero.png","bomber":"../assets/icons/bomber.png","briefcase":"../assets/icons/briefcase.png","cap":"../assets/icons/cap.png","cardigan":"../assets/icons/cardigan.png","clutch":"../assets/icons/clutch.png","coat":"../assets/icons/coat.png","curtain":"../assets/icons/curtain.png","cushion-cover":"../assets/icons/cushion-cover.png","denim-jacket":"../assets/icons/denim-jacket.png","dress":"../assets/icons/dress.png","duvet":"../assets/icons/duvet.png","duvet-cover":"../assets/icons/duvet-cover.png","espadrilles":"../assets/icons/espadrilles.png","fabric":"../assets/icons/fabric.png","flats":"../assets/icons/flats.png","flipflops":"../assets/icons/flipflops.png","fur":"../assets/icons/fur.png","fur-coat":"../assets/icons/fur-coat.png","fur-collar":"../assets/icons/fur-collar.png","fur-hat":"../assets/icons/fur-hat.png","fur-lining":"../assets/icons/fur-lining.png","fur-vest":"../assets/icons/fur-vest.png","garment":"../assets/icons/garment.png","gloves":"../assets/icons/gloves.png","gown":"../assets/icons/gown.png","hat":"../assets/icons/hat.png","hat-leather":"../assets/icons/hat-leather.png","hood":"../assets/icons/hood.png","hoodie":"../assets/icons/hoodie.png","jacket":"../assets/icons/jacket.png","jeans":"../assets/icons/jeans.png","joggers":"../assets/icons/joggers.png","jumpsuit":"../assets/icons/jumpsuit.png","kerchief":"../assets/icons/kerchief.png","knit-vest":"../assets/icons/knit-vest.png","leggings":"../assets/icons/leggings.png","loafers":"../assets/icons/loafers.png","mattress-pad":"../assets/icons/mattress-pad.png","moccasins":"../assets/icons/moccasins.png","napkin":"../assets/icons/napkin.png","otk-boots":"../assets/icons/otk-boots.png","pajamas":"../assets/icons/pajamas.png","pants":"../assets/icons/pants.png","pashmina":"../assets/icons/pashmina.png","pelt":"../assets/icons/pelt.png","pillow":"../assets/icons/pillow.png","pillowcase":"../assets/icons/pillowcase.png","polo-long":"../assets/icons/polo-long.png","polo-short":"../assets/icons/polo-short.png","puffer-coat":"../assets/icons/puffer-coat.png","puffer-jacket":"../assets/icons/puffer-jacket.png","puffer-vest":"../assets/icons/puffer-vest.png","pumps":"../assets/icons/pumps.png","raincoat":"../assets/icons/raincoat.png","robe":"../assets/icons/robe.png","romper":"../assets/icons/romper.png","sandals":"../assets/icons/sandals.png","sash":"../assets/icons/sash.png","scarf":"../assets/icons/scarf.png","shawl":"../assets/icons/shawl.png","shearling":"../assets/icons/shearling.png","shirt":"../assets/icons/shirt.png","shirt-long":"../assets/icons/shirt-long.png","shirt-short":"../assets/icons/shirt-short.png","shoe":"../assets/icons/shoe.png","shorts":"../assets/icons/shorts.png","skirt":"../assets/icons/skirt.png","skort":"../assets/icons/skort.png","sneakers-high":"../assets/icons/sneakers-high.png","sneakers-low":"../assets/icons/sneakers-low.png","stole":"../assets/icons/stole.png","suitcase":"../assets/icons/suitcase.png","sweater":"../assets/icons/sweater.png","sweater-short":"../assets/icons/sweater-short.png","sweatshirt":"../assets/icons/sweatshirt.png","tablecloth":"../assets/icons/tablecloth.png","tall-boots":"../assets/icons/tall-boots.png","tank":"../assets/icons/tank.png","tie":"../assets/icons/tie.png","tights":"../assets/icons/tights.png","top":"../assets/icons/top.png","towel":"../assets/icons/towel.png","toy":"../assets/icons/toy.png","trench":"../assets/icons/trench.png","trousers":"../assets/icons/trousers.png","tshirt":"../assets/icons/tshirt.png","tshirt-long":"../assets/icons/tshirt-long.png","tshirt-short":"../assets/icons/tshirt-short.png","tunic":"../assets/icons/tunic.png","turtleneck-long":"../assets/icons/turtleneck-long.png","turtleneck-short":"../assets/icons/turtleneck-short.png","tuxedo":"../assets/icons/tuxedo.png","ugg":"../assets/icons/ugg.png","vest":"../assets/icons/vest.png","waistcoat":"../assets/icons/waistcoat.png","wedding":"../assets/icons/wedding.png"};
 var ICONVER="19";
 function iconFor(it,ov){var k=(ov)||(it&&itIcon(it))||"garment";return '<img class="gic" src="'+(ICONSRC[k]||ICONSRC.garment)+'?v='+ICONVER+'" alt="" loading="lazy">';}
@@ -2264,7 +2236,7 @@ function _rusName(s){s=(s||"").split(" / ")[0];return s.toLowerCase().replace(/�
    поэтому сюда может приехать что угодно: «400,00 lei» (формат «Валюта»), «1,075» (разделитель
    тысяч), «0x1F4», «4e2». Принимаем только «1234» или «1234.56»/«1234,00» после снятия пробелов
    и требуем, чтобы значение было целым: дробная цена — признак неверного разбора, а не скидки. */
-function _price(s){s=(s||"").replace(/[\s  ]/g,"");if(!/^\d{1,6}([.,]\d{1,2})?$/.test(s))return null;var v=+s.replace(",",".");if(!isFinite(v))return null;var r=Math.round(v);if(Math.abs(v-r)>0.005)return null;return r;}
+function _price(s){s=(s||"").replace(/[\s\u00a0\u202f]/g,"");if(!/^\d{1,6}([.,]\d{1,2})?$/.test(s))return null;var v=+s.replace(",",".");if(!isFinite(v))return null;var r=Math.round(v);if(Math.abs(v-r)>0.005)return null;return r;}
 function _syncWarn(m){try{if(window.console&&console.warn)console.warn("[price-sync] "+m);}catch(e){}}
 /* Возвращает {КОД:[{p,n}]} либо null, если колонку цены определить не удалось (тогда — вшитые цены). */
 function parsePriceCSV(txt){
@@ -2424,7 +2396,7 @@ function init(){
     /* локально (file://) навигации нет — переключаем на месте, чтобы файл можно было смотреть с диска */
     /* на file:// каталог без index.html не открывается — переключаем на месте */
     if(location.protocol==="file:"){setLang(l);return;}
-    location.href=langHref(l)+location.hash;
+    location.href=langHref(l)+location.search+location.hash;
   });});
   document.querySelectorAll(".js-burger").forEach(function(b){b.addEventListener("click",function(){document.querySelector(".js-drawer").classList.toggle("open");});});
   document.querySelectorAll(".js-mlink").forEach(function(a){a.addEventListener("click",closeDrawer);});
@@ -2455,7 +2427,7 @@ function init(){
 }
 if(document.readyState!=="loading")init();else document.addEventListener("DOMContentLoaded",init);
 </script>
-<div class="cc" id="cc" hidden>
+<div class="cc" id="cc" role="region" aria-label="Cookie" hidden>
   <span><span data-i18n="cc_text">Мы используем аналитические cookie, чтобы делать сайт удобнее.</span> <a href="../privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px" data-i18n="cc_more">Подробнее</a></span>
   <div class="cc-b"><button id="ccNo" data-i18n="cc_decline">Только необходимые</button><button id="ccYes" data-i18n="cc_accept">Принять</button></div>
 </div>
